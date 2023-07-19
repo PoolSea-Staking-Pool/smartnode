@@ -10,7 +10,7 @@ import (
 
 // Constants
 const (
-	smartnodeTag                       string = "m00nler/smartnode:v" + shared.RocketPoolVersion
+	smartnodeTag                       string = "m00nler/smartnode:" + shared.RocketPoolVersion
 	pruneProvisionerTag                string = "rocketpool/eth1-prune-provision:v0.0.1"
 	ecMigratorTag                      string = "rocketpool/ec-migrator:v1.0.0"
 	NetworkID                          string = "network"
