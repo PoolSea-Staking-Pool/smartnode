@@ -11,13 +11,13 @@ import (
 	"sync"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/klauspost/compress/zstd"
-	"github.com/rocket-pool/rocketpool-go/rewards"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 	"github.com/rocket-pool/smartnode/shared/services"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
 	"github.com/rocket-pool/smartnode/shared/services/config"
@@ -446,8 +446,9 @@ func (t *submitRewardsTree) submitRewardsSnapshot(index *big.Int, consensusBlock
 		TreasuryRPL:     &rewardsFile.TotalRewards.ProtocolDaoRpl.Int,
 		NodeRPL:         collateralRplRewards,
 		TrustedNodeRPL:  oDaoRplRewards,
-		NodeETH:         smoothingPoolEthRewards,
+		NodeETH:         smoothingPoolEthRewards, // TODO: nodes rewards
 		UserETH:         &rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int,
+		FeeToAddress:    rewardsFile.AmountToFeeAddress,
 	}
 
 	// Get the gas limit

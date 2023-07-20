@@ -8,16 +8,16 @@ import (
 	"sort"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/dao/trustednode"
+	"github.com/RedDuck-Software/poolsea-go/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	tnsettings "github.com/RedDuck-Software/poolsea-go/settings/trustednode"
+	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
+	rpstate "github.com/RedDuck-Software/poolsea-go/utils/state"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/rocket-pool/rocketpool-go/dao/trustednode"
-	"github.com/rocket-pool/rocketpool-go/rewards"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	tnsettings "github.com/rocket-pool/rocketpool-go/settings/trustednode"
-	rptypes "github.com/rocket-pool/rocketpool-go/types"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
-	rpstate "github.com/rocket-pool/rocketpool-go/utils/state"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	"github.com/rocket-pool/smartnode/shared/services/state"
@@ -135,13 +135,13 @@ func (r *treeGeneratorImpl_v5) generateTree(rp *rocketpool.RocketPool, cfg *conf
 	minipoolCount := uint64(len(r.networkState.MinipoolDetails))
 	r.epsilon = big.NewInt(int64(minipoolCount))
 
-	// Calculate the RPL rewards
+	// Calculate the RPL(pool) rewards
 	err := r.calculateRplRewards()
 	if err != nil {
 		return nil, fmt.Errorf("Error calculating RPL rewards: %w", err)
 	}
 
-	// Calculate the ETH rewards
+	// Calculate the ETH (pls) rewards
 	err = r.calculateEthRewards(true)
 	if err != nil {
 		return nil, fmt.Errorf("Error calculating ETH rewards: %w", err)
@@ -567,7 +567,7 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 		// Attestation processing is disabled, just give each minipool 1 good attestation and complete slot activity so they're all scored the same
 		// Used for approximating rETH's share during balances calculation
 		one := eth.EthToWei(1)
-		validatorReq := eth.EthToWei(32)
+		validatorReq := eth.EthToWei(32) // TODO: change to 32 millions - DONE
 		for _, nodeInfo := range r.nodeDetails {
 			// Check if the node is currently opted in for simplicity
 			if nodeInfo.IsEligible && nodeInfo.IsOptedIn && r.elEndTime.Sub(nodeInfo.OptInTime) > 0 {
@@ -632,7 +632,7 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 					Pubkey:                  minipoolInfo.ValidatorPubkey.Hex(),
 					SuccessfulAttestations:  successfulAttestations,
 					MissedAttestations:      missingAttestations,
-					EthEarned:               eth.WeiToEth(minipoolInfo.MinipoolShare),
+					EthEarned:               eth.WeiToEth(minipoolInfo.MinipoolShare), // TODO: do we need to change it as we change fees?
 					MissingAttestationSlots: []uint64{},
 				}
 				if successfulAttestations+missingAttestations == 0 {
@@ -656,16 +656,52 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 				}
 				r.rewardsFile.NetworkRewards[rewardsForNode.RewardNetwork] = rewardsForNetwork
 			}
-			rewardsForNetwork.SmoothingPoolEth.Add(&rewardsForNetwork.SmoothingPoolEth.Int, nodeInfo.SmoothingPoolEth)
+
+			nodesFeePercentage := 94.0
+
+			nodeRewardFloat := new(big.Float).SetInt(nodeInfo.SmoothingPoolEth)
+
+			feeMultiplier := new(big.Float).SetFloat64(nodesFeePercentage / 100)
+			nodeWithFeeFloat := new(big.Float).Mul(nodeRewardFloat, feeMultiplier)
+
+			nodeWithFeeBigInt := new(big.Int)
+			nodeWithFeeFloat.Int(nodeWithFeeBigInt)
+
+			rewardsForNetwork.SmoothingPoolEth.Add(
+				&rewardsForNetwork.SmoothingPoolEth.Int,
+				nodeWithFeeBigInt) // TODO: nodes rewards
+
+			feeMultiplier = new(big.Float).SetFloat64(6.0 / 100)
+			feeToAddress := new(big.Float).Mul(nodeRewardFloat, feeMultiplier)
+
+			feeToAddressInt := new(big.Int)
+			feeToAddress.Int(feeToAddressInt)
+			r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddressInt) // TODO: &* ????
 		}
 	}
 
+	userFeePercentage := 94.0
+	userRewardFloat := new(big.Float).SetInt(poolStakerETH)
+
+	feeMultiplier := new(big.Float).SetFloat64(userFeePercentage / 100)
+	userETHWithFee := new(big.Float).Mul(userRewardFloat, feeMultiplier)
+
+	userETHWithFeeBigInt := new(big.Int)
+	userETHWithFee.Int(userETHWithFeeBigInt)
+
 	// Set the totals
-	r.rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int = *poolStakerETH
+	r.rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int = *userETHWithFeeBigInt // TODO: 6% of this to specified address
 	r.rewardsFile.TotalRewards.NodeOperatorSmoothingPoolEth.Int = *nodeOpEth
 	r.rewardsFile.TotalRewards.TotalSmoothingPoolEth.Int = *r.smoothingPoolBalance
-	return nil
 
+	feeMultiplier = new(big.Float).SetFloat64(6.0 / 100)
+	feeToAddress := new(big.Float).Mul(userRewardFloat, feeMultiplier)
+
+	feeToAddressInt := new(big.Int)
+	feeToAddress.Int(feeToAddressInt)
+	r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddressInt)
+
+	return nil
 }
 
 // Calculate the distribution of Smoothing Pool ETH to each node

@@ -1,6 +1,7 @@
 package rewards
 
 import (
+	"math/big"
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -81,6 +82,7 @@ type RewardsFile struct {
 	NetworkRewards             map[uint64]*NetworkRewardsInfo      `json:"networkRewards"`
 	NodeRewards                map[common.Address]*NodeRewardsInfo `json:"nodeRewards"`
 	MinipoolPerformanceFile    MinipoolPerformanceFile             `json:"-"`
+	AmountToFeeAddress         *big.Int                            `json:"amountToFeeAddress"`
 
 	// Non-serialized fields
 	MerkleTree          *merkletree.MerkleTree    `json:"-"`

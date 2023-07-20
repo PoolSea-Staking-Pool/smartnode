@@ -68,6 +68,10 @@ github.com/RedDuck-Software/poolsea-go v0.4.0 h1:X1cV5+4tFExuJG/rGvyPr5C8Xa3Oiaz
 github.com/RedDuck-Software/poolsea-go v0.4.0/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
 github.com/RedDuck-Software/poolsea-go v0.5.0 h1:VXyggSDqnjwVjnvTxzbMXCGgKGimJl3t24X2FFKRxM4=
 github.com/RedDuck-Software/poolsea-go v0.5.0/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
+github.com/RedDuck-Software/poolsea-go v0.6.0 h1:pIrroUa1tAlAHP87PI2kkd6P2GBKNB1G1d7iMcqudWE=
+github.com/RedDuck-Software/poolsea-go v0.6.0/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
+github.com/RedDuck-Software/poolsea-go v1.6.1 h1:oPzNRlBshPzZp9WbfbohkgV7smn1wX7sUCS9qeY75jI=
+github.com/RedDuck-Software/poolsea-go v1.6.1/go.mod h1:BL08w51uFHR1AbrnqMwPNSf8a3EpQoE3aGglxcDcw84=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
 github.com/Stebalien/go-bitfield v0.0.1/go.mod h1:GNjFpasyUVkHMsfEOk8EFLJ9syQ6SI+XWrX9Wf2XH0s=
@@ -1426,8 +1430,6 @@ github.com/rjeczalik/notify v0.9.1 h1:CLCKso/QK1snAlnhNR/CNvNiFU2saUtjV0bx3EwNeC
 github.com/rjeczalik/notify v0.9.1/go.mod h1:rKwnCoCGeuQnwBtTSPL9Dad03Vh2n40ePRrjvIXnJho=
 github.com/rocket-pool/go-merkletree v1.0.1-0.20220406020931-c262d9b976dd h1:p9KuetSKB9nte9I/MkkiM3pwKFVQgqxxPTQ0y56Ff6s=
 github.com/rocket-pool/go-merkletree v1.0.1-0.20220406020931-c262d9b976dd/go.mod h1:UE9fof8P7iESVtLn1K9CTSkNRYVFHZHlf96RKbU33kA=
-github.com/RedDuck-Software/poolsea-go v1.6.1 h1:oPzNRlBshPzZp9WbfbohkgV7smn1wX7sUCS9qeY75jI=
-github.com/RedDuck-Software/poolsea-go v1.6.1/go.mod h1:BL08w51uFHR1AbrnqMwPNSf8a3EpQoE3aGglxcDcw84=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
