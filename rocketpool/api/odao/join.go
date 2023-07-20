@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"math/big"
 
+	tndao "github.com/RedDuck-Software/poolsea-go/dao/trustednode"
+	tnsettings "github.com/RedDuck-Software/poolsea-go/settings/trustednode"
+	"github.com/RedDuck-Software/poolsea-go/tokens"
+	"github.com/RedDuck-Software/poolsea-go/utils"
 	"github.com/ethereum/go-ethereum/common"
-	tndao "github.com/rocket-pool/rocketpool-go/dao/trustednode"
-	tnsettings "github.com/rocket-pool/rocketpool-go/settings/trustednode"
-	"github.com/rocket-pool/rocketpool-go/tokens"
-	"github.com/rocket-pool/rocketpool-go/utils"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

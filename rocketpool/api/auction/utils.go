@@ -4,12 +4,12 @@ import (
 	"context"
 	"math/big"
 
+	"github.com/RedDuck-Software/poolsea-go/auction"
+	"github.com/RedDuck-Software/poolsea-go/network"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/auction"
-	"github.com/rocket-pool/rocketpool-go/network"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 	"golang.org/x/sync/errgroup"
 
 	"github.com/rocket-pool/smartnode/shared/types/api"

@@ -3,8 +3,8 @@ package api
 import (
 	"math/big"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 )
 
 type QueueStatusResponse struct {

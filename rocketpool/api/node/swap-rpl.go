@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/RedDuck-Software/poolsea-go/tokens"
+	"github.com/RedDuck-Software/poolsea-go/utils"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/tokens"
-	"github.com/rocket-pool/rocketpool-go/utils"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"

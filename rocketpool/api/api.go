@@ -5,7 +5,7 @@ import (
 	"github.com/rocket-pool/smartnode/rocketpool/api/debug"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/rocketpool-go/utils"
+	"github.com/RedDuck-Software/poolsea-go/utils"
 	"github.com/rocket-pool/smartnode/rocketpool/api/auction"
 	"github.com/rocket-pool/smartnode/rocketpool/api/faucet"
 	"github.com/rocket-pool/smartnode/rocketpool/api/minipool"

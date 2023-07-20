@@ -3,9 +3,9 @@ package network
 import (
 	"math/big"
 
-	"github.com/rocket-pool/rocketpool-go/network"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
+	"github.com/RedDuck-Software/poolsea-go/network"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

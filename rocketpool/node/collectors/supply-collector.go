@@ -3,10 +3,10 @@ package collectors
 import (
 	"fmt"
 
+	"github.com/RedDuck-Software/poolsea-go/minipool"
+	"github.com/RedDuck-Software/poolsea-go/node"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/rocketpool-go/minipool"
-	"github.com/rocket-pool/rocketpool-go/node"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 	"golang.org/x/sync/errgroup"
 )
 

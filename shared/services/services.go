@@ -6,11 +6,11 @@ import (
 	"os"
 	"sync"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/docker/docker/client"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services/beacon"

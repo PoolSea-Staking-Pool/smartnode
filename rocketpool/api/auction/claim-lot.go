@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/rocket-pool/rocketpool-go/auction"
+	"github.com/RedDuck-Software/poolsea-go/auction"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

@@ -6,7 +6,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/rocketpool-go/legacy/v1.0.0/rewards"
+	"github.com/RedDuck-Software/poolsea-go/legacy/v1.0.0/rewards"
 	"github.com/rocket-pool/smartnode/shared/services"
 	"github.com/rocket-pool/smartnode/shared/types/api"
 	"github.com/rocket-pool/smartnode/shared/utils/eth1"

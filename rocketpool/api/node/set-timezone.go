@@ -4,7 +4,7 @@ import (
 	"fmt"
 	_ "time/tzdata"
 
-	"github.com/rocket-pool/rocketpool-go/node"
+	"github.com/RedDuck-Software/poolsea-go/node"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"

@@ -3,8 +3,8 @@ package node
 import (
 	"fmt"
 
-	"github.com/rocket-pool/rocketpool-go/node"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
+	"github.com/RedDuck-Software/poolsea-go/node"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

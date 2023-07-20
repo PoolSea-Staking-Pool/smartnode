@@ -10,12 +10,12 @@ import (
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/rocket-pool/rocketpool-go/network"
-	"github.com/rocket-pool/rocketpool-go/node"
-	"github.com/rocket-pool/rocketpool-go/rewards"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
+	"github.com/RedDuck-Software/poolsea-go/network"
+	"github.com/RedDuck-Software/poolsea-go/node"
+	"github.com/RedDuck-Software/poolsea-go/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/rocket-pool/smartnode/shared/services"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	rprewards "github.com/rocket-pool/smartnode/shared/services/rewards"
@@ -194,7 +194,7 @@ func getRewardsInfo(c *cli.Context) (*api.NodeGetRewardsInfoResponse, error) {
 			response.BorrowedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (eth.WeiToEth(response.EthMatched) + eth.WeiToEth(response.PendingMatchAmount))
 		} else {
 			// Legacy behavior
-			response.BorrowedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools) * 16.0)
+			response.BorrowedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools) * 16_000_000.0)
 		}
 	} else {
 		response.BorrowedCollateralRatio = -1

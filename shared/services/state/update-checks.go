@@ -1,10 +1,10 @@
 package state
 
 import (
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/utils"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/hashicorp/go-version"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/utils"
 )
 
 // Check if Redstone has been deployed

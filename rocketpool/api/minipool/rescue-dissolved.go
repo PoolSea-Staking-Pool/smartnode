@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/RedDuck-Software/poolsea-go/minipool"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/rocket-pool/rocketpool-go/minipool"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	rptypes "github.com/rocket-pool/rocketpool-go/types"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

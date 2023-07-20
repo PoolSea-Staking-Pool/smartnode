@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/types"
 )
 
 // Information about an interval

@@ -10,7 +10,7 @@ import (
 	"github.com/urfave/cli"
 	"gopkg.in/yaml.v2"
 
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 )
 
 // Rocket Pool config

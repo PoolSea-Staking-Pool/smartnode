@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"math/big"
 
+	v110_minipool "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0/minipool"
+	v110_node "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0/node"
+	"github.com/RedDuck-Software/poolsea-go/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	v110_minipool "github.com/rocket-pool/rocketpool-go/legacy/v1.1.0/minipool"
-	v110_node "github.com/rocket-pool/rocketpool-go/legacy/v1.1.0/node"
-	"github.com/rocket-pool/rocketpool-go/types"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"

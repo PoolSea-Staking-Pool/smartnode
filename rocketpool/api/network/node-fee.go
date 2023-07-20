@@ -1,8 +1,8 @@
 package network
 
 import (
-	"github.com/rocket-pool/rocketpool-go/network"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
+	"github.com/RedDuck-Software/poolsea-go/network"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

@@ -2,8 +2,8 @@ package node
 
 import (
 	"fmt"
+	"github.com/RedDuck-Software/poolsea-go/node"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/node"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"
@@ -45,7 +45,6 @@ func canSetStakeRplForAllowed(c *cli.Context, caller common.Address, allowed boo
 	return &response, nil
 
 }
-
 
 func setStakeRplForAllowed(c *cli.Context, caller common.Address, allowed bool) (*api.SetStakeRplForAllowedResponse, error) {
 

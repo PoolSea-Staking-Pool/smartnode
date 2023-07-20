@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
-	v110_network "github.com/rocket-pool/rocketpool-go/legacy/v1.1.0/network"
-	"github.com/rocket-pool/rocketpool-go/node"
-	"github.com/rocket-pool/rocketpool-go/settings/protocol"
+	v110_network "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0/network"
+	"github.com/RedDuck-Software/poolsea-go/node"
+	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

@@ -3,10 +3,10 @@ package api
 import (
 	"math/big"
 
+	"github.com/RedDuck-Software/poolsea-go/dao"
+	tn "github.com/RedDuck-Software/poolsea-go/dao/trustednode"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/dao"
-	tn "github.com/rocket-pool/rocketpool-go/dao/trustednode"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 )
 
 type TNDAOStatusResponse struct {

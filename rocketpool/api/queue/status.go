@@ -1,8 +1,8 @@
 package queue
 
 import (
-	"github.com/rocket-pool/rocketpool-go/deposit"
-	"github.com/rocket-pool/rocketpool-go/minipool"
+	"github.com/RedDuck-Software/poolsea-go/deposit"
+	"github.com/RedDuck-Software/poolsea-go/minipool"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

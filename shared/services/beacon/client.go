@@ -1,9 +1,9 @@
 package beacon
 
 import (
+	"github.com/RedDuck-Software/poolsea-go/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/prysmaticlabs/go-bitfield"
-	"github.com/rocket-pool/rocketpool-go/types"
 )
 
 // API request options

@@ -3,8 +3,8 @@ package collectors
 import (
 	"fmt"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 )
 
 // Represents the collector for the ODAO metrics

@@ -3,9 +3,9 @@ package collectors
 import (
 	"fmt"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 )
 
 // Represents the collector for the Performance metrics

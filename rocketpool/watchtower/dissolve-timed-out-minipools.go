@@ -5,11 +5,11 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/minipool"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/rocket-pool/rocketpool-go/minipool"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
-	rptypes "github.com/rocket-pool/rocketpool-go/types"
-	"github.com/rocket-pool/rocketpool-go/utils/eth"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"

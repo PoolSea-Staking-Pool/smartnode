@@ -6,8 +6,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 	"golang.org/x/sync/errgroup"
 )
 

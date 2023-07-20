@@ -14,13 +14,13 @@ import (
 	"strings"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/klauspost/compress/zstd"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/rocketpool-go/rewards"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )

@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	"github.com/rocket-pool/smartnode/shared/services/state"

@@ -5,8 +5,8 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/rocket-pool/rocketpool-go/auction"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
+	"github.com/RedDuck-Software/poolsea-go/auction"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 )
 
 type AuctionStatusResponse struct {

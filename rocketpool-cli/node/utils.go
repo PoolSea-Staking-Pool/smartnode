@@ -13,8 +13,8 @@ import (
 	"time"
 	"unicode"
 
+	"github.com/RedDuck-Software/poolsea-go/types"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/rocketpool-go/types"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/types/api"

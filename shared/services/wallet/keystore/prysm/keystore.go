@@ -8,8 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/RedDuck-Software/poolsea-go/types"
 	"github.com/google/uuid"
-	"github.com/rocket-pool/rocketpool-go/types"
 	rpkeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore"
 	eth2types "github.com/wealdtech/go-eth2-types/v2"
 	eth2ks "github.com/wealdtech/go-eth2-wallet-encryptor-keystorev4"

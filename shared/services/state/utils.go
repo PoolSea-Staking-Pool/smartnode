@@ -4,10 +4,10 @@ import (
 	"math/big"
 	"time"
 
+	v110rc1_rewards "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0-rc1/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rewards"
+	"github.com/RedDuck-Software/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	v110rc1_rewards "github.com/rocket-pool/rocketpool-go/legacy/v1.1.0-rc1/rewards"
-	"github.com/rocket-pool/rocketpool-go/rewards"
-	"github.com/rocket-pool/rocketpool-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )

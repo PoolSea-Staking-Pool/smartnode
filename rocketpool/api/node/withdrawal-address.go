@@ -3,8 +3,8 @@ package node
 import (
 	"fmt"
 
+	"github.com/RedDuck-Software/poolsea-go/storage"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/rocketpool-go/storage"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services"
