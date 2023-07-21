@@ -657,7 +657,13 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 				r.rewardsFile.NetworkRewards[rewardsForNode.RewardNetwork] = rewardsForNetwork
 			}
 
-			nodesFeePercentage := 94.0
+			feeWei, err := rewards.GetFeeToAddress(r.rp, r.opts)
+			if err != nil {
+				return nil
+			}
+			feePercentage := eth.WeiToEth(feeWei)
+
+			nodesFeePercentage := 100.0 - feePercentage
 
 			nodeRewardFloat := new(big.Float).SetInt(nodeInfo.SmoothingPoolEth)
 

@@ -70,6 +70,10 @@ github.com/RedDuck-Software/poolsea-go v0.5.0 h1:VXyggSDqnjwVjnvTxzbMXCGgKGimJl3
 github.com/RedDuck-Software/poolsea-go v0.5.0/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
 github.com/RedDuck-Software/poolsea-go v0.6.0 h1:pIrroUa1tAlAHP87PI2kkd6P2GBKNB1G1d7iMcqudWE=
 github.com/RedDuck-Software/poolsea-go v0.6.0/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
+github.com/RedDuck-Software/poolsea-go v0.6.1 h1:pSkMAEACxIVimrUciNeqJov2hFMy06o5DA2yWLwNOYQ=
+github.com/RedDuck-Software/poolsea-go v0.6.1/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
+github.com/RedDuck-Software/poolsea-go v0.6.2 h1:0NwiHJM3UoKva5RSZPL5RrfYvPFwimCHg6z31BiHnGg=
+github.com/RedDuck-Software/poolsea-go v0.6.2/go.mod h1:lu3kdJnEEIz3yLPAVUE72p75gFAep7g4moLO5VvgGs0=
 github.com/RedDuck-Software/poolsea-go v1.6.1 h1:oPzNRlBshPzZp9WbfbohkgV7smn1wX7sUCS9qeY75jI=
 github.com/RedDuck-Software/poolsea-go v1.6.1/go.mod h1:BL08w51uFHR1AbrnqMwPNSf8a3EpQoE3aGglxcDcw84=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
