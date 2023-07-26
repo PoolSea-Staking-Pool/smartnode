@@ -567,7 +567,7 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 		// Attestation processing is disabled, just give each minipool 1 good attestation and complete slot activity so they're all scored the same
 		// Used for approximating rETH's share during balances calculation
 		one := eth.EthToWei(1)
-		validatorReq := eth.EthToWei(32) // TODO: change to 32 millions - DONE
+		validatorReq := eth.EthToWei(32) // TODO: change to 32 millions
 		for _, nodeInfo := range r.nodeDetails {
 			// Check if the node is currently opted in for simplicity
 			if nodeInfo.IsEligible && nodeInfo.IsOptedIn && r.elEndTime.Sub(nodeInfo.OptInTime) > 0 {
@@ -577,10 +577,24 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 					// Make up an attestation
 					details := r.networkState.MinipoolDetailsByAddress[minipool.Address]
 					bond, fee := r.getMinipoolBondAndNodeFee(details, r.elEndTime)
-					minipoolScore := big.NewInt(0).Sub(one, fee)   // 1 - fee
-					minipoolScore.Mul(minipoolScore, bond)         // Multiply by bond
-					minipoolScore.Div(minipoolScore, validatorReq) // Divide by 32 to get the bond as a fraction of a total validator
-					minipoolScore.Add(minipoolScore, fee)          // Total = fee + (bond/32)(1 - fee)
+
+					feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
+
+					if err != nil {
+						return nil
+					}
+
+					feeToAddress := new(big.Int).Mul(fee, feeToAddressPercentage)
+					feeToAddress.Div(feeToAddress, one)
+
+					minipool.MinipoolAddressFee.Set(feeToAddress)
+
+					finalFee := big.NewInt(0).Sub(fee, feeToAddress)
+
+					minipoolScore := big.NewInt(0).Sub(one, finalFee) // 1 - fee
+					minipoolScore.Mul(minipoolScore, bond)            // Multiply by bond
+					minipoolScore.Div(minipoolScore, validatorReq)    // Divide by 32 to get the bond as a fraction of a total validator
+					minipoolScore.Add(minipoolScore, finalFee)        // Total = fee + (bond/32)(1 - fee) TODO: fee - capacity/32 (i.e 8/32)
 
 					// Add it to the minipool's score and the total score
 					minipool.AttestationScore.Add(minipool.AttestationScore, minipoolScore)
@@ -657,55 +671,16 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 				r.rewardsFile.NetworkRewards[rewardsForNode.RewardNetwork] = rewardsForNetwork
 			}
 
-			feeWei, err := rewards.GetFeeToAddress(r.rp, r.opts)
-			if err != nil {
-				return nil
-			}
-			feePercentage := eth.WeiToEth(feeWei)
-
-			nodesFeePercentage := 100.0 - feePercentage
-
-			nodeRewardFloat := new(big.Float).SetInt(nodeInfo.SmoothingPoolEth)
-
-			feeMultiplier := new(big.Float).SetFloat64(nodesFeePercentage / 100)
-			nodeWithFeeFloat := new(big.Float).Mul(nodeRewardFloat, feeMultiplier)
-
-			nodeWithFeeBigInt := new(big.Int)
-			nodeWithFeeFloat.Int(nodeWithFeeBigInt)
-
 			rewardsForNetwork.SmoothingPoolEth.Add(
 				&rewardsForNetwork.SmoothingPoolEth.Int,
-				nodeWithFeeBigInt) // TODO: nodes rewards
-
-			feeMultiplier = new(big.Float).SetFloat64(6.0 / 100)
-			feeToAddress := new(big.Float).Mul(nodeRewardFloat, feeMultiplier)
-
-			feeToAddressInt := new(big.Int)
-			feeToAddress.Int(feeToAddressInt)
-			r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddressInt) // TODO: &* ????
+				nodeInfo.SmoothingPoolEth)
 		}
 	}
 
-	userFeePercentage := 94.0
-	userRewardFloat := new(big.Float).SetInt(poolStakerETH)
-
-	feeMultiplier := new(big.Float).SetFloat64(userFeePercentage / 100)
-	userETHWithFee := new(big.Float).Mul(userRewardFloat, feeMultiplier)
-
-	userETHWithFeeBigInt := new(big.Int)
-	userETHWithFee.Int(userETHWithFeeBigInt)
-
 	// Set the totals
-	r.rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int = *userETHWithFeeBigInt // TODO: 6% of this to specified address
-	r.rewardsFile.TotalRewards.NodeOperatorSmoothingPoolEth.Int = *nodeOpEth
+	r.rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int = *poolStakerETH
+	r.rewardsFile.TotalRewards.NodeOperatorSmoothingPoolEth.Int = *nodeOpEth // TODO: 6% of this to specified address
 	r.rewardsFile.TotalRewards.TotalSmoothingPoolEth.Int = *r.smoothingPoolBalance
-
-	feeMultiplier = new(big.Float).SetFloat64(6.0 / 100)
-	feeToAddress := new(big.Float).Mul(userRewardFloat, feeMultiplier)
-
-	feeToAddressInt := new(big.Int)
-	feeToAddress.Int(feeToAddressInt)
-	r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddressInt)
 
 	return nil
 }
@@ -741,6 +716,13 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				minipoolEth.Div(minipoolEth, r.totalAttestationScore)
 				minipool.MinipoolShare = minipoolEth
 				nodeInfo.SmoothingPoolEth.Add(nodeInfo.SmoothingPoolEth, minipoolEth)
+
+				feeToAddress := big.NewInt(0).Set(minipool.MinipoolAddressFee)
+				feeToAddress.Mul(feeToAddress, totalNodeOpShare)
+				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
+
+				// Fee to specified address
+				r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddress)
 			}
 		}
 		totalEthForMinipools.Add(totalEthForMinipools, nodeInfo.SmoothingPoolEth)

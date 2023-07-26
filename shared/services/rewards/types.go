@@ -36,6 +36,7 @@ type MinipoolInfo struct {
 	MissedAttestations      uint64
 	GoodAttestations        uint64
 	MinipoolShare           *big.Int
+	MinipoolAddressFee      *big.Int
 	MissingAttestationSlots map[uint64]bool
 	WasActive               bool
 	StartSlot               uint64
