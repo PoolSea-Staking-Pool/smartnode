@@ -160,7 +160,7 @@ func (t *checkSoloMigrations) checkSoloMigrations(state *state.NetworkState) err
 	balanceTooLowCount := float64(0)
 
 	// Go through each minipool
-	threshold := uint64(32000000000)
+	threshold := uint64(32000000000_000_000)
 	buffer := uint64(migrationBalanceBuffer * eth.WeiPerGwei)
 	for _, mpd := range state.MinipoolDetails {
 		if mpd.Status == types.Dissolved {

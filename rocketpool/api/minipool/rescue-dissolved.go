@@ -183,8 +183,8 @@ func getMinipoolRescueDissolvedDetails(rp *rocketpool.RocketPool, w *wallet.Wall
 	beaconBalanceGwei := big.NewInt(0).SetUint64(beaconStatus.Balance)
 	details.BeaconBalance = big.NewInt(0).Mul(beaconBalanceGwei, big.NewInt(1e9))
 
-	// Make sure it doesn't already have 32 ETH in it
-	requiredBalance := eth.EthToWei(32)
+	// Make sure it doesn't already have 32_000_000 ETH in it
+	requiredBalance := eth.EthToWei(32_000_000)
 	if details.BeaconBalance.Cmp(requiredBalance) >= 0 {
 		details.CanRescue = false
 		return details, nil

@@ -66,7 +66,7 @@ func rescueDissolved(c *cli.Context) error {
 	balanceCompletedMinipools := []api.MinipoolRescueDissolvedDetails{}
 	invalidBeaconStateMinipools := []api.MinipoolRescueDissolvedDetails{}
 
-	fullDepositAmount := eth.EthToWei(32)
+	fullDepositAmount := eth.EthToWei(32_000_000)
 	for _, mp := range details.Details {
 		if mp.IsFinalized {
 			// Ignore minipools that are already closed

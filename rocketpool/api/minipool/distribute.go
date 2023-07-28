@@ -153,7 +153,7 @@ func getDistributeBalanceDetails(c *cli.Context) (*api.GetDistributeBalanceDetai
 
 					// Ignore minipools with an effective balance higher than v3 rewards-vs-exit cap
 					distributableBalance := big.NewInt(0).Sub(minipoolDetails.Balance, minipoolDetails.Refund)
-					eight := eth.EthToWei(8)
+					eight := eth.EthToWei(8_000_000)
 					if distributableBalance.Cmp(eight) >= 0 {
 						minipoolDetails.CanDistribute = false
 						return nil

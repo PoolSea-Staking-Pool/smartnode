@@ -155,9 +155,9 @@ func closeMinipools(c *cli.Context) error {
 	}
 
 	// Force confirmation of slashable minipools
-	eight := eth.EthToWei(8)
-	yellowThreshold := eth.EthToWei(31.5)
-	thirtyTwo := eth.EthToWei(32)
+	eight := eth.EthToWei(8_000_000)
+	yellowThreshold := eth.EthToWei(31_500_000.0)
+	thirtyTwo := eth.EthToWei(32_000_000)
 	for _, minipool := range selectedMinipools {
 		distributableBalance := big.NewInt(0).Sub(minipool.Balance, minipool.Refund)
 		if distributableBalance.Cmp(eight) >= 0 {

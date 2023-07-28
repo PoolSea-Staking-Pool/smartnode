@@ -240,7 +240,7 @@ func getMinipoolCloseDetails(rp *rocketpool.RocketPool, minipoolAddress common.A
 		}
 
 		// Ignore minipools with an effective balance lower than v3 rewards-vs-exit cap
-		eight := eth.EthToWei(8)
+		eight := eth.EthToWei(8_000_000)
 		if effectiveBalance.Cmp(eight) == -1 {
 			details.CanClose = false
 			return details, nil

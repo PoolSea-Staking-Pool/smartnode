@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	finalizationThreshold float64 = 8
+	finalizationThreshold float64 = 8_000_000
 )
 
 func distributeBalance(c *cli.Context) error {

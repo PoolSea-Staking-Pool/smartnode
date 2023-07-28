@@ -174,10 +174,10 @@ func getRewardsInfo(c *cli.Context) (*api.NodeGetRewardsInfoResponse, error) {
 			trueMinimumStake.Div(trueMinimumStake, response.RplPrice)
 
 			// Calculate the *real* maximum, including the pending bond reductions
-			trueMaximumStake := eth.EthToWei(32)
+			trueMaximumStake := eth.EthToWei(32_000_000)
 			trueMaximumStake.Mul(trueMaximumStake, big.NewInt(int64(activeMinipools)))
 			trueMaximumStake.Sub(trueMaximumStake, response.EthMatched)
-			trueMaximumStake.Sub(trueMaximumStake, response.PendingMatchAmount) // (32 * activeMinipools - ethMatched - pendingMatch)
+			trueMaximumStake.Sub(trueMaximumStake, response.PendingMatchAmount) // (32_000_000 * activeMinipools - ethMatched - pendingMatch)
 			trueMaximumStake.Mul(trueMaximumStake, maxStakeFraction)
 			trueMaximumStake.Div(trueMaximumStake, response.RplPrice)
 
@@ -190,7 +190,7 @@ func getRewardsInfo(c *cli.Context) (*api.NodeGetRewardsInfoResponse, error) {
 				response.EffectiveRplStake.Set(trueMaximumStake)
 			}
 
-			response.BondedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools)*32.0 - eth.WeiToEth(response.EthMatched) - eth.WeiToEth(response.PendingMatchAmount))
+			response.BondedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools)*32_000_000.0 - eth.WeiToEth(response.EthMatched) - eth.WeiToEth(response.PendingMatchAmount))
 			response.BorrowedCollateralRatio = eth.WeiToEth(response.RplPrice) * eth.WeiToEth(response.RplStake) / (eth.WeiToEth(response.EthMatched) + eth.WeiToEth(response.PendingMatchAmount))
 		} else {
 			// Legacy behavior

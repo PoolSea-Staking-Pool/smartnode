@@ -325,7 +325,7 @@ func (t *reduceBonds) getReduceableMinipools(nodeAddress common.Address, windowS
 		depositBalance := eth.WeiToEth(mpd.NodeDepositBalance)
 		timeSinceReductionStart := latestBlockTime.Sub(reduceBondTime)
 
-		if depositBalance == 16 &&
+		if depositBalance == 16_000_000 &&
 			timeSinceReductionStart < (windowStart+windowLength) &&
 			!reduceBondCancelled &&
 			mpd.Status == types.Staking {

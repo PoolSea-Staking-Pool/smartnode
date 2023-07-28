@@ -76,9 +76,9 @@ func newDistributeMinipools(c *cli.Context, logger log.ColorLogger) (*distribute
 		disabled = true
 	} else {
 		// Safety clamp
-		if distributeThreshold >= 8 {
+		if distributeThreshold >= 8_000_000 {
 			logger.Printlnf("WARNING: Auto-distribute threshold is more than 8 ETH (%.6f ETH), reducing to 7.5 ETH for safety", distributeThreshold)
-			distributeThreshold = 7.5
+			distributeThreshold = 7_500_000.0
 		} else if distributeThreshold == 0 {
 			logger.Println("Auto-distribute threshold is 0, disabling auto-distribute.")
 			disabled = true

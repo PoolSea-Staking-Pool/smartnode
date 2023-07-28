@@ -24,7 +24,7 @@ import (
 )
 
 const (
-	scrubBuffer uint64 = 10000000 // 0.01 ETH
+	scrubBuffer uint64 = 10000000_000_000 // 0.01 * 10^6 ETH
 )
 
 type cancelBondReductions struct {
@@ -156,7 +156,7 @@ func (t *cancelBondReductions) checkBondReductions(state *state.NetworkState) er
 	invalidStateCount := float64(0)
 
 	// Check the status of each one
-	threshold := uint64(32000000000) - scrubBuffer
+	threshold := uint64(32000000000_000_000) - scrubBuffer
 	for _, mpd := range reductionMps {
 		validator := state.ValidatorDetails[mpd.Pubkey]
 		if validator.Exists {

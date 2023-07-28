@@ -30,9 +30,9 @@ func getRplPrice(c *cli.Context) (*api.RplPriceResponse, error) {
 	// Data
 	var wg errgroup.Group
 	var rplPrice *big.Int
-	_24Eth := eth.EthToWei(24)
-	_16Eth := eth.EthToWei(16)
-	_8Eth := eth.EthToWei(8)
+	_24Eth := eth.EthToWei(24_000_000)
+	_16Eth := eth.EthToWei(16_000_000)
+	_8Eth := eth.EthToWei(8_000_000)
 	var minPerMinipoolStake *big.Int
 	var maxPerMinipoolStake *big.Int
 

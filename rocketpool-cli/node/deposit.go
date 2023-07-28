@@ -84,21 +84,21 @@ func nodeDeposit(c *cli.Context) error {
 		amount = depositAmount
 	} else {
 		if !atlasResponse.IsAtlasDeployed {
-			amount = 16
+			amount = 16_000_000
 		} else {
 			// Get deposit amount options
 			amountOptions := []string{
-				"8 ETH",
-				"16 ETH",
+				"8 000 000 ETH",
+				"16 000 000 ETH",
 			}
 
 			// Prompt for amount
 			selected, _ := cliutils.Select("Please choose an amount of ETH to deposit:", amountOptions)
 			switch selected {
 			case 0:
-				amount = 8
+				amount = 8_000_000
 			case 1:
-				amount = 16
+				amount = 16_000_000
 			}
 		}
 	}

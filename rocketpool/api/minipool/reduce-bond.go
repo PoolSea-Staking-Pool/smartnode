@@ -103,7 +103,7 @@ func canBeginReduceBondAmount(c *cli.Context, minipoolAddress common.Address, ne
 		response.BeaconState == beacon.ValidatorState_ActiveOngoing)
 
 	// Make sure the balance is high enough
-	threshold := uint64(32000000000)
+	threshold := uint64(32000000000_000_000) // TODO: ???
 	response.BalanceTooLow = response.Balance < threshold
 
 	response.CanReduce = !(response.BondReductionDisabled || response.MinipoolVersionTooLow || response.BalanceTooLow || response.InvalidBeaconState)

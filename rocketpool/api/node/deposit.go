@@ -39,8 +39,8 @@ import (
 )
 
 const (
-	prestakeDepositAmount float64 = 1.0
-	ValidatorEth          float64 = 32.0
+	prestakeDepositAmount float64 = 1_000_000.0
+	ValidatorEth          float64 = 32_000_000.0
 )
 
 func canNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt *big.Int) (*api.CanNodeDepositResponse, error) {
@@ -222,7 +222,7 @@ func canNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt
 	}
 
 	// Get validator deposit data and associated parameters
-	depositAmount := uint64(1e9) // 1 ETH in gwei
+	depositAmount := uint64(1_000_000e9) // 1 ETH in gwei
 	depositData, depositDataRoot, err := validator.GetDepositData(validatorKey, withdrawalCredentials, eth2Config, depositAmount)
 	if err != nil {
 		return nil, err
@@ -392,7 +392,7 @@ func legacyCanNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64
 		}
 
 		// Get validator deposit data and associated parameters
-		depositAmount := eth.GweiToWei(16).Uint64()
+		depositAmount := eth.GweiToWei(16_000_000).Uint64()
 		depositData, depositDataRoot, err := validator.GetDepositData(validatorKey, withdrawalCredentials, eth2Config, depositAmount)
 		if err != nil {
 			return err
@@ -595,7 +595,7 @@ func nodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt *b
 	}
 
 	// Get validator deposit data and associated parameters
-	depositAmount := uint64(1e9) // 1 ETH in gwei
+	depositAmount := uint64(1_000_000e9) // 1 ETH in gwei
 	depositData, depositDataRoot, err := validator.GetDepositData(validatorKey, withdrawalCredentials, eth2Config, depositAmount)
 	if err != nil {
 		return nil, err
@@ -765,7 +765,7 @@ func legacyNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, s
 	}
 
 	// Get validator deposit data and associated parameters
-	depositAmount := eth.GweiToWei(16).Uint64()
+	depositAmount := eth.GweiToWei(16_000_000).Uint64()
 	depositData, depositDataRoot, err := validator.GetDepositData(validatorKey, withdrawalCredentials, eth2Config, depositAmount)
 	if err != nil {
 		return nil, err

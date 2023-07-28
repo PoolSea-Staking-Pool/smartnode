@@ -265,11 +265,11 @@ func getStatus(c *cli.Context) error {
 			remainingAmount := big.NewInt(0).Sub(status.EthMatchedLimit, status.EthMatched)
 			remainingAmount.Sub(remainingAmount, status.PendingMatchAmount)
 			remainingAmountEth := int(eth.WeiToEth(remainingAmount))
-			remainingFor8EB := remainingAmountEth / 24
+			remainingFor8EB := remainingAmountEth / 24_000_000
 			if remainingFor8EB < 0 {
 				remainingFor8EB = 0
 			}
-			remainingFor16EB := remainingAmountEth / 16
+			remainingFor16EB := remainingAmountEth / 16_000_000
 			if remainingFor16EB < 0 {
 				remainingFor16EB = 0
 			}

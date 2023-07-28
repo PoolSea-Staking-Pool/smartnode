@@ -67,7 +67,7 @@ func beginReduceBondAmount(c *cli.Context) error {
 
 	// TODO POST-ATLAS: Ask the user how much they want the new bond to be; since there's only one option right now there's no point
 	fmt.Printf("This will allow you to begin the bond reduction process to reduce your 16 ETH bond for a minipool down to 8 ETH, awarding you 8 ETH in credit and allowing you to create a second minipool for free (plus gas costs).\n\nThere will be a %.0f-hour wait period after you start the process. After this wait period is over, you will have %.0f hours to complete the process. Your `node` container will do this automatically unless you have it disabled, in which case you must manually run `rocketpool minipool reduce-bond`.\n\n%sNOTE: If you don't run it during this window, your request will time out and you will have to start over.%s\n\n", (time.Duration(settingsResponse.BondReductionWindowStart) * time.Second).Hours(), (time.Duration(settingsResponse.BondReductionWindowLength) * time.Second).Hours(), colorYellow, colorReset)
-	newBondAmount := eth.EthToWei(8)
+	newBondAmount := eth.EthToWei(8_000_000)
 
 	// Prompt for confirmation
 	if !(c.Bool("yes") || cliutils.Confirm("Do you understand how the bond reduction process will work?")) {
@@ -86,7 +86,7 @@ func beginReduceBondAmount(c *cli.Context) error {
 			scrubbedMinipools = append(scrubbedMinipools, minipool)
 		} else {
 			nodeDepositBalance := eth.WeiToEth(minipool.Node.DepositBalance)
-			if nodeDepositBalance == 16 &&
+			if nodeDepositBalance == 16_000_000 &&
 				time.Since(minipool.ReduceBondTime) > bondReductionTimeout &&
 				minipool.Status.Status == types.Staking &&
 				!minipool.Finalised {
@@ -167,7 +167,7 @@ func beginReduceBondAmount(c *cli.Context) error {
 					fmt.Println("The minipool version is too low. It must be upgraded first using `rocketpool minipool delegate-upgrade`.")
 				}
 				if canResponse.BalanceTooLow {
-					fmt.Printf("The minipool's validator balance on the Beacon Chain is too low (must be 32 ETH or higher, currently %.6f ETH).\n", math.RoundDown(float64(canResponse.Balance)/1e9, 6))
+					fmt.Printf("The minipool's validator balance on the Beacon Chain is too low (must be 32 000 000 ETH or higher, currently %.6f ETH).\n", math.RoundDown(float64(canResponse.Balance)/1e9, 6))
 				}
 				if canResponse.InvalidBeaconState {
 					fmt.Printf("The minipool's validator is not in a legal state on the Beacon Chain. It must be pending or active (current state: %s)\n", canResponse.BeaconState)
@@ -268,7 +268,7 @@ func reduceBondAmount(c *cli.Context) error {
 	for _, minipool := range status.Minipools {
 		timeSinceBondReductionStart := time.Since(minipool.ReduceBondTime)
 		nodeDepositBalance := eth.WeiToEth(minipool.Node.DepositBalance)
-		if nodeDepositBalance == 16 && timeSinceBondReductionStart > (time.Duration(settingsResponse.BondReductionWindowStart)*time.Second) && timeSinceBondReductionStart < (time.Duration(settingsResponse.BondReductionWindowStart+settingsResponse.BondReductionWindowLength)*time.Second) && !minipool.ReduceBondCancelled {
+		if nodeDepositBalance == 16_000_000 && timeSinceBondReductionStart > (time.Duration(settingsResponse.BondReductionWindowStart)*time.Second) && timeSinceBondReductionStart < (time.Duration(settingsResponse.BondReductionWindowStart+settingsResponse.BondReductionWindowLength)*time.Second) && !minipool.ReduceBondCancelled {
 			reduceableMinipools = append(reduceableMinipools, minipool)
 		}
 	}

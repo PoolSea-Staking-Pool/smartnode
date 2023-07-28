@@ -227,9 +227,9 @@ func (t *stakePrelaunchMinipools) stakeMinipool(mpd *rpstate.NativeMinipoolDetai
 	var depositAmount uint64
 	switch depositType {
 	case rptypes.Full, rptypes.Half, rptypes.Empty:
-		depositAmount = uint64(16e9) // 16 ETH in gwei
+		depositAmount = uint64(16_000_000e9) // 16 000 000 ETH in gwei
 	case rptypes.Variable:
-		depositAmount = uint64(31e9) // 31 ETH in gwei
+		depositAmount = uint64(31_000_000e9) // 31 000 000 ETH in gwei
 	default:
 		return false, fmt.Errorf("error staking minipool %s: unknown deposit type %d", mpd.MinipoolAddress.Hex(), depositType)
 	}

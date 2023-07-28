@@ -214,7 +214,7 @@ func getMinipoolBalanceDetails(rp *rocketpool.RocketPool, minipoolAddress common
 	if status == types.Initialized || status == types.Prelaunch {
 		// Use user deposit balance if initialized or prelaunch
 		userBalance = userDepositBalance
-		blockBalance = eth.EthToWei(32)
+		blockBalance = eth.EthToWei(32_000_000)
 		nodeBalance.Sub(blockBalance, userBalance)
 	} else if status == types.Dissolved {
 		userBalance = big.NewInt(0)
@@ -223,7 +223,7 @@ func getMinipoolBalanceDetails(rp *rocketpool.RocketPool, minipoolAddress common
 	} else if !validator.Exists || validator.ActivationEpoch >= blockEpoch {
 		// Use user deposit balance if validator not yet active on beacon chain at block
 		userBalance = userDepositBalance
-		blockBalance = eth.EthToWei(32)
+		blockBalance = eth.EthToWei(32_000_000)
 		nodeBalance.Sub(blockBalance, userBalance)
 	}
 

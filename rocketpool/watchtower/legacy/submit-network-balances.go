@@ -699,7 +699,7 @@ func (t *SubmitNetworkBalances) getMinipoolBalanceDetails(client *rocketpool.Roc
 	if userDepositBalance.Cmp(big.NewInt(0)) == 0 && mpType == rptypes.Full {
 		return MinipoolBalanceDetails{
 			IsStaking:   (validator.ExitEpoch > blockEpoch),
-			UserBalance: big.NewInt(0).Sub(userBalance, eth.EthToWei(16)), // Remove 16 ETH from the user balance for full minipools in the refund queue
+			UserBalance: big.NewInt(0).Sub(userBalance, eth.EthToWei(16_000_000)), // Remove 16 000 000 ETH from the user balance for full minipools in the refund queue
 			NodeAddress: nodeAddress,
 			NodeFee:     nodeFee,
 		}, nil

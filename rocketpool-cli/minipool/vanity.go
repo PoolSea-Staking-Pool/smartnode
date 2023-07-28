@@ -108,9 +108,9 @@ func findVanitySalt(c *cli.Context) error {
 			selected, _ := cliutils.Select("Please choose a deposit type to search for:", amountOptions)
 			switch selected {
 			case 0:
-				amount = 32
+				amount = 32_000_000
 			case 1:
-				amount = 16
+				amount = 16_000_000
 			case 2:
 				amount = 0
 			}
@@ -125,9 +125,9 @@ func findVanitySalt(c *cli.Context) error {
 			selected, _ := cliutils.Select("Please choose a deposit type to search for:", amountOptions)
 			switch selected {
 			case 0:
-				amount = 8
+				amount = 8_000_000
 			case 1:
-				amount = 16
+				amount = 16_000_000
 			}
 		}
 	}

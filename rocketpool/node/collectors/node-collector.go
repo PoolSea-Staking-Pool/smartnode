@@ -399,7 +399,7 @@ func (collector *NodeCollector) Collect(channel chan<- prometheus.Metric) {
 			// Pending bond reducton
 			bonded.Set(mpd.ReduceBondValue)
 		}
-		borrowed := big.NewInt(0).Sub(eth.EthToWei(32), bonded)
+		borrowed := big.NewInt(0).Sub(eth.EthToWei(32_000_000), bonded)
 		pendingBorrowedEth.Add(pendingBorrowedEth, borrowed)
 		pendingBondedEth.Add(pendingBondedEth, bonded)
 

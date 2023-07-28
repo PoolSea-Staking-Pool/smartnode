@@ -288,10 +288,10 @@ func getStatus(c *cli.Context) (*api.NodeStatusResponse, error) {
 			trueMinimumStake.Div(trueMinimumStake, rplPrice)
 
 			// Calculate the *real* maximum, including the pending bond reductions
-			trueMaximumStake := eth.EthToWei(32)
+			trueMaximumStake := eth.EthToWei(32_000_000)
 			trueMaximumStake.Mul(trueMaximumStake, big.NewInt(int64(activeMinipools)))
 			trueMaximumStake.Sub(trueMaximumStake, response.EthMatched)
-			trueMaximumStake.Sub(trueMaximumStake, response.PendingMatchAmount) // (32 * activeMinipools - ethMatched - pendingMatch)
+			trueMaximumStake.Sub(trueMaximumStake, response.PendingMatchAmount) // (32_000_000 * activeMinipools - ethMatched - pendingMatch)
 			trueMaximumStake.Mul(trueMaximumStake, maxStakeFraction)
 			trueMaximumStake.Div(trueMaximumStake, rplPrice)
 
@@ -304,7 +304,7 @@ func getStatus(c *cli.Context) (*api.NodeStatusResponse, error) {
 				response.EffectiveRplStake.Set(trueMaximumStake)
 			}
 
-			response.BondedCollateralRatio = eth.WeiToEth(rplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools)*32.0 - eth.WeiToEth(response.EthMatched) - eth.WeiToEth(response.PendingMatchAmount))
+			response.BondedCollateralRatio = eth.WeiToEth(rplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools)*32_000_000.0 - eth.WeiToEth(response.EthMatched) - eth.WeiToEth(response.PendingMatchAmount))
 			response.BorrowedCollateralRatio = eth.WeiToEth(rplPrice) * eth.WeiToEth(response.RplStake) / (eth.WeiToEth(response.EthMatched) + eth.WeiToEth(response.PendingMatchAmount))
 
 			// Calculate the "eligible" info (ignoring pending bond reductions) based on the Beacon Chain
@@ -346,7 +346,7 @@ func getStatus(c *cli.Context) (*api.NodeStatusResponse, error) {
 			}
 		} else {
 			// Legacy behavior
-			response.BorrowedCollateralRatio = eth.WeiToEth(rplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools) * 16.0)
+			response.BorrowedCollateralRatio = eth.WeiToEth(rplPrice) * eth.WeiToEth(response.RplStake) / (float64(activeMinipools) * 16_000_000.0)
 		}
 	} else {
 		response.BorrowedCollateralRatio = -1
