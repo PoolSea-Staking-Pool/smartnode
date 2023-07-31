@@ -110,7 +110,7 @@ func getStakeApprovalGas(c *cli.Context, amountWei *big.Int) (*api.NodeStakeRplA
 	response := api.NodeStakeRplApproveGasResponse{}
 
 	// Get staking contract address
-	rocketNodeStakingAddress, err := rp.GetAddress("rocketNodeStaking", nil)
+	rocketNodeStakingAddress, err := rp.GetAddress("poolseaNodeStaking", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -147,7 +147,7 @@ func allowanceRpl(c *cli.Context) (*api.NodeStakeRplAllowanceResponse, error) {
 	response := api.NodeStakeRplAllowanceResponse{}
 
 	// Get staking contract address
-	rocketNodeStakingAddress, err := rp.GetAddress("rocketNodeStaking", nil)
+	rocketNodeStakingAddress, err := rp.GetAddress("poolseaNodeStaking", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -188,7 +188,7 @@ func approveRpl(c *cli.Context, amountWei *big.Int) (*api.NodeStakeRplApproveRes
 	response := api.NodeStakeRplApproveResponse{}
 
 	// Get staking contract address
-	rocketNodeStakingAddress, err := rp.GetAddress("rocketNodeStaking", nil)
+	rocketNodeStakingAddress, err := rp.GetAddress("poolseaNodeStaking", nil)
 	if err != nil {
 		return nil, err
 	}

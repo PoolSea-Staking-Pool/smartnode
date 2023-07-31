@@ -40,7 +40,7 @@ func canDelegateUpgrade(c *cli.Context, minipoolAddress common.Address) (*api.Ca
 	}
 
 	// Get latest delegate address
-	latestDelegateAddress, err := rp.GetAddress("rocketMinipoolDelegate", nil)
+	latestDelegateAddress, err := rp.GetAddress("poolseaMinipoolDelegate", nil)
 	if err != nil {
 		return nil, err
 	}

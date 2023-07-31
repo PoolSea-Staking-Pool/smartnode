@@ -222,7 +222,7 @@ func (t *processPenalties) run(isAtlasDeployed bool) error {
 		checkPrefix := "[Fee Recipients]"
 
 		// Get the Smoothing Pool address
-		smoothingPoolContract, err := t.rp.GetContract("rocketSmoothingPool", nil)
+		smoothingPoolContract, err := t.rp.GetContract("poolseaSmoothingPool", nil)
 		if err != nil {
 			t.handleError(fmt.Errorf("%s Error getting smoothing pool contract: %w", checkPrefix, err))
 			return

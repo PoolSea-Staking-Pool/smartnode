@@ -115,7 +115,7 @@ func getMembersCanLeave(rp *rocketpool.RocketPool) (bool, error) {
 func getProposalStates(rp *rocketpool.RocketPool) ([]rptypes.ProposalState, error) {
 
 	// Get proposal IDs
-	proposalIds, err := dao.GetDAOProposalIDs(rp, "rocketDAONodeTrustedProposals", nil)
+	proposalIds, err := dao.GetDAOProposalIDs(rp, "poolseaDAONodeTrustedProposals", nil)
 	if err != nil {
 		return []rptypes.ProposalState{}, err
 	}

@@ -20,7 +20,7 @@ import (
 
 const (
 	ozMinipoolBytecode     string = "0x3d602d80600a3d3981f3363d3d373d3d3d363d73%s5af43d82803e903d91602b57fd5bf3"
-	rocketMinipoolBaseName string = "rocketMinipoolBase"
+	rocketMinipoolBaseName string = "poolseaMinipoolBase"
 )
 
 func getVanityArtifacts(c *cli.Context, depositAmount *big.Int, nodeAddressStr string) (*api.GetVanityArtifactsResponse, error) {
@@ -59,11 +59,11 @@ func getVanityArtifacts(c *cli.Context, depositAmount *big.Int, nodeAddressStr s
 	}
 
 	// Get some contract and ABI dependencies
-	rocketMinipoolFactory, err := rp.GetContract("rocketMinipoolFactory", nil)
+	rocketMinipoolFactory, err := rp.GetContract("poolseaMinipoolFactory", nil)
 	if err != nil {
 		return nil, fmt.Errorf("Error getting MinipoolFactory contract: %w", err)
 	}
-	minipoolAbi, err := rp.GetABI("rocketMinipool", nil)
+	minipoolAbi, err := rp.GetABI("poolseaMinipool", nil)
 	if err != nil {
 		return nil, fmt.Errorf("Error getting RocketMinipool ABI: %w", err)
 	}

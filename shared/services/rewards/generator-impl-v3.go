@@ -560,7 +560,7 @@ func (r *treeGeneratorImpl_v3) calculateRplRewards() error {
 func (r *treeGeneratorImpl_v3) calculateEthRewards(checkBeaconPerformance bool) error {
 
 	// Get the Smoothing Pool contract's balance
-	smoothingPoolContract, err := r.rp.GetContract("rocketSmoothingPool", r.opts)
+	smoothingPoolContract, err := r.rp.GetContract("poolseaSmoothingPool", r.opts)
 	if err != nil {
 		return fmt.Errorf("error getting smoothing pool contract: %w", err)
 	}

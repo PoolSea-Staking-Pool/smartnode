@@ -19,7 +19,7 @@ func getLatestDelegate(c *cli.Context) (*api.GetLatestDelegateResponse, error) {
 	response := api.GetLatestDelegateResponse{}
 
 	// Get latest delegate address
-	latestDelegateAddress, err := rp.GetAddress("rocketMinipoolDelegate", nil)
+	latestDelegateAddress, err := rp.GetAddress("poolseaMinipoolDelegate", nil)
 	if err != nil {
 		return nil, err
 	}

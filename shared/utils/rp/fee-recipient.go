@@ -33,7 +33,7 @@ func GetFeeRecipientInfo_Legacy(rp *rocketpool.RocketPool, bc beacon.Client, nod
 
 	// Get the smoothing pool address
 	wg.Go(func() error {
-		smoothingPoolContract, err := rp.GetContract("rocketSmoothingPool", opts)
+		smoothingPoolContract, err := rp.GetContract("poolseaSmoothingPool", opts)
 		if err != nil {
 			return fmt.Errorf("Error getting smoothing pool contract: %w", err)
 		}

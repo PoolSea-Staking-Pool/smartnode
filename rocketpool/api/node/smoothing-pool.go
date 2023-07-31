@@ -167,7 +167,7 @@ func setSmoothingPoolStatus(c *cli.Context, status bool) (*api.SetSmoothingPoolR
 
 	// If opting in, change the fee recipient to the Smoothing Pool before submitting the TX so the fee recipient is guaranteed to be non-penalizable at all times
 	if status {
-		smoothingPoolContract, err := rp.GetContract("rocketSmoothingPool", nil)
+		smoothingPoolContract, err := rp.GetContract("poolseaSmoothingPool", nil)
 		if err != nil {
 			return nil, err
 		}
@@ -211,7 +211,7 @@ func setSmoothingPoolStatus(c *cli.Context, status bool) (*api.SetSmoothingPoolR
 }
 
 func GetSmoothingPoolBalance(rp *rocketpoolapi.RocketPool, ec *services.ExecutionClientManager) (*api.SmoothingRewardsResponse, error) {
-	smoothingPoolContract, err := rp.GetContract("rocketSmoothingPool", nil)
+	smoothingPoolContract, err := rp.GetContract("poolseaSmoothingPool", nil)
 	if err != nil {
 		return nil, err
 	}

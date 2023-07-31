@@ -443,7 +443,7 @@ func (t *SubmitNetworkBalances) getNetworkBalances(elBlockHeader *types.Header, 
 
 	// Get rETH contract balance
 	wg.Go(func() error {
-		rethContractAddress, err := client.GetAddress("rocketTokenRETH", opts)
+		rethContractAddress, err := client.GetAddress("poolseaTokenRETH", opts)
 		if err != nil {
 			return fmt.Errorf("error getting rETH contract address: %w", err)
 		}

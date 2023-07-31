@@ -59,7 +59,7 @@ func getStatus(c *cli.Context) (*api.MinipoolStatusResponse, error) {
 	}
 	response.Minipools = details
 
-	delegate, err := rp.GetContract("rocketMinipoolDelegate", nil)
+	delegate, err := rp.GetContract("poolseaMinipoolDelegate", nil)
 	if err != nil {
 		return nil, fmt.Errorf("Error getting latest minipool delegate contract: %w", err)
 	}
