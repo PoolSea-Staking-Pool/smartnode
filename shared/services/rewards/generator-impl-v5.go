@@ -567,7 +567,7 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 		// Attestation processing is disabled, just give each minipool 1 good attestation and complete slot activity so they're all scored the same
 		// Used for approximating rETH's share during balances calculation
 		one := eth.EthToWei(1)
-		validatorReq := eth.EthToWei(32) // TODO: change to 32 millions
+		validatorReq := eth.EthToWei(32_000_000) // TODO: change to 32 millions
 		for _, nodeInfo := range r.nodeDetails {
 			// Check if the node is currently opted in for simplicity
 			if nodeInfo.IsEligible && nodeInfo.IsOptedIn && r.elEndTime.Sub(nodeInfo.OptInTime) > 0 {
@@ -857,7 +857,7 @@ func (r *treeGeneratorImpl_v5) processEpoch(getDuties bool, epoch uint64) error 
 func (r *treeGeneratorImpl_v5) checkDutiesForSlot(attestations []beacon.AttestationInfo, slot uint64) error {
 
 	one := eth.EthToWei(1)
-	validatorReq := eth.EthToWei(32)
+	validatorReq := eth.EthToWei(32_000_000)
 
 	// Go through the attestations for the block
 	for _, attestation := range attestations {
