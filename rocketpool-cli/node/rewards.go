@@ -53,7 +53,7 @@ func getRewards(c *cli.Context) error {
 	// Download the Merkle trees for all unclaimed intervals that don't exist
 	if len(missingIntervals) > 0 || len(invalidIntervals) > 0 {
 		fmt.Println()
-		fmt.Printf("%sNOTE: If you would like to regenerate these tree files manually, please answer `n` to the prompt below and run `rocketpool network generate-rewards-tree` before claiming your rewards.%s\n", colorBlue, colorReset)
+		fmt.Printf("%sNOTE: If you would like to regenerate these tree files manually, please answer `n` to the prompt below and run `Poolseapool network generate-rewards-tree` before claiming your rewards.%s\n", colorBlue, colorReset)
 		if !cliutils.Confirm("Would you like to download all missing rewards tree files now?") {
 			fmt.Println("Cancelled.")
 			return nil

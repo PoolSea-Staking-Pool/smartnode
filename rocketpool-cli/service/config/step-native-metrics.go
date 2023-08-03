@@ -2,7 +2,7 @@ package config
 
 func createNativeMetricsStep(wiz *wizard, currentStep int, totalSteps int) *choiceWizardStep {
 
-	helperText := "Would you like to enable the daemon's metrics feature? This will allow you to access the Rocket Pool network's metrics and the metrics for your own node wallet in the Grafana dashboard."
+	helperText := "Would you like to enable the daemon's metrics feature? This will allow you to access the poolsea Pool network's metrics and the metrics for your own node wallet in the Grafana dashboard."
 
 	show := func(modal *choiceModalLayout) {
 		wiz.md.setPage(modal.page)

@@ -11,14 +11,14 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 	app.Commands = append(app.Commands, cli.Command{
 		Name:    name,
 		Aliases: aliases,
-		Usage:   "Manage the Rocket Pool deposit queue",
+		Usage:   "Manage the poolsea Pool deposit queue",
 		Subcommands: []cli.Command{
 
 			{
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get the deposit pool and minipool queue status",
-				UsageText: "rocketpool queue status",
+				UsageText: "poolseapool queue status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -36,7 +36,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "process",
 				Aliases:   []string{"p"},
 				Usage:     "Process the deposit pool",
-				UsageText: "rocketpool queue process",
+				UsageText: "poolseapool queue process",
 				Action: func(c *cli.Context) error {
 
 					// Validate args

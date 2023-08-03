@@ -47,7 +47,7 @@ func NewMainDisplay(app *tview.Application, previousConfig *config.RocketPoolCon
 		SetRows(1, 1, 1, 0, 1) // Also 1-unit border
 
 	grid.SetBorder(true).
-		SetTitle(fmt.Sprintf(" Rocket Pool Smartnode %s Configuration ", shared.RocketPoolVersion)).
+		SetTitle(fmt.Sprintf(" poolsea Pool Smartnode %s Configuration ", shared.RocketPoolVersion)).
 		SetBorderColor(tcell.ColorOrange).
 		SetTitleColor(tcell.ColorOrange).
 		SetBackgroundColor(tcell.ColorBlack)

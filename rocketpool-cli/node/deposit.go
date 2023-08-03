@@ -56,7 +56,7 @@ func nodeDeposit(c *cli.Context) error {
 		return err
 	}
 	if !isInitializedResponse.IsInitialized {
-		fmt.Println("Your fee distributor has not been initialized yet so you cannot create a new minipool.\nPlease run `rocketpool node initialize-fee-distributor` to initialize it first.")
+		fmt.Println("Your fee distributor has not been initialized yet so you cannot create a new minipool.\nPlease run `Poolseapool node initialize-fee-distributor` to initialize it first.")
 		return nil
 	}
 
@@ -290,7 +290,7 @@ func nodeDeposit(c *cli.Context) error {
 	fmt.Println("Your minipool is now in Initialized status.")
 	fmt.Println("Once the remaining ETH has been assigned to your minipool from the staking pool, it will move to Prelaunch status.")
 	fmt.Printf("After that, it will move to Staking status once %s have passed.\n", response.ScrubPeriod)
-	fmt.Println("You can watch its progress using `rocketpool service logs node`.")
+	fmt.Println("You can watch its progress using `Poolseapool service logs node`.")
 
 	return nil
 

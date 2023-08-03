@@ -97,11 +97,11 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 	app.Commands = append(app.Commands, cli.Command{
 		Name:    name,
 		Aliases: aliases,
-		Usage:   "Manage Rocket Pool service",
+		Usage:   "Manage poolsea Pool service",
 		Flags: []cli.Flag{
 			cli.StringSliceFlag{
 				Name:  "compose-file, f",
-				Usage: "Optional compose files to override the standard Rocket Pool docker compose YAML files; this flag may be defined multiple times",
+				Usage: "Optional compose files to override the standard poolsea Pool docker compose YAML files; this flag may be defined multiple times",
 			},
 		},
 		Subcommands: []cli.Command{
@@ -109,8 +109,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "install",
 				Aliases:   []string{"i"},
-				Usage:     "Install the Rocket Pool service",
-				UsageText: "rocketpool service install [options]",
+				Usage:     "Install the poolsea Pool service",
+				UsageText: "poolseapool service install [options]",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "yes, y",
@@ -126,11 +126,11 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 					},
 					cli.StringFlag{
 						Name:  "network, n",
-						Usage: "[DEPRECATED] The Eth 2.0 network to run Rocket Pool on - use 'prater' for Rocket Pool's test network",
+						Usage: "[DEPRECATED] The Eth 2.0 network to run poolsea Pool on - use 'prater' for poolsea Pool's test network",
 					},
 					cli.StringFlag{
 						Name:  "path, p",
-						Usage: "A custom path to install Rocket Pool to",
+						Usage: "A custom path to install poolsea Pool to",
 					},
 					cli.StringFlag{
 						Name:  "version, v",
@@ -154,8 +154,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "config",
 				Aliases:   []string{"c"},
-				Usage:     "Configure the Rocket Pool service",
-				UsageText: "rocketpool service config",
+				Usage:     "Configure the poolsea Pool service",
+				UsageText: "poolseapool service config",
 				Flags:     configFlags,
 				Action: func(c *cli.Context) error {
 
@@ -173,8 +173,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "status",
 				Aliases:   []string{"u"},
-				Usage:     "View the Rocket Pool service status",
-				UsageText: "rocketpool service status",
+				Usage:     "View the poolsea Pool service status",
+				UsageText: "poolseapool service status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -191,8 +191,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "start",
 				Aliases:   []string{"s"},
-				Usage:     "Start the Rocket Pool service",
-				UsageText: "rocketpool service start",
+				Usage:     "Start the poolsea Pool service",
+				UsageText: "poolseapool service start",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "ignore-slash-timer",
@@ -219,8 +219,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "pause",
 				Aliases:   []string{"p"},
-				Usage:     "Pause the Rocket Pool service",
-				UsageText: "rocketpool service pause [options]",
+				Usage:     "Pause the poolsea Pool service",
+				UsageText: "poolseapool service pause [options]",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "yes, y",
@@ -242,8 +242,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "stop",
 				Aliases:   []string{"o"},
-				Usage:     "Pause the Rocket Pool service (alias of 'rocketpool service pause')",
-				UsageText: "rocketpool service stop [options]",
+				Usage:     "Pause the poolsea Pool service (alias of 'poolseapool service pause')",
+				UsageText: "poolseapool service stop [options]",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "yes, y",
@@ -266,8 +266,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "logs",
 				Aliases:   []string{"l"},
-				Usage:     "View the Rocket Pool service logs",
-				UsageText: "rocketpool service logs [options] [services...]",
+				Usage:     "View the poolsea Pool service logs",
+				UsageText: "poolseapool service logs [options] [services...]",
 				Flags: []cli.Flag{
 					cli.StringFlag{
 						Name:  "tail, t",
@@ -286,8 +286,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "stats",
 				Aliases:   []string{"a"},
-				Usage:     "View the Rocket Pool service stats",
-				UsageText: "rocketpool service stats",
+				Usage:     "View the poolsea Pool service stats",
+				UsageText: "poolseapool service stats",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -303,8 +303,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 
 			{
 				Name:      "compose",
-				Usage:     "View the Rocket Pool service docker compose config",
-				UsageText: "rocketpool service compose",
+				Usage:     "View the poolsea Pool service docker compose config",
+				UsageText: "poolseapool service compose",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -321,8 +321,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "version",
 				Aliases:   []string{"v"},
-				Usage:     "View the Rocket Pool service version information",
-				UsageText: "rocketpool service version",
+				Usage:     "View the poolsea Pool service version information",
+				UsageText: "poolseapool service version",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -340,7 +340,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "prune-eth1",
 				Aliases:   []string{"n"},
 				Usage:     "Shuts down the main ETH1 client and prunes its database, freeing up disk space, then restarts it when it's done.",
-				UsageText: "rocketpool service prune-eth1",
+				UsageText: "poolseapool service prune-eth1",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -358,7 +358,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "install-update-tracker",
 				Aliases:   []string{"d"},
 				Usage:     "Install the update tracker that provides the available system update count to the metrics dashboard",
-				UsageText: "rocketpool service install-update-tracker [options]",
+				UsageText: "poolseapool service install-update-tracker [options]",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "yes, y",
@@ -391,7 +391,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "check-cpu-features",
 				Aliases:   []string{"ccf"},
 				Usage:     "Checks if your CPU supports all of the features required by the \"modern\" version of certain client images. If not, it prints what features are missing.",
-				UsageText: "rocketpool service check-cpu-features",
+				UsageText: "poolseapool service check-cpu-features",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -408,7 +408,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "get-config-yaml",
 				Usage:     "Generate YAML that shows the current configuration schema, including all of the parameters and their descriptions",
-				UsageText: "rocketpool service get-config-yaml",
+				UsageText: "poolseapool service get-config-yaml",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -425,7 +425,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "export-eth1-data",
 				Usage:     "Exports the execution client (eth1) chain data to an external folder. Use this if you want to back up your chain data before switching execution clients.",
-				UsageText: "rocketpool service export-eth1-data target-folder",
+				UsageText: "poolseapool service export-eth1-data target-folder",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "force",
@@ -457,7 +457,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "import-eth1-data",
 				Usage:     "Imports execution client (eth1) chain data from an external folder. Use this if you want to restore the data from an execution client that you previously backed up.",
-				UsageText: "rocketpool service import-eth1-data source-folder",
+				UsageText: "poolseapool service import-eth1-data source-folder",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -475,7 +475,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "resync-eth1",
 				Usage:     fmt.Sprintf("%sDeletes the main ETH1 client's chain data and resyncs it from scratch. Only use this as a last resort!%s", colorRed, colorReset),
-				UsageText: "rocketpool service resync-eth1",
+				UsageText: "poolseapool service resync-eth1",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -492,7 +492,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "resync-eth2",
 				Usage:     fmt.Sprintf("%sDeletes the ETH2 client's chain data and resyncs it from scratch. Only use this as a last resort!%s", colorRed, colorReset),
-				UsageText: "rocketpool service resync-eth2",
+				UsageText: "poolseapool service resync-eth2",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -509,8 +509,8 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 			{
 				Name:      "terminate",
 				Aliases:   []string{"t"},
-				Usage:     fmt.Sprintf("%sDeletes all of the Rocket Pool Docker containers and volumes, including your ETH1 and ETH2 chain data and your Prometheus database (if metrics are enabled). Also removes your entire `.rocketpool` configuration folder, including your wallet, password, and validator keys. Only use this if you are cleaning up the Smartnode and want to start over!%s", colorRed, colorReset),
-				UsageText: "rocketpool service terminate [options]",
+				Usage:     fmt.Sprintf("%sDeletes all of the poolsea Pool Docker containers and volumes, including your ETH1 and ETH2 chain data and your Prometheus database (if metrics are enabled). Also removes your entire `.poolseapool` configuration folder, including your wallet, password, and validator keys. Only use this if you are cleaning up the Smartnode and want to start over!%s", colorRed, colorReset),
+				UsageText: "poolseapool service terminate [options]",
 				Flags: []cli.Flag{
 					cli.BoolFlag{
 						Name:  "yes, y",
