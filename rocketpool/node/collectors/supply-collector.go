@@ -42,7 +42,7 @@ func NewSupplyCollector(rp *rocketpool.RocketPool, stateLocker *StateLocker) *Su
 	subsystem := "supply"
 	return &SupplyCollector{
 		nodeCount: prometheus.NewDesc(prometheus.BuildFQName(namespace, subsystem, "node_count"),
-			"The total number of Rocket Pool nodes",
+			"The total number of Poolsea nodes",
 			nil, nil,
 		),
 		nodeFee: prometheus.NewDesc(prometheus.BuildFQName(namespace, subsystem, "node_fee"),
@@ -50,15 +50,15 @@ func NewSupplyCollector(rp *rocketpool.RocketPool, stateLocker *StateLocker) *Su
 			nil, nil,
 		),
 		minipoolCount: prometheus.NewDesc(prometheus.BuildFQName(namespace, subsystem, "minipool_count"),
-			"The count of Rocket Pool minipools, broken down by status",
+			"The count of Poolsea minipools, broken down by status",
 			[]string{"status"}, nil,
 		),
 		totalMinipools: prometheus.NewDesc(prometheus.BuildFQName(namespace, subsystem, "total_minipools"),
-			"The total number of Rocket Pool minipools",
+			"The total number of Poolsea minipools",
 			nil, nil,
 		),
 		activeMinipools: prometheus.NewDesc(prometheus.BuildFQName(namespace, subsystem, "active_minipools"),
-			"The number of active (non-finalized) Rocket Pool minipools",
+			"The number of active (non-finalized) Poolsea minipools",
 			nil, nil,
 		),
 		rp:          rp,
@@ -98,7 +98,7 @@ func (collector *SupplyCollector) Collect(channel chan<- prometheus.Metric) {
 	wg.Go(func() error {
 		nodeCountUint, err := node.GetNodeCount(collector.rp, nil)
 		if err != nil {
-			return fmt.Errorf("Error getting total number of Rocket Pool nodes: %w", err)
+			return fmt.Errorf("Error getting total number of Poolsea nodes: %w", err)
 		}
 
 		nodeCount = float64(nodeCountUint)
@@ -109,7 +109,7 @@ func (collector *SupplyCollector) Collect(channel chan<- prometheus.Metric) {
 	wg.Go(func() error {
 		minipoolCounts, err := minipool.GetMinipoolCountPerStatus(collector.rp, nil)
 		if err != nil {
-			return fmt.Errorf("Error getting total number of Rocket Pool minipools: %w", err)
+			return fmt.Errorf("Error getting total number of Poolsea minipools: %w", err)
 		}
 
 		initializedCount = float64(minipoolCounts.Initialized.Uint64())
@@ -119,7 +119,7 @@ func (collector *SupplyCollector) Collect(channel chan<- prometheus.Metric) {
 
 		finalizedCountUint, err := minipool.GetFinalisedMinipoolCount(collector.rp, nil)
 		if err != nil {
-			return fmt.Errorf("Error getting total number of Rocket Pool minipools: %w", err)
+			return fmt.Errorf("Error getting total number of Poolsea minipools: %w", err)
 		}
 
 		finalizedCount = float64(finalizedCountUint)

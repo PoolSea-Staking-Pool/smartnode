@@ -65,7 +65,7 @@ func getVanityArtifacts(c *cli.Context, depositAmount *big.Int, nodeAddressStr s
 	}
 	minipoolAbi, err := rp.GetABI("poolseaMinipool", nil)
 	if err != nil {
-		return nil, fmt.Errorf("Error getting RocketMinipool ABI: %w", err)
+		return nil, fmt.Errorf("Error getting PoolseaMinipool ABI: %w", err)
 	}
 	var minipoolBytecode []byte
 

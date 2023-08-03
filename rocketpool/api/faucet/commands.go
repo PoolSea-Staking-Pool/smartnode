@@ -19,7 +19,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get the faucet's status",
-				UsageText: "rocketpool api faucet status",
+				UsageText: "poolsea api faucet status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -37,7 +37,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-withdraw-rpl",
 				Usage:     "Check whether the node can withdraw legacy RPL from the faucet",
-				UsageText: "rocketpool api faucet can-withdraw-rpl",
+				UsageText: "poolsea api faucet can-withdraw-rpl",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -55,7 +55,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "withdraw-rpl",
 				Aliases:   []string{"w"},
 				Usage:     "Withdraw legacy RPL from the faucet",
-				UsageText: "rocketpool api faucet withdraw-rpl",
+				UsageText: "poolsea api faucet withdraw-rpl",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
