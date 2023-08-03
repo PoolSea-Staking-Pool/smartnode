@@ -79,7 +79,7 @@ func getStatus(c *cli.Context) error {
 	if status.Registered {
 
 		// Node status
-		fmt.Printf("The node is registered with Rocket Pool with a timezone location of %s.\n", status.TimezoneLocation)
+		fmt.Printf("The node is registered with Poolsea Pool with a timezone location of %s.\n", status.TimezoneLocation)
 		if status.Trusted {
 			fmt.Println("The node is a member of the oracle DAO - it can vote on DAO proposals and perform watchtower duties.")
 		}
@@ -130,9 +130,9 @@ func getStatus(c *cli.Context) error {
 		fmt.Printf("%s=== DAO Voting ===%s\n", colorGreen, colorReset)
 		blankAddress := common.Address{}
 		if status.VotingDelegate == blankAddress {
-			fmt.Println("The node does not currently have a voting delegate set, and will not be able to vote on Rocket Pool governance proposals.")
+			fmt.Println("The node does not currently have a voting delegate set, and will not be able to vote on Poolsea Pool governance proposals.")
 		} else {
-			fmt.Printf("The node has a voting delegate of %s%s%s which can represent it when voting on Rocket Pool governance proposals.\n", colorBlue, status.VotingDelegateFormatted, colorReset)
+			fmt.Printf("The node has a voting delegate of %s%s%s which can represent it when voting on Poolsea Pool governance proposals.\n", colorBlue, status.VotingDelegateFormatted, colorReset)
 		}
 
 		if status.SnapshotResponse.Error != "" {
@@ -148,9 +148,9 @@ func getStatus(c *cli.Context) error {
 				}
 			}
 			if len(status.SnapshotResponse.ActiveSnapshotProposals) == 0 {
-				fmt.Print("Rocket Pool has no governance proposals being voted on.\n")
+				fmt.Print("Poolsea Pool has no governance proposals being voted on.\n")
 			} else {
-				fmt.Printf("Rocket Pool has %d governance proposal(s) being voted on. You have voted on %d of those. See details using 'rocketpool network dao-proposals'.\n", len(status.SnapshotResponse.ActiveSnapshotProposals), voteCount)
+				fmt.Printf("Poolsea Pool has %d governance proposal(s) being voted on. You have voted on %d of those. See details using 'Poolseapool network dao-proposals'.\n", len(status.SnapshotResponse.ActiveSnapshotProposals), voteCount)
 			}
 			fmt.Println("")
 		}
@@ -172,7 +172,7 @@ func getStatus(c *cli.Context) error {
 		fmt.Println("")
 		if status.PendingWithdrawalAddress.Hex() != blankAddress.Hex() {
 			fmt.Printf("%sThe node's withdrawal address has a pending change to %s which has not been confirmed yet.\n", colorYellow, status.PendingWithdrawalAddressFormatted)
-			fmt.Printf("Please visit the Rocket Pool website with a web3-compatible wallet to complete this change.%s\n", colorReset)
+			fmt.Printf("Please visit the Poolsea Pool website with a web3-compatible wallet to complete this change.%s\n", colorReset)
 			fmt.Println("")
 		}
 
@@ -206,7 +206,7 @@ func getStatus(c *cli.Context) error {
 			fmt.Printf("%sNOTE: You are in Native Mode; you MUST ensure that your Validator Client is using this address as its fee recipient!%s\n", colorYellow, colorReset)
 		}
 		if !status.IsFeeDistributorInitialized {
-			fmt.Printf("\n%sThe fee distributor hasn't been initialized yet. When you are able, please initialize it with `rocketpool node initialize-fee-distributor`.%s\n", colorYellow, colorReset)
+			fmt.Printf("\n%sThe fee distributor hasn't been initialized yet. When you are able, please initialize it with `Poolseapool node initialize-fee-distributor`.%s\n", colorYellow, colorReset)
 		}
 
 		fmt.Println()
@@ -324,7 +324,7 @@ func getStatus(c *cli.Context) error {
 		}
 
 	} else {
-		fmt.Println("The node is not registered with Rocket Pool.")
+		fmt.Println("The node is not registered with Poolsea Pool.")
 	}
 
 	// Return

@@ -55,7 +55,7 @@ func nodeSetVotingDelegate(c *cli.Context, nameOrAddress string) error {
 	}
 
 	// Prompt for confirmation
-	if !(c.Bool("yes") || cliutils.Confirm(fmt.Sprintf("Are you sure you want %s to represent your node in Rocket Pool governance proposals?", addressString))) {
+	if !(c.Bool("yes") || cliutils.Confirm(fmt.Sprintf("Are you sure you want %s to represent your node in poolsea Pool governance proposals?", addressString))) {
 		fmt.Println("Cancelled.")
 		return nil
 	}

@@ -14,7 +14,7 @@ import (
 	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
 )
 
-// Configure the Rocket Pool service
+// Configure the poolsea Pool service
 func configureServiceLegacy(c *cli.Context) error {
 
 	colorReset := "\033[0m"
@@ -166,7 +166,7 @@ func configureServiceLegacy(c *cli.Context) error {
 	// Log & return
 	fmt.Println("Done!\n")
 	fmt.Printf("%sNOTE:\n", colorYellow)
-	fmt.Printf("Please run 'rocketpool service stop' and 'rocketpool service start' to apply any changes you made.%s\n", colorReset)
+	fmt.Printf("Please run 'poolseapool service stop' and 'poolseapool service start' to apply any changes you made.%s\n", colorReset)
 	return nil
 
 }
@@ -174,7 +174,7 @@ func configureServiceLegacy(c *cli.Context) error {
 func configureMetrics(globalMetrics, userMetrics *config.Metrics, showAdvanced bool) error {
 
 	// Prompt for enabling status
-	enabled := cliutils.Confirm("Would you like to enable Rocket Pool's metrics dashboard?")
+	enabled := cliutils.Confirm("Would you like to enable poolsea Pool's metrics dashboard?")
 	userMetrics.Enabled = enabled
 
 	// Prompt for params

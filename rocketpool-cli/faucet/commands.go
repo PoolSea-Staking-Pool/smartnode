@@ -18,7 +18,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get the faucet's status",
-				UsageText: "rocketpool faucet status",
+				UsageText: "Poolsea faucet status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -36,7 +36,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "withdraw-rpl",
 				Aliases:   []string{"w"},
 				Usage:     "Withdraw legacy RPL from the faucet",
-				UsageText: "rocketpool faucet withdraw-rpl",
+				UsageText: "Poolsea faucet withdraw-rpl",
 				Action: func(c *cli.Context) error {
 
 					// Validate args

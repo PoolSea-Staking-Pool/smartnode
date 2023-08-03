@@ -14,7 +14,7 @@ func createWelcomeStep(wiz *wizard, currentStep int, totalSteps int) *choiceWiza
 	} else if wiz.md.isNew {
 		intro = "Since this is your first time configuring the Smartnode, we'll walk you through the basic setup.\n\n"
 	} else {
-		intro = "You've already configured Rocket Pool, so we'll highlight all of the settings you're already using for convenience. You're welcome to make changes as you go through the wizard."
+		intro = "You've already configured poolsea Pool, so we'll highlight all of the settings you're already using for convenience. You're welcome to make changes as you go through the wizard."
 	}
 
 	helperText := fmt.Sprintf("%s\n\nWelcome to the Smartnode configuration wizard!\n\n%s\n\n", shared.Logo, intro)

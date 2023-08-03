@@ -79,7 +79,7 @@ func distributeBalance(c *cli.Context) error {
 		for _, mp := range versionTooLowMinipools {
 			fmt.Printf("\t%s\n", mp.Address)
 		}
-		fmt.Printf("\nPlease upgrade the delegate for these minipools using `rocketpool minipool delegate-upgrade` in order to distribute their ETH balances.%s\n\n", colorReset)
+		fmt.Printf("\nPlease upgrade the delegate for these minipools using `Poolsea minipool delegate-upgrade` in order to distribute their ETH balances.%s\n\n", colorReset)
 	}
 	if len(balanceLessThanRefundMinipools) > 0 {
 		fmt.Printf("%sWARNING: The following minipools have refunds larger than their current balances and cannot be distributed at this time:\n", colorYellow)
@@ -93,7 +93,7 @@ func distributeBalance(c *cli.Context) error {
 		for _, mp := range balanceTooBigMinipools {
 			fmt.Printf("\t%s\n", mp.Address)
 		}
-		fmt.Printf("\nDistributing these minipools will close them, effectively terminating them. If you're sure you want to do this, please use `rocketpool minipool close` on them instead.%s\n\n", colorReset)
+		fmt.Printf("\nDistributing these minipools will close them, effectively terminating them. If you're sure you want to do this, please use `Poolsea minipool close` on them instead.%s\n\n", colorReset)
 	}
 
 	if len(eligibleMinipools) == 0 {

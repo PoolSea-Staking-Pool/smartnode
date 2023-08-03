@@ -65,7 +65,7 @@ func createVacantMinipool(c *cli.Context, pubkey types.ValidatorPubkey) error {
 		return err
 	}
 	if !isInitializedResponse.IsInitialized {
-		fmt.Println("Your fee distributor has not been initialized yet so you cannot create a new minipool.\nPlease run `rocketpool node initialize-fee-distributor` to initialize it first.")
+		fmt.Println("Your fee distributor has not been initialized yet so you cannot create a new minipool.\nPlease run `Poolseapool node initialize-fee-distributor` to initialize it first.")
 		return nil
 	}
 
@@ -76,7 +76,7 @@ func createVacantMinipool(c *cli.Context, pubkey types.ValidatorPubkey) error {
 	}
 
 	// Print a notification about the pubkey
-	fmt.Printf("You are about to convert the solo staker %s into a Rocket Pool minipool. This will convert your 32 000 000 ETH deposit into either an 8 ETH or 16 ETH deposit (your choice), and convert the remaining 24 or 16 ETH into a deposit from the Rocket Pool staking pool. The staking pool portion will be credited to your node's account, allowing you to create more validators without depositing additional ETH onto the Beacon Chain. Your excess balance (your existing Beacon rewards) will be preserved and not shared with the pool stakers.\n\nPlease thoroughly read our documentation at https://docs.rocketpool.net/guides/atlas/solo-staker-migration.html to learn about the process and its implications.\n\n1. First, we'll create the new minipool.\n2. Next, we'll ask whether you want to import the validator's private key into your Smartnode's Validator Client, or keep running your own externally-managed validator.\n3. Finally, we'll help you migrate your validator's withdrawal credentials to the minipool address.\n\n%sNOTE: If you intend to use the credit balance to create additional validators, you will need to have enough RPL staked to support them.%s\n\n", pubkey.Hex(), colorYellow, colorReset)
+	fmt.Printf("You are about to convert the solo staker %s into a Poolsea Pool minipool. This will convert your 32 000 000 ETH deposit into either an 8 ETH or 16 ETH deposit (your choice), and convert the remaining 24 or 16 ETH into a deposit from the Poolsea Pool staking pool. The staking pool portion will be credited to your node's account, allowing you to create more validators without depositing additional ETH onto the Beacon Chain. Your excess balance (your existing Beacon rewards) will be preserved and not shared with the pool stakers.\n\nPlease thoroughly read our documentation at https://docs.rocketpool.net/guides/atlas/solo-staker-migration.html to learn about the process and its implications.\n\n1. First, we'll create the new minipool.\n2. Next, we'll ask whether you want to import the validator's private key into your Smartnode's Validator Client, or keep running your own externally-managed validator.\n3. Finally, we'll help you migrate your validator's withdrawal credentials to the minipool address.\n\n%sNOTE: If you intend to use the credit balance to create additional validators, you will need to have enough RPL staked to support them.%s\n\n", pubkey.Hex(), colorYellow, colorReset)
 
 	// Get deposit amount
 	var amount float64
@@ -271,7 +271,7 @@ func createVacantMinipool(c *cli.Context, pubkey types.ValidatorPubkey) error {
 	}
 
 	fmt.Printf("The minipool is now in the scrub check, where it will hold for %s.\n", response.ScrubPeriod)
-	fmt.Println("You can watch its progress using `rocketpool service logs node`.")
+	fmt.Println("You can watch its progress using `Poolseapool service logs node`.")
 	fmt.Println("Once the scrub check period has passed, your node will automatically promote it to an active minipool.")
 
 	return nil
@@ -283,14 +283,14 @@ func handleImport(c *cli.Context, rp *rocketpool.Client, minipoolAddress common.
 	// Check if the withdrawal creds can be changed
 	success := migration.ChangeWithdrawalCreds(rp, minipoolAddress, mnemonic)
 	if !success {
-		fmt.Println("Your withdrawal credentials cannot be automatically changed at this time. Import aborted.\nYou can try again later by using `rocketpool minipool set-withdrawal-creds`.")
+		fmt.Println("Your withdrawal credentials cannot be automatically changed at this time. Import aborted.\nYou can try again later by using `Poolseapool minipool set-withdrawal-creds`.")
 		return
 	}
 
 	// Import the private key
 	success = migration.ImportKey(c, rp, minipoolAddress, mnemonic)
 	if !success {
-		fmt.Println("Your validator's withdrawal credentials have been changed to the minipool address, but importing the key failed.\nYou can try again later by using `rocketpool minipool import-key`.")
+		fmt.Println("Your validator's withdrawal credentials have been changed to the minipool address, but importing the key failed.\nYou can try again later by using `Poolseapool minipool import-key`.")
 		return
 	}
 }

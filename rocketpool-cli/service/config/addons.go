@@ -33,7 +33,7 @@ func NewAddonsPage(home *settingsHome) *AddonsPage {
 		home.homePage,
 		addonPageID,
 		"Addons",
-		"Manage custom services that can run alongside Rocket Pool, built by our community to enhance your Node Operator experience.",
+		"Manage custom services that can run alongside poolsea Pool, built by our community to enhance your Node Operator experience.",
 		nil,
 	)
 

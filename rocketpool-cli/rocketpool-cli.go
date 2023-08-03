@@ -26,22 +26,14 @@ import (
 func main() {
 
 	// Add logo to application help template
-	cli.AppHelpTemplate = fmt.Sprintf(`
-______           _        _    ______           _ 
-| ___ \         | |      | |   | ___ \         | |
-| |_/ /___   ___| | _____| |_  | |_/ /__   ___ | |
-|    // _ \ / __| |/ / _ \ __| |  __/ _ \ / _ \| |
-| |\ \ (_) | (__|   <  __/ |_  | | | (_) | (_) | |
-\_| \_\___/ \___|_|\_\___|\__| \_|  \___/ \___/|_|
-
-%s`, cli.AppHelpTemplate)
+	cli.AppHelpTemplate = fmt.Sprintf(" ________  ________  ________  ___       ________  _______   ________     \n|\\   __  \\|\\   __  \\|\\   __  \\|\\  \\     |\\   ____\\|\\  ___ \\ |\\   __  \\    \n\\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\    \\ \\  \\___|\\ \\   __/|\\ \\  \\|\\  \\   \n \\ \\   ____\\ \\  \\\\\\  \\ \\  \\\\\\  \\ \\  \\    \\ \\_____  \\ \\  \\_|/_\\ \\   __  \\  \n  \\ \\  \\___|\\ \\  \\\\\\  \\ \\  \\\\\\  \\ \\  \\____\\|____|\\  \\ \\  \\_|\\ \\ \\  \\ \\  \\ \n   \\ \\__\\    \\ \\_______\\ \\_______\\ \\_______\\____\\_\\  \\ \\_______\\ \\__\\ \\__\\\n    \\|__|     \\|_______|\\|_______|\\|_______|\\_________\\|_______|\\|__|\\|__|\n                                           \\|_________|                   \n                                                                          ", cli.AppHelpTemplate)
 
 	// Initialise application
 	app := cli.NewApp()
 
 	// Set application info
-	app.Name = "rocketpool"
-	app.Usage = "Rocket Pool CLI"
+	app.Name = "poolseapool"
+	app.Usage = "poolsea Pool CLI"
 	app.Version = shared.RocketPoolVersion
 	app.Authors = []cli.Author{
 		{
@@ -61,22 +53,22 @@ ______           _        _    ______           _
 			Email: "kane@rocketpool.net",
 		},
 	}
-	app.Copyright = "(c) 2023 Rocket Pool Pty Ltd"
+	app.Copyright = "(c) 2023 poolsea Pool Pty Ltd"
 
 	// Set application flags
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
 			Name:  "allow-root, r",
-			Usage: "Allow rocketpool to be run as the root user",
+			Usage: "Allow poolseapool to be run as the root user",
 		},
 		cli.StringFlag{
 			Name:  "config-path, c",
-			Usage: "Rocket Pool config asset `path`",
+			Usage: "poolsea Pool config asset `path`",
 			Value: "~/.rocketpool",
 		},
 		cli.StringFlag{
 			Name:  "daemon-path, d",
-			Usage: "Interact with a Rocket Pool service daemon at a `path` on the host OS, running outside of docker",
+			Usage: "Interact with a poolsea Pool service daemon at a `path` on the host OS, running outside of docker",
 		},
 		cli.Float64Flag{
 			Name:  "maxFee, f",
@@ -153,8 +145,8 @@ ______           _        _    ______           _
 	app.Before = func(c *cli.Context) error {
 		// Check user ID
 		if os.Getuid() == 0 && !c.GlobalBool("allow-root") {
-			fmt.Fprintln(os.Stderr, "rocketpool should not be run as root. Please try again without 'sudo'.")
-			fmt.Fprintln(os.Stderr, "If you want to run rocketpool as root anyway, use the '--allow-root' option to override this warning.")
+			fmt.Fprintln(os.Stderr, "poolseapool should not be run as root. Please try again without 'sudo'.")
+			fmt.Fprintln(os.Stderr, "If you want to run poolseapool as root anyway, use the '--allow-root' option to override this warning.")
 			os.Exit(1)
 		}
 
