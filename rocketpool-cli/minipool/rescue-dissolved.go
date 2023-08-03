@@ -99,7 +99,7 @@ func rescueDissolved(c *cli.Context) error {
 		for _, mp := range versionTooLowMinipools {
 			fmt.Printf("\t%s\n", mp.Address)
 		}
-		fmt.Printf("\nPlease upgrade the delegate for these minipools using `rocketpool minipool delegate-upgrade` before rescuing them.%s\n\n", colorReset)
+		fmt.Printf("\nPlease upgrade the delegate for these minipools using `Poolsea minipool delegate-upgrade` before rescuing them.%s\n\n", colorReset)
 	}
 	if len(balanceCompletedMinipools) > 0 {
 		fmt.Printf("%NOTE: The following minipools already have 32 ETH or more deposited:\n", colorYellow)

@@ -48,7 +48,7 @@ func importKey(c *cli.Context, minipoolAddress common.Address) error {
 
 	success := migration.ImportKey(c, rp, minipoolAddress, mnemonic)
 	if !success {
-		fmt.Println("Importing the key failed.\nYou can try again later by using `rocketpool minipool import-key`.")
+		fmt.Println("Importing the key failed.\nYou can try again later by using `Poolsea minipool import-key`.")
 	}
 
 	return nil

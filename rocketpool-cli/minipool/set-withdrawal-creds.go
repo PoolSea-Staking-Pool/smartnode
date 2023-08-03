@@ -48,7 +48,7 @@ func setWithdrawalCreds(c *cli.Context, minipoolAddress common.Address) error {
 
 	success := migration.ChangeWithdrawalCreds(rp, minipoolAddress, mnemonic)
 	if !success {
-		fmt.Println("Your withdrawal credentials cannot be automatically changed at this time. Import aborted.\nYou can try again later by using `rocketpool minipool set-withdrawal-creds`.")
+		fmt.Println("Your withdrawal credentials cannot be automatically changed at this time. Import aborted.\nYou can try again later by using `Poolsea minipool set-withdrawal-creds`.")
 	}
 
 	return nil

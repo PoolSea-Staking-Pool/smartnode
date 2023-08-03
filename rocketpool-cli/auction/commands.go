@@ -11,14 +11,14 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 	app.Commands = append(app.Commands, cli.Command{
 		Name:    name,
 		Aliases: aliases,
-		Usage:   "Manage Rocket Pool RPL auctions",
+		Usage:   "Manage Poolsea Pool RPL auctions",
 		Subcommands: []cli.Command{
 
 			{
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get RPL auction status",
-				UsageText: "rocketpool auction status",
+				UsageText: "Poolsea auction status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -36,7 +36,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "lots",
 				Aliases:   []string{"l"},
 				Usage:     "Get RPL lots for auction",
-				UsageText: "rocketpool auction lots",
+				UsageText: "Poolsea auction lots",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -54,7 +54,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "create-lot",
 				Aliases:   []string{"t"},
 				Usage:     "Create a new lot",
-				UsageText: "rocketpool auction create-lot",
+				UsageText: "Poolsea auction create-lot",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -72,7 +72,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "bid-lot",
 				Aliases:   []string{"b"},
 				Usage:     "Bid on a lot",
-				UsageText: "rocketpool auction bid-lot [options]",
+				UsageText: "Poolsea auction bid-lot [options]",
 				Flags: []cli.Flag{
 					cli.StringFlag{
 						Name:  "lot, l",
@@ -116,7 +116,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "claim-lot",
 				Aliases:   []string{"c"},
 				Usage:     "Claim RPL from a lot",
-				UsageText: "rocketpool auction claim-lot [options]",
+				UsageText: "Poolsea auction claim-lot [options]",
 				Flags: []cli.Flag{
 					cli.StringFlag{
 						Name:  "lot, l",
@@ -147,7 +147,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 				Name:      "recover-lot",
 				Aliases:   []string{"r"},
 				Usage:     "Recover unclaimed RPL from a lot (returning it to the auction contract)",
-				UsageText: "rocketpool auction recover-lot [options]",
+				UsageText: "Poolsea auction recover-lot [options]",
 				Flags: []cli.Flag{
 					cli.StringFlag{
 						Name:  "lot, l",

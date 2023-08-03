@@ -33,7 +33,7 @@ func generateRewardsTree(c *cli.Context) error {
 	// Print archive node info
 	archiveEcUrl := cfg.Smartnode.ArchiveECUrl.Value.(string)
 	if archiveEcUrl == "" {
-		fmt.Printf("%sNOTE: in order to generate a Merkle rewards tree for a past rewards interval, you will likely need to have access to an Execution client with archival state.\nBy default, your Smartnode's Execution client will not provide this.\n\nPlease specify the URL of an archive-capable EC in the Smartnode section of the `rocketpool service config` Terminal UI.\nIf you need one, Alchemy provides a free service which you can use: https://www.alchemy.com/ethereum%s\n\n", colorYellow, colorReset)
+		fmt.Printf("%sNOTE: in order to generate a Merkle rewards tree for a past rewards interval, you will likely need to have access to an Execution client with archival state.\nBy default, your Smartnode's Execution client will not provide this.\n\nPlease specify the URL of an archive-capable EC in the Smartnode section of the `Poolsea service config` Terminal UI.\nIf you need one, Alchemy provides a free service which you can use: https://www.alchemy.com/ethereum%s\n\n", colorYellow, colorReset)
 	} else {
 		fmt.Printf("%sYou have an archive EC specified at [%s]. This will be used for tree generation.%s\n\n", colorGreen, archiveEcUrl, colorReset)
 	}
@@ -75,7 +75,7 @@ func generateRewardsTree(c *cli.Context) error {
 		return err
 	}
 
-	fmt.Printf("Your request to generate the rewards tree for interval %d has been applied, and your `watchtower` container will begin the process during its next duty check (typically 5 minutes).\nYou can follow its progress with %s`rocketpool service logs watchtower`%s.\n\n", index, colorGreen, colorReset)
+	fmt.Printf("Your request to generate the rewards tree for interval %d has been applied, and your `watchtower` container will begin the process during its next duty check (typically 5 minutes).\nYou can follow its progress with %s`Poolsea service logs watchtower`%s.\n\n", index, colorGreen, colorReset)
 
 	if c.Bool("yes") || cliutils.Confirm("Would you like to restart the watchtower container now, so it starts generating the file immediately?") {
 		container := fmt.Sprintf("%s_watchtower", cfg.Smartnode.ProjectName.Value.(string))

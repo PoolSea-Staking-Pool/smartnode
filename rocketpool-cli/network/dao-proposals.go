@@ -42,9 +42,9 @@ func getActiveDAOProposals(c *cli.Context) error {
 	fmt.Printf("%s=== DAO Voting ===%s\n", colorGreen, colorReset)
 	blankAddress := common.Address{}
 	if proposalsResponse.VotingDelegate == blankAddress {
-		fmt.Println("The node does not currently have a voting delegate set, and will not be able to vote on Rocket Pool governance proposals.")
+		fmt.Println("The node does not currently have a voting delegate set, and will not be able to vote on Poolsea Pool governance proposals.")
 	} else {
-		fmt.Printf("The node has a voting delegate of %s%s%s which can represent it when voting on Rocket Pool governance proposals.\n", colorBlue, proposalsResponse.VotingDelegate.Hex(), colorReset)
+		fmt.Printf("The node has a voting delegate of %s%s%s which can represent it when voting on Poolsea Pool governance proposals.\n", colorBlue, proposalsResponse.VotingDelegate.Hex(), colorReset)
 	}
 
 	voteCount := 0
@@ -57,9 +57,9 @@ func getActiveDAOProposals(c *cli.Context) error {
 		}
 	}
 	if len(proposalsResponse.ActiveSnapshotProposals) == 0 {
-		fmt.Print("Rocket Pool has no governance proposals being voted on.\n")
+		fmt.Print("Poolsea Pool has no governance proposals being voted on.\n")
 	} else {
-		fmt.Printf("Rocket Pool has %d governance proposal(s) being voted on. You have voted on %d of those.\n", len(proposalsResponse.ActiveSnapshotProposals), voteCount)
+		fmt.Printf("Poolsea Pool has %d governance proposal(s) being voted on. You have voted on %d of those.\n", len(proposalsResponse.ActiveSnapshotProposals), voteCount)
 	}
 
 	for _, proposal := range proposalsResponse.ActiveSnapshotProposals {
