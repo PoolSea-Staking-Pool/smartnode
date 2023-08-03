@@ -37,7 +37,7 @@ func PrintMultiTransactionNonceWarning() {
 
 	fmt.Printf("%sNOTE: You have specified the `nonce` flag to indicate a custom nonce for this transaction.\n"+
 		"However, this operation requires multiple transactions.\n"+
-		"Rocket Pool will use your custom value as a basis, and increment it for each additional transaction.\n"+
+		"poolsea Pool will use your custom value as a basis, and increment it for each additional transaction.\n"+
 		"If you have multiple pending transactions, this MAY OVERRIDE more than the one that you specified.%s\n\n", colorYellow, colorReset)
 
 }
@@ -52,7 +52,7 @@ func printTransactionHashImpl(rp *rocketpool.Client, hash common.Hash, finalMess
 	}
 
 	if isNew {
-		fmt.Print("Settings file not found. Please run `rocketpool service config` to set up your Smartnode.")
+		fmt.Print("Settings file not found. Please run `poolseapool service config` to set up your Smartnode.")
 		return
 	}
 
@@ -111,20 +111,20 @@ func PrettyPrintError(err error) {
 	fmt.Println(prettyErr)
 }
 
-// Prints an error message when the Beacon client is not using the deposit contract address that Rocket Pool expects
+// Prints an error message when the Beacon client is not using the deposit contract address that poolsea Pool expects
 func PrintDepositMismatchError(rpNetwork, beaconNetwork uint64, rpDepositAddress, beaconDepositAddress common.Address) {
 	fmt.Printf("%s***ALERT***\n", colorRed)
-	fmt.Println("YOUR ETH2 CLIENT IS NOT CONNECTED TO THE SAME NETWORK THAT ROCKET POOL IS USING!")
+	fmt.Println("YOUR ETH2 CLIENT IS NOT CONNECTED TO THE SAME NETWORK THAT POOLSEA POOL IS USING!")
 	fmt.Println("This is likely because your ETH2 client is using the wrong configuration.")
-	fmt.Println("For the safety of your funds, Rocket Pool will not let you deposit your ETH until this is resolved.")
+	fmt.Println("For the safety of your funds, poolsea Pool will not let you deposit your ETH until this is resolved.")
 	fmt.Println()
 	fmt.Println("To fix it if you are in Docker mode:")
-	fmt.Println("\t1. Run 'rocketpool service install -d' to get the latest configuration")
-	fmt.Println("\t2. Run 'rocketpool service stop' and 'rocketpool service start' to apply the configuration.")
+	fmt.Println("\t1. Run 'poolseapool service install -d' to get the latest configuration")
+	fmt.Println("\t2. Run 'poolseapool service stop' and 'poolseapool service start' to apply the configuration.")
 	fmt.Println("If you are using Hybrid or Native mode, please correct the network flags in your ETH2 launch script.")
 	fmt.Println()
 	fmt.Println("Details:")
-	fmt.Printf("\tRocket Pool expects deposit contract %s on chain %d.\n", rpDepositAddress.Hex(), rpNetwork)
+	fmt.Printf("\tpoolsea Pool expects deposit contract %s on chain %d.\n", rpDepositAddress.Hex(), rpNetwork)
 	fmt.Printf("\tYour Beacon client is using deposit contract %s on chain %d.%s\n", beaconDepositAddress.Hex(), beaconNetwork, colorReset)
 }
 
@@ -135,7 +135,7 @@ func PrintNetwork(rp *rocketpool.Client) error {
 		return fmt.Errorf("Error loading global config: %w", err)
 	}
 	if isNew {
-		return fmt.Errorf("Settings file not found. Please run `rocketpool service config` to set up your Smartnode.")
+		return fmt.Errorf("Settings file not found. Please run `poolseapool service config` to set up your Smartnode.")
 	}
 
 	currentNetwork := cfg.Smartnode.Network.Value.(cfgtypes.Network)

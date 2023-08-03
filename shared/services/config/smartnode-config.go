@@ -111,7 +111,7 @@ type SmartnodeConfig struct {
 	// The map of networks to execution chain IDs
 	chainID map[config.Network]uint `yaml:"-"`
 
-	// The contract address of RocketStorage
+	// The contract address of poolseaStorage
 	storageAddress map[config.Network]string `yaml:"-"`
 
 	// The contract address of the 1inch oracle
@@ -132,46 +132,46 @@ type SmartnodeConfig struct {
 	// The contract address of rETH
 	rethAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketRewardsPool from v1.0.0
+	// The contract address of poolseaRewardsPool from v1.0.0
 	v1_0_0_RewardsPoolAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketClaimNode from v1.0.0
+	// The contract address of poolseaClaimNode from v1.0.0
 	v1_0_0_ClaimNodeAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketClaimTrustedNode from v1.0.0
+	// The contract address of poolseaClaimTrustedNode from v1.0.0
 	v1_0_0_ClaimTrustedNodeAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketMinipoolManager from v1.0.0
+	// The contract address of poolseaMinipoolManager from v1.0.0
 	v1_0_0_MinipoolManagerAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketNetworkPrices from v1.1.0
+	// The contract address of poolseaNetworkPrices from v1.1.0
 	v1_1_0_NetworkPricesAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketNodeStaking from v1.1.0
+	// The contract address of poolseaNodeStaking from v1.1.0
 	v1_1_0_NodeStakingAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketNodeDeposit from v1.1.0
+	// The contract address of poolseaNodeDeposit from v1.1.0
 	v1_1_0_NodeDepositAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketMinipoolQueue from v1.1.0
+	// The contract address of poolseaMinipoolQueue from v1.1.0
 	v1_1_0_MinipoolQueueAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of rocketMinipoolFactory from v1.1.0
+	// The contract address of poolseaMinipoolFactory from v1.1.0
 	v1_1_0_MinipoolFactoryAddress map[config.Network]string `yaml:"-"`
 
-	// Addresses for RocketRewardsPool that have been upgraded during development
+	// Addresses for poolseaRewardsPool that have been upgraded during development
 	previousRewardsPoolAddresses map[config.Network]map[string][]common.Address `yaml:"-"`
 
-	// The RocketOvmPriceMessenger Optimism address for each network
+	// The poolseaOvmPriceMessenger Optimism address for each network
 	optimismPriceMessengerAddress map[config.Network]string `yaml:"-"`
 
-	// The RocketPolygonPriceMessenger Polygon address for each network
+	// The poolseaPolygonPriceMessenger Polygon address for each network
 	polygonPriceMessengerAddress map[config.Network]string `yaml:"-"`
 
-	// The RocketArbitumPriceMessenger Arbitrum address for each network
+	// The poolseaArbitumPriceMessenger Arbitrum address for each network
 	arbitrumPriceMessengerAddress map[config.Network]string `yaml:"-"`
 
-	// The RocketZkSyncPriceMessenger zkSyncEra address for each network
+	// The poolseaZkSyncPriceMessenger zkSyncEra address for each network
 	zkSyncEraPriceMessengerAddress map[config.Network]string `yaml:"-"`
 
 	// Rewards submission block maps
@@ -953,7 +953,7 @@ func getNetworkOptions() []config.ParameterOption {
 	//if strings.HasSuffix(shared.RocketPoolVersion, "-dev") {
 	//	options = append(options, config.ParameterOption{
 	//		Name:        "Devnet",
-	//		Description: "This is a development network used by Rocket Pool engineers to test new features and contract upgrades before they are promoted to Prater for staging. You should not use this network unless invited to do so by the developers.",
+	//		Description: "This is a development network used by poolsea Pool engineers to test new features and contract upgrades before they are promoted to Prater for staging. You should not use this network unless invited to do so by the developers.",
 	//		Value:       config.Network_Devnet,
 	//	})
 	//}

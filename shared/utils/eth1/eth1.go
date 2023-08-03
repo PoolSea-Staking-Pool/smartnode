@@ -71,7 +71,7 @@ func GetBestApiClient(primary *rocketpool.RocketPool, cfg *config.RocketPoolConf
 	opts := &bind.CallOpts{
 		BlockNumber: blockNumber,
 	}
-	address, err := client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addressrocketTokenRETH")))
+	address, err := client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addresspoolseaTokenRETH")))
 	if err != nil {
 		errMessage := err.Error()
 		printMessage(fmt.Sprintf("Error getting state for block %d: %s", blockNumber.Uint64(), errMessage))
@@ -89,11 +89,11 @@ func GetBestApiClient(primary *rocketpool.RocketPool, cfg *config.RocketPoolConf
 				}
 				client, err = rocketpool.NewRocketPool(ec, common.HexToAddress(cfg.Smartnode.GetStorageAddress()))
 				if err != nil {
-					return nil, fmt.Errorf("%s Error creating Rocket Pool client connected to archive EC: %w", err)
+					return nil, fmt.Errorf("%s Error creating poolsea Pool client connected to archive EC: %w", err)
 				}
 
 				// Get the rETH address from the archive EC
-				address, err = client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addressrocketTokenRETH")))
+				address, err = client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addresspoolseaTokenRETH")))
 				if err != nil {
 					return nil, fmt.Errorf("%s Error verifying rETH address with Archive EC: %w", err)
 				}

@@ -137,7 +137,7 @@ func LoadFromFile(path string) (*RocketPoolConfig, error) {
 	// Read the file
 	configBytes, err := os.ReadFile(path)
 	if err != nil {
-		return nil, fmt.Errorf("could not read Rocket Pool settings file at %s: %w", shellescape.Quote(path), err)
+		return nil, fmt.Errorf("could not read poolsea Pool settings file at %s: %w", shellescape.Quote(path), err)
 	}
 
 	// Attempt to parse it out into a settings map
@@ -157,7 +157,7 @@ func LoadFromFile(path string) (*RocketPoolConfig, error) {
 
 }
 
-// Creates a new Rocket Pool configuration instance
+// Creates a new poolsea Pool configuration instance
 func NewRocketPoolConfig(rpDir string, isNativeMode bool) *RocketPoolConfig {
 
 	clientModes := []config.ParameterOption{{
@@ -1100,7 +1100,7 @@ func (cfg *RocketPoolConfig) Validate() []string {
 				errors = append(errors, "You have MEV-boost enabled in external mode but don't have a URL set. Please enter the external MEV-boost server URL to use it.")
 			}
 		default:
-			errors = append(errors, "You do not have a MEV-Boost mode configured. You must either select a mode in the `rocketpool service config` UI, or disable MEV-Boost.\nNote that MEV-Boost will be required in a future update, at which point you can no longer disable it.")
+			errors = append(errors, "You do not have a MEV-Boost mode configured. You must either select a mode in the `poolseapool service config` UI, or disable MEV-Boost.\nNote that MEV-Boost will be required in a future update, at which point you can no longer disable it.")
 		}
 	}
 

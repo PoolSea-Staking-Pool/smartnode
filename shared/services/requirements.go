@@ -38,7 +38,7 @@ func RequireNodePassword(c *cli.Context) error {
 		return err
 	}
 	if !nodePasswordSet {
-		return errors.New("The node password has not been set. Please run 'rocketpool wallet init' and try again.")
+		return errors.New("The node password has not been set. Please run 'poolseapool wallet init' and try again.")
 	}
 	return nil
 }
@@ -52,7 +52,7 @@ func RequireNodeWallet(c *cli.Context) error {
 		return err
 	}
 	if !nodeWalletInitialized {
-		return errors.New("The node wallet has not been initialized. Please run 'rocketpool wallet init' and try again.")
+		return errors.New("The node wallet has not been initialized. Please run 'poolseapool wallet init' and try again.")
 	}
 	return nil
 }
@@ -88,7 +88,7 @@ func RequireRocketStorage(c *cli.Context) error {
 		return err
 	}
 	if !rocketStorageLoaded {
-		return errors.New("The Rocket Pool storage contract was not found; the configured address may be incorrect, or the Eth 1.0 node may not be synced. Please try again later.")
+		return errors.New("The poolsea Pool storage contract was not found; the configured address may be incorrect, or the Eth 1.0 node may not be synced. Please try again later.")
 	}
 	return nil
 }
@@ -133,7 +133,7 @@ func RequireNodeRegistered(c *cli.Context) error {
 		return err
 	}
 	if !nodeRegistered {
-		return errors.New("The node is not registered with Rocket Pool. Please run 'rocketpool node register' and try again.")
+		return errors.New("The node is not registered with poolsea Pool. Please run 'poolseapool node register' and try again.")
 	}
 	return nil
 }
@@ -217,7 +217,7 @@ func WaitRocketStorage(c *cli.Context, verbose bool) error {
 			return nil
 		}
 		if verbose {
-			log.Printf("The Rocket Pool storage contract was not found, retrying in %s...\n", checkRocketStorageInterval.String())
+			log.Printf("The poolsea Pool storage contract was not found, retrying in %s...\n", checkRocketStorageInterval.String())
 		}
 		time.Sleep(checkRocketStorageInterval)
 	}
@@ -239,7 +239,7 @@ func WaitNodeRegistered(c *cli.Context, verbose bool) error {
 			return nil
 		}
 		if verbose {
-			log.Printf("The node is not registered with Rocket Pool, retrying in %s...\n", checkNodeRegisteredInterval.String())
+			log.Printf("The node is not registered with poolsea Pool, retrying in %s...\n", checkNodeRegisteredInterval.String())
 		}
 		time.Sleep(checkNodeRegisteredInterval)
 	}
@@ -267,7 +267,7 @@ func getNodeWalletInitialized(c *cli.Context) (bool, error) {
 	return w.GetInitialized()
 }
 
-// Check if the RocketStorage contract is loaded
+// Check if the poolseaStorage contract is loaded
 func getRocketStorageLoaded(c *cli.Context) (bool, error) {
 	cfg, err := GetConfig(c)
 	if err != nil {

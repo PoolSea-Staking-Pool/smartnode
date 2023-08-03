@@ -191,7 +191,7 @@ func NewExternalLighthouseConfig(cfg *RocketPoolConfig) *ExternalLighthouseConfi
 		ContainerTag: config.Parameter{
 			ID:          "containerTag",
 			Name:        "Container Tag",
-			Description: "The tag name of the Lighthouse container you want to use from Docker Hub. This will be used for the Validator Client that Rocket Pool manages with your minipool keys.",
+			Description: "The tag name of the Lighthouse container you want to use from Docker Hub. This will be used for the Validator Client that poolsea Pool manages with your minipool keys.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
 				config.Network_Mainnet: getLighthouseTagProd(),
@@ -264,7 +264,7 @@ func NewExternalLodestarConfig(cfg *RocketPoolConfig) *ExternalLodestarConfig {
 		ContainerTag: config.Parameter{
 			ID:          "containerTag",
 			Name:        "Container Tag",
-			Description: "The tag name of the Lodestar container you want to use from Docker Hub. This will be used for the Validator Client that Rocket Pool manages with your minipool keys.",
+			Description: "The tag name of the Lodestar container you want to use from Docker Hub. This will be used for the Validator Client that poolsea Pool manages with your minipool keys.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
 				config.Network_Mainnet: lodestarTagProd,
@@ -338,7 +338,7 @@ func NewExternalNimbusConfig(cfg *RocketPoolConfig) *ExternalNimbusConfig {
 		ContainerTag: config.Parameter{
 			ID:          "containerTag",
 			Name:        "Container Tag",
-			Description: "The tag name of the Nimbus validator container you want to use from Docker Hub. This will be used for the Validator Client that Rocket Pool manages with your minipool keys.",
+			Description: "The tag name of the Nimbus validator container you want to use from Docker Hub. This will be used for the Validator Client that poolsea Pool manages with your minipool keys.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
 				config.Network_Mainnet: nimbusVcTagProd,
@@ -423,7 +423,7 @@ func NewExternalPrysmConfig(cfg *RocketPoolConfig) *ExternalPrysmConfig {
 		ContainerTag: config.Parameter{
 			ID:          "containerTag",
 			Name:        "Container Tag",
-			Description: "The tag name of the Prysm validator container you want to use from Docker Hub. This will be used for the Validator Client that Rocket Pool manages with your minipool keys.",
+			Description: "The tag name of the Prysm validator container you want to use from Docker Hub. This will be used for the Validator Client that poolsea Pool manages with your minipool keys.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
 				config.Network_Mainnet: getPrysmVcProdTag(),
@@ -484,7 +484,7 @@ func NewExternalTekuConfig(cfg *RocketPoolConfig) *ExternalTekuConfig {
 		ContainerTag: config.Parameter{
 			ID:          "containerTag",
 			Name:        "Container Tag",
-			Description: "The tag name of the Teku container you want to use from Docker Hub. This will be used for the Validator Client that Rocket Pool manages with your minipool keys.",
+			Description: "The tag name of the Teku container you want to use from Docker Hub. This will be used for the Validator Client that poolsea Pool manages with your minipool keys.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
 				config.Network_Mainnet: tekuTagProd,

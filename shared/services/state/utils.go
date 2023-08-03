@@ -12,7 +12,6 @@ import (
 	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
-// TODO: temp until rocketpool-go supports RocketStorage contract address lookups per block
 func GetClaimIntervalTime(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (time.Duration, error) {
 	switch cfg.Smartnode.Network.Value.(cfgtypes.Network) {
 	case cfgtypes.Network_Prater:
@@ -25,7 +24,6 @@ func GetClaimIntervalTime(cfg *config.RocketPoolConfig, index uint64, rp *rocket
 	return rewards.GetClaimIntervalTime(rp, opts)
 }
 
-// TODO: temp until rocketpool-go supports RocketStorage contract address lookups per block
 func GetNodeOperatorRewardsPercent(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (*big.Int, error) {
 	switch cfg.Smartnode.Network.Value.(cfgtypes.Network) {
 	case cfgtypes.Network_Prater:
@@ -38,7 +36,6 @@ func GetNodeOperatorRewardsPercent(cfg *config.RocketPoolConfig, index uint64, r
 	return rewards.GetNodeOperatorRewardsPercent(rp, opts)
 }
 
-// TODO: temp until rocketpool-go supports RocketStorage contract address lookups per block
 func GetTrustedNodeOperatorRewardsPercent(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (*big.Int, error) {
 	switch cfg.Smartnode.Network.Value.(cfgtypes.Network) {
 	case cfgtypes.Network_Prater:
@@ -51,7 +48,6 @@ func GetTrustedNodeOperatorRewardsPercent(cfg *config.RocketPoolConfig, index ui
 	return rewards.GetTrustedNodeOperatorRewardsPercent(rp, opts)
 }
 
-// TODO: temp until rocketpool-go supports RocketStorage contract address lookups per block
 func GetProtocolDaoRewardsPercent(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (*big.Int, error) {
 	switch cfg.Smartnode.Network.Value.(cfgtypes.Network) {
 	case cfgtypes.Network_Prater:
@@ -64,7 +60,6 @@ func GetProtocolDaoRewardsPercent(cfg *config.RocketPoolConfig, index uint64, rp
 	return rewards.GetProtocolDaoRewardsPercent(rp, opts)
 }
 
-// TODO: temp until rocketpool-go supports RocketStorage contract address lookups per block
 func GetPendingRPLRewards(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (*big.Int, error) {
 	switch cfg.Smartnode.Network.Value.(cfgtypes.Network) {
 	case cfgtypes.Network_Prater:
