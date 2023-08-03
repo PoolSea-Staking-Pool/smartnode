@@ -14,7 +14,7 @@ type command struct {
 	cmdText string
 }
 
-// Create a command to be run by the Rocket Pool client
+// Create a command to be run by the poolsea Pool client
 func (c *Client) newCommand(cmdText string) (*command, error) {
 	if c.client == nil {
 		return &command{

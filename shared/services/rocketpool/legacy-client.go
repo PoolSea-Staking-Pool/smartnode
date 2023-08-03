@@ -49,7 +49,7 @@ func (c *Client) loadConfig_Legacy(path string) (config.LegacyRocketPoolConfig, 
 	}
 	configBytes, err := os.ReadFile(expandedPath)
 	if err != nil {
-		return config.LegacyRocketPoolConfig{}, fmt.Errorf("Could not read Rocket Pool config at %s: %w", shellescape.Quote(path), err)
+		return config.LegacyRocketPoolConfig{}, fmt.Errorf("Could not read poolsea Pool config at %s: %w", shellescape.Quote(path), err)
 	}
 	return config.Parse(configBytes)
 }

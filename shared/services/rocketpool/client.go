@@ -79,7 +79,7 @@ func getExternalIP() (net.IP, error) {
 	return ip6Consensus.ExternalIP()
 }
 
-// Rocket Pool client
+// poolsea Pool client
 type Client struct {
 	configPath         string
 	daemonPath         string
@@ -96,7 +96,7 @@ type Client struct {
 	forceFallbacks     bool
 }
 
-// Create new Rocket Pool client from CLI context
+// Create new poolsea Pool client from CLI context
 func NewClientFromCtx(c *cli.Context) (*Client, error) {
 	return NewClient(c.GlobalString("config-path"),
 		c.GlobalString("daemon-path"),
@@ -107,7 +107,7 @@ func NewClientFromCtx(c *cli.Context) (*Client, error) {
 		c.GlobalBool("debug"))
 }
 
-// Create new Rocket Pool client
+// Create new poolsea Pool client
 func NewClient(configPath string, daemonPath string, maxFee float64, maxPrioFee float64, gasLimit uint64, customNonce string, debug bool) (*Client, error) {
 
 	// Initialize SSH client if configured for SSH
@@ -470,7 +470,7 @@ func (c *Client) MigrateLegacyConfig(legacyConfigFilePath string, legacySettings
 
 }
 
-// Install the Rocket Pool service
+// Install the poolsea Pool service
 func (c *Client) InstallService(verbose, noDeps bool, network, version, path string, dataPath string) error {
 
 	// Get installation script downloader type
@@ -537,7 +537,7 @@ func (c *Client) InstallService(verbose, noDeps bool, network, version, path str
 	// Run command and return error output
 	err = cmd.Run()
 	if err != nil {
-		return fmt.Errorf("Could not install Rocket Pool service: %s", errMessage)
+		return fmt.Errorf("Could not install poolsea Pool service: %s", errMessage)
 	}
 	return nil
 
@@ -619,13 +619,13 @@ func (c *Client) InstallUpdateTracker(verbose bool, version string) error {
 	// Run command and return error output
 	err = cmd.Run()
 	if err != nil {
-		return fmt.Errorf("Could not install Rocket Pool update tracker: %s", errMessage)
+		return fmt.Errorf("Could not install poolsea Pool update tracker: %s", errMessage)
 	}
 	return nil
 
 }
 
-// Start the Rocket Pool service
+// Start the poolsea Pool service
 func (c *Client) StartService(composeFiles []string) error {
 
 	/*
@@ -647,7 +647,7 @@ func (c *Client) StartService(composeFiles []string) error {
 	return c.printOutput(cmd)
 }
 
-// Pause the Rocket Pool service
+// Pause the poolsea Pool service
 func (c *Client) PauseService(composeFiles []string) error {
 	cmd, err := c.compose(composeFiles, "stop")
 	if err != nil {
@@ -656,7 +656,7 @@ func (c *Client) PauseService(composeFiles []string) error {
 	return c.printOutput(cmd)
 }
 
-// Stop the Rocket Pool service
+// Stop the poolsea Pool service
 func (c *Client) StopService(composeFiles []string) error {
 	cmd, err := c.compose(composeFiles, "down -v")
 	if err != nil {
@@ -665,7 +665,7 @@ func (c *Client) StopService(composeFiles []string) error {
 	return c.printOutput(cmd)
 }
 
-// Stop the Rocket Pool service and remove the config folder
+// Stop the poolsea Pool service and remove the config folder
 func (c *Client) TerminateService(composeFiles []string, configPath string) error {
 	// Get the command to run with root privileges
 	rootCmd, err := c.getEscalationCommand()
@@ -686,13 +686,13 @@ func (c *Client) TerminateService(composeFiles []string, configPath string) erro
 	// Delete the RP directory
 	path, err := homedir.Expand(configPath)
 	if err != nil {
-		return fmt.Errorf("error loading Rocket Pool directory: %w", err)
+		return fmt.Errorf("error loading poolsea Pool directory: %w", err)
 	}
-	fmt.Printf("Deleting Rocket Pool directory (%s)...\n", path)
+	fmt.Printf("Deleting poolsea Pool directory (%s)...\n", path)
 	cmd = fmt.Sprintf("%s rm -rf %s", rootCmd, path)
 	_, err = c.readOutput(cmd)
 	if err != nil {
-		return fmt.Errorf("error deleting Rocket Pool directory: %w", err)
+		return fmt.Errorf("error deleting poolsea Pool directory: %w", err)
 	}
 
 	fmt.Println("Termination complete.")
@@ -700,7 +700,7 @@ func (c *Client) TerminateService(composeFiles []string, configPath string) erro
 	return nil
 }
 
-// Print the Rocket Pool service status
+// Print the poolsea Pool service status
 func (c *Client) PrintServiceStatus(composeFiles []string) error {
 	cmd, err := c.compose(composeFiles, "ps")
 	if err != nil {
@@ -709,7 +709,7 @@ func (c *Client) PrintServiceStatus(composeFiles []string) error {
 	return c.printOutput(cmd)
 }
 
-// Print the Rocket Pool service logs
+// Print the poolsea Pool service logs
 func (c *Client) PrintServiceLogs(composeFiles []string, tail string, serviceNames ...string) error {
 	sanitizedStrings := make([]string, len(serviceNames))
 	for i, serviceName := range serviceNames {
@@ -722,7 +722,7 @@ func (c *Client) PrintServiceLogs(composeFiles []string, tail string, serviceNam
 	return c.printOutput(cmd)
 }
 
-// Print the Rocket Pool service stats
+// Print the poolsea Pool service stats
 func (c *Client) PrintServiceStats(composeFiles []string) error {
 
 	// Get service container IDs
@@ -741,7 +741,7 @@ func (c *Client) PrintServiceStats(composeFiles []string) error {
 
 }
 
-// Print the Rocket Pool service compose config
+// Print the poolsea Pool service compose config
 func (c *Client) PrintServiceCompose(composeFiles []string) error {
 	cmd, err := c.compose(composeFiles, "config")
 	if err != nil {
@@ -750,7 +750,7 @@ func (c *Client) PrintServiceCompose(composeFiles []string) error {
 	return c.printOutput(cmd)
 }
 
-// Get the Rocket Pool service version
+// Get the poolsea Pool service version
 func (c *Client) GetServiceVersion() (string, error) {
 
 	// Get service container version output
@@ -766,21 +766,21 @@ func (c *Client) GetServiceVersion() (string, error) {
 	}
 	versionBytes, err := c.readOutput(cmd)
 	if err != nil {
-		return "", fmt.Errorf("Could not get Rocket Pool service version: %w", err)
+		return "", fmt.Errorf("Could not get poolsea Pool service version: %w", err)
 	}
 
 	// Get the version string
 	outputString := string(versionBytes)
 	elements := strings.Fields(outputString) // Split on whitespace
 	if len(elements) < 1 {
-		return "", fmt.Errorf("Could not parse Rocket Pool service version number from output '%s'", outputString)
+		return "", fmt.Errorf("Could not parse poolsea Pool service version number from output '%s'", outputString)
 	}
 	versionString := elements[len(elements)-1]
 
 	// Make sure it's a semantic version
 	version, err := semver.Make(versionString)
 	if err != nil {
-		return "", fmt.Errorf("Could not parse Rocket Pool service version number from output '%s': %w", outputString, err)
+		return "", fmt.Errorf("Could not parse poolsea Pool service version number from output '%s': %w", outputString, err)
 	}
 
 	// Return the parsed semantic version (extra safety)
@@ -1339,19 +1339,19 @@ func (c *Client) compose(composeFiles []string, args string) (string, error) {
 	}
 
 	if isNew {
-		return "", fmt.Errorf("Settings file not found. Please run `rocketpool service config` to set up your Smartnode before starting it.")
+		return "", fmt.Errorf("Settings file not found. Please run `poolseapool service config` to set up your Smartnode before starting it.")
 	}
 
 	// Check config
 	if cfg.ExecutionClientMode.Value.(cfgtypes.Mode) == cfgtypes.Mode_Unknown {
-		return "", fmt.Errorf("You haven't selected local or external mode for your Execution (ETH1) client.\nPlease run 'rocketpool service config' before running this command.")
+		return "", fmt.Errorf("You haven't selected local or external mode for your Execution (ETH1) client.\nPlease run 'poolseapool service config' before running this command.")
 	} else if cfg.ExecutionClientMode.Value.(cfgtypes.Mode) == cfgtypes.Mode_Local && cfg.ExecutionClient.Value.(cfgtypes.ExecutionClient) == cfgtypes.ExecutionClient_Unknown {
-		return "", errors.New("No Execution (ETH1) client selected. Please run 'rocketpool service config' before running this command.")
+		return "", errors.New("No Execution (ETH1) client selected. Please run 'poolseapool service config' before running this command.")
 	}
 	if cfg.ConsensusClientMode.Value.(cfgtypes.Mode) == cfgtypes.Mode_Unknown {
-		return "", fmt.Errorf("You haven't selected local or external mode for your Consensus (ETH2) client.\nPlease run 'rocketpool service config' before running this command.")
+		return "", fmt.Errorf("You haven't selected local or external mode for your Consensus (ETH2) client.\nPlease run 'poolseapool service config' before running this command.")
 	} else if cfg.ConsensusClientMode.Value.(cfgtypes.Mode) == cfgtypes.Mode_Local && cfg.ConsensusClient.Value.(cfgtypes.ConsensusClient) == cfgtypes.ConsensusClient_Unknown {
-		return "", errors.New("No Consensus (ETH2) client selected. Please run 'rocketpool service config' before running this command.")
+		return "", errors.New("No Consensus (ETH2) client selected. Please run 'poolseapool service config' before running this command.")
 	}
 
 	// Get the external IP address
@@ -1639,7 +1639,7 @@ func (c *Client) composeAddons(cfg *config.RocketPoolConfig, rocketpoolDir strin
 
 }
 
-// Call the Rocket Pool API
+// Call the poolsea Pool API
 func (c *Client) callAPI(args string, otherArgs ...string) ([]byte, error) {
 	// Sanitize and parse the args
 	ignoreSyncCheckFlag, forceFallbackECFlag, args := c.getApiCallArgs(args, otherArgs...)
@@ -1667,7 +1667,7 @@ func (c *Client) callAPI(args string, otherArgs ...string) ([]byte, error) {
 	return c.runApiCall(cmd)
 }
 
-// Call the Rocket Pool API with some custom environment variables
+// Call the poolsea Pool API with some custom environment variables
 func (c *Client) callAPIWithEnvVars(envVars map[string]string, args string, otherArgs ...string) ([]byte, error) {
 	// Sanitize and parse the args
 	ignoreSyncCheckFlag, forceFallbackECFlag, args := c.getApiCallArgs(args, otherArgs...)
@@ -1766,7 +1766,7 @@ func (c *Client) getAPIContainerName() (string, error) {
 		return "", err
 	}
 	if cfg.Smartnode.ProjectName.Value == "" {
-		return "", errors.New("Rocket Pool docker project name not set")
+		return "", errors.New("poolsea Pool docker project name not set")
 	}
 	return cfg.Smartnode.ProjectName.Value.(string) + APIContainerSuffix, nil
 }

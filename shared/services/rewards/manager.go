@@ -176,7 +176,7 @@ func GetRewardSnapshotEvent(rp *rocketpool.RocketPool, cfg *config.RocketPoolCon
 			deployBlockHash := crypto.Keccak256Hash([]byte("deploy.block"))
 			latestKnownBlockBig, err := rp.RocketStorage.GetUint(nil, deployBlockHash)
 			if err != nil {
-				return rewards.RewardsEvent{}, fmt.Errorf("error getting Rocket Pool deployment block: %w", err)
+				return rewards.RewardsEvent{}, fmt.Errorf("error getting poolsea Pool deployment block: %w", err)
 			}
 			latestKnownBlock = latestKnownBlockBig.Uint64()
 			numberOfIntervalsPassed = interval + 1
@@ -263,11 +263,11 @@ func GetELBlockHeaderForTime(targetTime time.Time, rp *rocketpool.RocketPool) (*
 	}
 	latestBlock := latestBlockHeader.Number
 
-	// Get the block that Rocket Pool deployed to the chain on, use that as the search start
+	// Get the block that poolsea Pool deployed to the chain on, use that as the search start
 	deployBlockHash := crypto.Keccak256Hash([]byte("deploy.block"))
 	deployBlock, err := rp.RocketStorage.GetUint(nil, deployBlockHash)
 	if err != nil {
-		return nil, fmt.Errorf("error getting Rocket Pool deployment block: %w", err)
+		return nil, fmt.Errorf("error getting poolsea Pool deployment block: %w", err)
 	}
 
 	// Get half the distance between the protocol deployment and right now

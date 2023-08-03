@@ -13,7 +13,7 @@ import (
 	"github.com/RedDuck-Software/poolsea-go/utils/eth"
 )
 
-// Rocket Pool config
+// poolsea Pool config
 type LegacyRocketPoolConfig struct {
 	Rocketpool struct {
 		StorageAddress       string `yaml:"storageAddress,omitempty"`

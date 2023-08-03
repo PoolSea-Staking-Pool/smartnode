@@ -594,7 +594,7 @@ func (c *Client) NodeRewards() (api.NodeRewardsResponse, error) {
 	return response, nil
 }
 
-// Get the deposit contract info for Rocket Pool and the Beacon Client
+// Get the deposit contract info for poolsea Pool and the Beacon Client
 func (c *Client) DepositContractInfo() (api.DepositContractInfoResponse, error) {
 	responseBytes, err := c.callAPI("node deposit-contract-info")
 	if err != nil {

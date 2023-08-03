@@ -22,10 +22,10 @@ func AssignMaxFeeAndLimit(gasInfo rocketpool.GasInfo, rp *rpsvc.Client, headless
 
 	cfg, isNew, err := rp.LoadConfig()
 	if err != nil {
-		return fmt.Errorf("Error getting Rocket Pool configuration: %w", err)
+		return fmt.Errorf("Error getting poolsea Pool configuration: %w", err)
 	}
 	if isNew {
-		return fmt.Errorf("Settings file not found. Please run `rocketpool service config` to set up your Smartnode.")
+		return fmt.Errorf("Settings file not found. Please run `poolseapool service config` to set up your Smartnode.")
 	}
 
 	// Get the current settings from the CLI arguments

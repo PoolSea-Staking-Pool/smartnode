@@ -92,7 +92,7 @@ func NewNativeConfig(cfg *RocketPoolConfig) *NativeConfig {
 		ValidatorRestartCommand: config.Parameter{
 			ID:                   "validatorRestartCommand",
 			Name:                 "VC Restart Script",
-			Description:          "The absolute path to a custom script that will be invoked when Rocket Pool needs to restart your validator container to load the new key after a minipool is staked.",
+			Description:          "The absolute path to a custom script that will be invoked when poolsea Pool needs to restart your validator container to load the new key after a minipool is staked.",
 			Type:                 config.ParameterType_String,
 			Default:              map[config.Network]interface{}{config.Network_All: getDefaultValidatorRestartCommand(cfg)},
 			AffectsContainers:    []config.ContainerID{},
@@ -104,7 +104,7 @@ func NewNativeConfig(cfg *RocketPoolConfig) *NativeConfig {
 		ValidatorStopCommand: config.Parameter{
 			ID:                   "validatorStopCommand",
 			Name:                 "Validator Stop Command",
-			Description:          "The absolute path to a custom script that will be invoked when Rocket Pool needs to stop your validator container in case of emergency. **For Native mode only.**",
+			Description:          "The absolute path to a custom script that will be invoked when poolsea Pool needs to stop your validator container in case of emergency. **For Native mode only.**",
 			Type:                 config.ParameterType_String,
 			Default:              map[config.Network]interface{}{config.Network_All: getDefaultValidatorStopCommand(cfg)},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Node},
