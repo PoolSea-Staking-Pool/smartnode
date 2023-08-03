@@ -19,7 +19,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get a list of the node's minipools",
-				UsageText: "rocketpool api minipool status",
+				UsageText: "poolsea api minipool status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -37,7 +37,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-stake",
 				Usage:     "Check whether the minipool is ready to be staked, moving from prelaunch to staking status",
-				UsageText: "rocketpool api minipool can-stake minipool-address",
+				UsageText: "poolsea api minipool can-stake minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -59,7 +59,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "stake",
 				Aliases:   []string{"t"},
 				Usage:     "Stake the minipool, moving it from prelaunch to staking status",
-				UsageText: "rocketpool api minipool stake minipool-address",
+				UsageText: "poolsea api minipool stake minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -81,7 +81,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-promote",
 				Usage:     "Check whether a vacant minipool is ready to be promoted",
-				UsageText: "rocketpool api minipool can-promote minipool-address",
+				UsageText: "poolsea api minipool can-promote minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -102,7 +102,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "promote",
 				Usage:     "Promote a vacant minipool",
-				UsageText: "rocketpool api minipool promote minipool-address",
+				UsageText: "poolsea api minipool promote minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -124,7 +124,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-refund",
 				Usage:     "Check whether the node can refund ETH from the minipool",
-				UsageText: "rocketpool api minipool can-refund minipool-address",
+				UsageText: "poolsea api minipool can-refund minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -146,7 +146,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "refund",
 				Aliases:   []string{"r"},
 				Usage:     "Refund ETH belonging to the node from a minipool",
-				UsageText: "rocketpool api minipool refund minipool-address",
+				UsageText: "poolsea api minipool refund minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -168,7 +168,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-dissolve",
 				Usage:     "Check whether the minipool can be dissolved",
-				UsageText: "rocketpool api minipool can-dissolve minipool-address",
+				UsageText: "poolsea api minipool can-dissolve minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -190,7 +190,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "dissolve",
 				Aliases:   []string{"d"},
 				Usage:     "Dissolve an initialized or prelaunch minipool",
-				UsageText: "rocketpool api minipool dissolve minipool-address",
+				UsageText: "poolsea api minipool dissolve minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -212,7 +212,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-exit",
 				Usage:     "Check whether the minipool can be exited from the beacon chain",
-				UsageText: "rocketpool api minipool can-exit minipool-address",
+				UsageText: "poolsea api minipool can-exit minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -234,7 +234,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "exit",
 				Aliases:   []string{"e"},
 				Usage:     "Exit a staking minipool from the beacon chain",
-				UsageText: "rocketpool api minipool exit minipool-address",
+				UsageText: "poolsea api minipool exit minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -256,7 +256,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-minipool-close-details-for-node",
 				Usage:     "Check all of the node's minipools for closure eligibility, and return the details of the closeable ones",
-				UsageText: "rocketpool api minipool get-minipool-close-details-for-node",
+				UsageText: "poolsea api minipool get-minipool-close-details-for-node",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -274,7 +274,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "close",
 				Aliases:   []string{"c"},
 				Usage:     "Withdraw balance from a dissolved minipool and close it",
-				UsageText: "rocketpool api minipool close minipool-address",
+				UsageText: "poolsea api minipool close minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -296,7 +296,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-delegate-upgrade",
 				Usage:     "Check whether the minipool delegate can be upgraded",
-				UsageText: "rocketpool api minipool can-delegate-upgrade minipool-address",
+				UsageText: "poolsea api minipool can-delegate-upgrade minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -317,7 +317,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "delegate-upgrade",
 				Usage:     "Upgrade this minipool to the latest network delegate contract",
-				UsageText: "rocketpool api minipool delegate-upgrade minipool-address",
+				UsageText: "poolsea api minipool delegate-upgrade minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -339,7 +339,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-delegate-rollback",
 				Usage:     "Check whether the minipool delegate can be rolled back",
-				UsageText: "rocketpool api minipool can-delegate-rollback minipool-address",
+				UsageText: "poolsea api minipool can-delegate-rollback minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -360,7 +360,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "delegate-rollback",
 				Usage:     "Rollback the minipool to the previous delegate contract",
-				UsageText: "rocketpool api minipool delegate-rollback minipool-address",
+				UsageText: "poolsea api minipool delegate-rollback minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -382,7 +382,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-set-use-latest-delegate",
 				Usage:     "Check whether the 'always use latest delegate' toggle can be set",
-				UsageText: "rocketpool api minipool can-set-use-latest-delegate minipool-address setting",
+				UsageText: "poolsea api minipool can-set-use-latest-delegate minipool-address setting",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -407,7 +407,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "set-use-latest-delegate",
 				Usage:     "Set whether or not to ignore the minipool's current delegate, and always use the latest delegate instead",
-				UsageText: "rocketpool api minipool set-use-latest-delegate minipool-address setting",
+				UsageText: "poolsea api minipool set-use-latest-delegate minipool-address setting",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -433,7 +433,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-use-latest-delegate",
 				Usage:     "Gets the current setting of the 'always use latest delegate' toggle",
-				UsageText: "rocketpool api minipool get-use-latest-delegate minipool-address",
+				UsageText: "poolsea api minipool get-use-latest-delegate minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -455,7 +455,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-delegate",
 				Usage:     "Gets the address of the current delegate contract used by the minipool",
-				UsageText: "rocketpool api minipool get-delegate minipool-address",
+				UsageText: "poolsea api minipool get-delegate minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -477,7 +477,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-previous-delegate",
 				Usage:     "Gets the address of the previous delegate contract that the minipool will use during a rollback",
-				UsageText: "rocketpool api minipool get-previous-delegate minipool-address",
+				UsageText: "poolsea api minipool get-previous-delegate minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -499,7 +499,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-effective-delegate",
 				Usage:     "Gets the address of the effective delegate contract used by the minipool, which takes the UseLatestDelegate setting into account",
-				UsageText: "rocketpool api minipool get-effective-delegate minipool-address",
+				UsageText: "poolsea api minipool get-effective-delegate minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -522,7 +522,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "get-vanity-artifacts",
 				Aliases:   []string{"v"},
 				Usage:     "Gets the data necessary to search for vanity minipool addresses",
-				UsageText: "rocketpool api minipool get-vanity-artifacts deposit node-address",
+				UsageText: "poolsea api minipool get-vanity-artifacts deposit node-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -545,7 +545,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-begin-reduce-bond-amount",
 				Usage:     "Check whether the minipool can begin the bond reduction process",
-				UsageText: "rocketpool api minipool can-begin-reduce-bond-amount minipool-address new-bond-amount-wei",
+				UsageText: "poolsea api minipool can-begin-reduce-bond-amount minipool-address new-bond-amount-wei",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -570,7 +570,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "begin-reduce-bond-amount",
 				Usage:     "Begin the bond reduction process for a minipool",
-				UsageText: "rocketpool api minipool begin-reduce-bond-amount minipool-address new-bond-amount-wei",
+				UsageText: "poolsea api minipool begin-reduce-bond-amount minipool-address new-bond-amount-wei",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -596,7 +596,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-reduce-bond-amount",
 				Usage:     "Check if a minipool's bond can be reduced",
-				UsageText: "rocketpool api minipool can-reduce-bond-amount minipool-address",
+				UsageText: "poolsea api minipool can-reduce-bond-amount minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -617,7 +617,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "reduce-bond-amount",
 				Usage:     "Reduce a minipool's bond",
-				UsageText: "rocketpool api minipool reduce-bond-amount minipool-address",
+				UsageText: "poolsea api minipool reduce-bond-amount minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -639,7 +639,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-distribute-balance-details",
 				Usage:     "Get the balance distribution details for all of the node's minipools",
-				UsageText: "rocketpool api minipool get-distribute-balance-details",
+				UsageText: "poolsea api minipool get-distribute-balance-details",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -656,7 +656,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "distribute-balance",
 				Usage:     "Distribute a minipool's ETH balance",
-				UsageText: "rocketpool api minipool distribute-balance minipool-address",
+				UsageText: "poolsea api minipool distribute-balance minipool-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -678,7 +678,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "import-key",
 				Usage:     "Import a validator private key for a vacant minipool",
-				UsageText: "rocketpool api minipool import-key minipool-address mnemonic",
+				UsageText: "poolsea api minipool import-key minipool-address mnemonic",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -704,7 +704,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-change-withdrawal-creds",
 				Usage:     "Check whether a solo validator's withdrawal credentials can be changed to a minipool address",
-				UsageText: "rocketpool api minipool can-change-withdrawal-creds minipool-address mnemonic",
+				UsageText: "poolsea api minipool can-change-withdrawal-creds minipool-address mnemonic",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -729,7 +729,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "change-withdrawal-creds",
 				Usage:     "Change a solo validator's withdrawal credentials to a minipool address",
-				UsageText: "rocketpool api minipool change-withdrawal-creds minipool-address mnemonic",
+				UsageText: "poolsea api minipool change-withdrawal-creds minipool-address mnemonic",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -755,7 +755,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-rescue-dissolved-details-for-node",
 				Usage:     "Check all of the node's minipools for rescue eligibility, and return the details of the rescuable ones",
-				UsageText: "rocketpool api minipool get-rescue-dissolved-details-for-node",
+				UsageText: "poolsea api minipool get-rescue-dissolved-details-for-node",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -773,7 +773,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "rescue-dissolved",
 				Usage:     "Rescue a dissolved minipool by depositing ETH for it to the Beacon deposit contract",
-				UsageText: "rocketpool api minipool rescue-dissolved minipool-address deposit-amount",
+				UsageText: "poolsea api minipool rescue-dissolved minipool-address deposit-amount",
 				Action: func(c *cli.Context) error {
 
 					// Validate args

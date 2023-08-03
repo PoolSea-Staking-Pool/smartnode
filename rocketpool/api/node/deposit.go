@@ -235,7 +235,7 @@ func canNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt
 	if err != nil {
 		return nil, fmt.Errorf("Your deposit failed the validation safety check: %w\n"+
 			"For your safety, this deposit will not be submitted and your ETH will not be staked.\n"+
-			"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS and include the following information:\n"+
+			"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS and include the following information:\n"+
 			"\tDomain Type: 0x%s\n"+
 			"\tGenesis Fork Version: 0x%s\n"+
 			"\tGenesis Validator Root: 0x%s\n"+
@@ -405,7 +405,7 @@ func legacyCanNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64
 		if err != nil {
 			return fmt.Errorf("Your deposit failed the validation safety check: %w\n"+
 				"For your safety, this deposit will not be submitted and your ETH will not be staked.\n"+
-				"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS and include the following information:\n"+
+				"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS and include the following information:\n"+
 				"\tDomain Type: 0x%s\n"+
 				"\tGenesis Fork Version: 0x%s\n"+
 				"\tGenesis Validator Root: 0x%s\n"+
@@ -612,8 +612,8 @@ func nodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt *b
 		return nil, fmt.Errorf("**** ALERT ****\n"+
 			"Your minipool %s has the following as a validator pubkey:\n\t%s\n"+
 			"This key is already in use by validator %d on the Beacon chain!\n"+
-			"Rocket Pool will not allow you to deposit this validator for your own safety so you do not get slashed.\n"+
-			"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS.\n"+
+			"Poolsea will not allow you to deposit this validator for your own safety so you do not get slashed.\n"+
+			"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS.\n"+
 			"***************\n", minipoolAddress.Hex(), pubKey.Hex(), status.Index)
 	}
 
@@ -622,7 +622,7 @@ func nodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt *b
 	if err != nil {
 		return nil, fmt.Errorf("Your deposit failed the validation safety check: %w\n"+
 			"For your safety, this deposit will not be submitted and your ETH will not be staked.\n"+
-			"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS and include the following information:\n"+
+			"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS and include the following information:\n"+
 			"\tDomain Type: 0x%s\n"+
 			"\tGenesis Fork Version: 0x%s\n"+
 			"\tGenesis Validator Root: 0x%s\n"+
@@ -782,8 +782,8 @@ func legacyNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, s
 		return nil, fmt.Errorf("**** ALERT ****\n"+
 			"Your minipool %s has the following as a validator pubkey:\n\t%s\n"+
 			"This key is already in use by validator %d on the Beacon chain!\n"+
-			"Rocket Pool will not allow you to deposit this validator for your own safety so you do not get slashed.\n"+
-			"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS.\n"+
+			"Poolsea will not allow you to deposit this validator for your own safety so you do not get slashed.\n"+
+			"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS.\n"+
 			"***************\n", minipoolAddress.Hex(), pubKey.Hex(), status.Index)
 	}
 
@@ -792,7 +792,7 @@ func legacyNodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, s
 	if err != nil {
 		return nil, fmt.Errorf("Your deposit failed the validation safety check: %w\n"+
 			"For your safety, this deposit will not be submitted and your ETH will not be staked.\n"+
-			"PLEASE REPORT THIS TO THE ROCKET POOL DEVELOPERS and include the following information:\n"+
+			"PLEASE REPORT THIS TO THE POOLSEA DEVELOPERS and include the following information:\n"+
 			"\tDomain Type: 0x%s\n"+
 			"\tGenesis Fork Version: 0x%s\n"+
 			"\tGenesis Validator Root: 0x%s\n"+

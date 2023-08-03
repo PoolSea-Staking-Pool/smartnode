@@ -48,7 +48,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 	command := cli.Command{
 		Name:        name,
 		Aliases:     aliases,
-		Usage:       "Run Rocket Pool API commands",
+		Usage:       "Run Poolsea API commands",
 		Subcommands: []cli.Command{},
 	}
 
@@ -74,7 +74,7 @@ func RegisterCommands(app *cli.App, name string, aliases []string) {
 		Name:      "wait",
 		Aliases:   []string{"t"},
 		Usage:     "Wait for a transaction to complete",
-		UsageText: "rocketpool api wait tx-hash",
+		UsageText: "poolsea api wait tx-hash",
 		Action: func(c *cli.Context) error {
 			// Validate args
 			if err := cliutils.ValidateArgCount(c, 1); err != nil {

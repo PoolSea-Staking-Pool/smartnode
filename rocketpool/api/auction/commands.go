@@ -12,14 +12,14 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 	command.Subcommands = append(command.Subcommands, cli.Command{
 		Name:    name,
 		Aliases: aliases,
-		Usage:   "Manage Rocket Pool RPL auctions",
+		Usage:   "Manage Poolsea RPL auctions",
 		Subcommands: []cli.Command{
 
 			{
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get RPL auction status",
-				UsageText: "rocketpool api auction status",
+				UsageText: "poolsea api auction status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -38,7 +38,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "lots",
 				Aliases:   []string{"l"},
 				Usage:     "Get RPL lots for auction",
-				UsageText: "rocketpool api auction lots",
+				UsageText: "poolsea api auction lots",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -56,7 +56,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-create-lot",
 				Usage:     "Check whether the node can create a new lot",
-				UsageText: "rocketpool api auction can-create-lot",
+				UsageText: "poolsea api auction can-create-lot",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -74,7 +74,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "create-lot",
 				Aliases:   []string{"t"},
 				Usage:     "Create a new lot",
-				UsageText: "rocketpool api auction create-lot",
+				UsageText: "poolsea api auction create-lot",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -92,7 +92,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-bid-lot",
 				Usage:     "Check whether the node can bid on a lot",
-				UsageText: "rocketpool api auction can-bid-lot lot-id amount",
+				UsageText: "poolsea api auction can-bid-lot lot-id amount",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -118,7 +118,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "bid-lot",
 				Aliases:   []string{"b"},
 				Usage:     "Bid on a lot",
-				UsageText: "rocketpool api auction bid-lot lot-id amount",
+				UsageText: "poolsea api auction bid-lot lot-id amount",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -144,7 +144,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-claim-lot",
 				Usage:     "Check whether the node can claim RPL from a lot",
-				UsageText: "rocketpool api auction can-claim-lot lot-id",
+				UsageText: "poolsea api auction can-claim-lot lot-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -166,7 +166,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "claim-lot",
 				Aliases:   []string{"c"},
 				Usage:     "Claim RPL from a lot",
-				UsageText: "rocketpool api auction claim-lot lot-id",
+				UsageText: "poolsea api auction claim-lot lot-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -188,7 +188,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-recover-lot",
 				Usage:     "Check whether the node can recover unclaimed RPL from a lot",
-				UsageText: "rocketpool api auction can-recover-lot lot-id",
+				UsageText: "poolsea api auction can-recover-lot lot-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -210,7 +210,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "recover-lot",
 				Aliases:   []string{"r"},
 				Usage:     "Recover unclaimed RPL from a lot (returning it to the auction contract)",
-				UsageText: "rocketpool api auction recover-lot lot-id",
+				UsageText: "poolsea api auction recover-lot lot-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args

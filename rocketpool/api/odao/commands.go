@@ -12,14 +12,14 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 	command.Subcommands = append(command.Subcommands, cli.Command{
 		Name:    name,
 		Aliases: aliases,
-		Usage:   "Manage the Rocket Pool oracle DAO",
+		Usage:   "Manage the Poolsea oracle DAO",
 		Subcommands: []cli.Command{
 
 			{
 				Name:      "status",
 				Aliases:   []string{"s"},
 				Usage:     "Get oracle DAO status",
-				UsageText: "rocketpool api odao status",
+				UsageText: "poolsea api odao status",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -38,7 +38,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "members",
 				Aliases:   []string{"m"},
 				Usage:     "Get the oracle DAO members",
-				UsageText: "rocketpool api odao members",
+				UsageText: "poolsea api odao members",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -57,7 +57,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "proposals",
 				Aliases:   []string{"p"},
 				Usage:     "Get the oracle DAO proposals",
-				UsageText: "rocketpool api odao proposals",
+				UsageText: "poolsea api odao proposals",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -76,7 +76,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "proposal-details",
 				Aliases:   []string{"d"},
 				Usage:     "Get details of a proposal",
-				UsageText: "rocketpool api odao proposal-details proposal-id",
+				UsageText: "poolsea api odao proposal-details proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -99,7 +99,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-invite",
 				Usage:     "Check whether the node can propose inviting a new member",
-				UsageText: "rocketpool api odao can-propose-invite member-address member-id member-url",
+				UsageText: "poolsea api odao can-propose-invite member-address member-id member-url",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -125,7 +125,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "propose-invite",
 				Aliases:   []string{"i"},
 				Usage:     "Propose inviting a new member",
-				UsageText: "rocketpool api odao propose-invite member-address member-id member-url",
+				UsageText: "poolsea api odao propose-invite member-address member-id member-url",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -151,7 +151,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-leave",
 				Usage:     "Check whether the node can propose leaving the oracle DAO",
-				UsageText: "rocketpool api odao can-propose-leave",
+				UsageText: "poolsea api odao can-propose-leave",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -169,7 +169,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "propose-leave",
 				Aliases:   []string{"l"},
 				Usage:     "Propose leaving the oracle DAO",
-				UsageText: "rocketpool api odao propose-leave",
+				UsageText: "poolsea api odao propose-leave",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -187,7 +187,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-kick",
 				Usage:     "Check whether the node can propose kicking a member",
-				UsageText: "rocketpool api odao can-propose-kick member-address fine-amount",
+				UsageText: "poolsea api odao can-propose-kick member-address fine-amount",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -213,7 +213,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "propose-kick",
 				Aliases:   []string{"k"},
 				Usage:     "Propose kicking a member",
-				UsageText: "rocketpool api odao propose-kick member-address fine-amount",
+				UsageText: "poolsea api odao propose-kick member-address fine-amount",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -239,7 +239,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-cancel-proposal",
 				Usage:     "Check whether the node can cancel a proposal",
-				UsageText: "rocketpool api odao can-cancel-proposal proposal-id",
+				UsageText: "poolsea api odao can-cancel-proposal proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -261,7 +261,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "cancel-proposal",
 				Aliases:   []string{"c"},
 				Usage:     "Cancel a proposal made by the node",
-				UsageText: "rocketpool api odao cancel-proposal proposal-id",
+				UsageText: "poolsea api odao cancel-proposal proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -283,7 +283,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-vote-proposal",
 				Usage:     "Check whether the node can vote on a proposal",
-				UsageText: "rocketpool api odao can-vote-proposal proposal-id",
+				UsageText: "poolsea api odao can-vote-proposal proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -305,7 +305,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "vote-proposal",
 				Aliases:   []string{"v"},
 				Usage:     "Vote on a proposal",
-				UsageText: "rocketpool api odao vote-proposal proposal-id support",
+				UsageText: "poolsea api odao vote-proposal proposal-id support",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -331,7 +331,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-execute-proposal",
 				Usage:     "Check whether the node can execute a proposal",
-				UsageText: "rocketpool api odao can-execute-proposal proposal-id",
+				UsageText: "poolsea api odao can-execute-proposal proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -353,7 +353,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "execute-proposal",
 				Aliases:   []string{"x"},
 				Usage:     "Execute a proposal",
-				UsageText: "rocketpool api odao execute-proposal proposal-id",
+				UsageText: "poolsea api odao execute-proposal proposal-id",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -375,7 +375,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-join",
 				Usage:     "Check whether the node can join the oracle DAO",
-				UsageText: "rocketpool api odao can-join",
+				UsageText: "poolsea api odao can-join",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -393,7 +393,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "join-approve-rpl",
 				Aliases:   []string{"j1"},
 				Usage:     "Approves the RPL bond transfer prior to join the oracle DAO",
-				UsageText: "rocketpool api odao join-approve-rpl",
+				UsageText: "poolsea api odao join-approve-rpl",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -411,7 +411,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "join",
 				Aliases:   []string{"j2"},
 				Usage:     "Join the oracle DAO (requires an executed invite proposal)",
-				UsageText: "rocketpool api odao join tx-hash",
+				UsageText: "poolsea api odao join tx-hash",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -433,7 +433,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-leave",
 				Usage:     "Check whether the node can leave the oracle DAO",
-				UsageText: "rocketpool api odao can-leave",
+				UsageText: "poolsea api odao can-leave",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -451,7 +451,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 				Name:      "leave",
 				Aliases:   []string{"e"},
 				Usage:     "Leave the oracle DAO (requires an executed leave proposal)",
-				UsageText: "rocketpool api odao leave bond-refund-address",
+				UsageText: "poolsea api odao leave bond-refund-address",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -473,7 +473,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-members-quorum",
 				Usage:     "Check whether the node can propose the members.quorum setting",
-				UsageText: "rocketpool api odao can-propose-members-quorum value",
+				UsageText: "poolsea api odao can-propose-members-quorum value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -494,7 +494,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-members-quorum",
 				Usage:     "Propose updating the members.quorum setting",
-				UsageText: "rocketpool api odao propose-members-quorum value",
+				UsageText: "poolsea api odao propose-members-quorum value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -516,7 +516,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-members-rplbond",
 				Usage:     "Check whether the node can propose the members.rplbond setting",
-				UsageText: "rocketpool api odao can-propose-members-rplbond value",
+				UsageText: "poolsea api odao can-propose-members-rplbond value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -537,7 +537,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-members-rplbond",
 				Usage:     "Propose updating the members.rplbond setting",
-				UsageText: "rocketpool api odao propose-members-rplbond value",
+				UsageText: "poolsea api odao propose-members-rplbond value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -559,7 +559,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-members-minipool-unbonded-max",
 				Usage:     "Check whether the node can propose the members.minipool.unbonded.max setting",
-				UsageText: "rocketpool api odao can-propose-members-minipool-unbonded-max value",
+				UsageText: "poolsea api odao can-propose-members-minipool-unbonded-max value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -580,7 +580,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-members-minipool-unbonded-max",
 				Usage:     "Propose updating the members.minipool.unbonded.max setting",
-				UsageText: "rocketpool api odao propose-members-minipool-unbonded-max value",
+				UsageText: "poolsea api odao propose-members-minipool-unbonded-max value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -602,7 +602,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-proposal-cooldown",
 				Usage:     "Check whether the node can propose the proposal.cooldown setting",
-				UsageText: "rocketpool api odao can-propose-proposal-cooldown value",
+				UsageText: "poolsea api odao can-propose-proposal-cooldown value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -623,7 +623,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-proposal-cooldown",
 				Usage:     "Propose updating the proposal.cooldown setting",
-				UsageText: "rocketpool api odao propose-proposal-cooldown value",
+				UsageText: "poolsea api odao propose-proposal-cooldown value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -645,7 +645,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-proposal-vote-timespan",
 				Usage:     "Check whether the node can propose the proposal.vote.time setting",
-				UsageText: "rocketpool api odao can-propose-proposal-vote-timespan value",
+				UsageText: "poolsea api odao can-propose-proposal-vote-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -666,7 +666,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-proposal-vote-timespan",
 				Usage:     "Propose updating the proposal.vote.time setting",
-				UsageText: "rocketpool api odao propose-proposal-vote-timespan value",
+				UsageText: "poolsea api odao propose-proposal-vote-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -688,7 +688,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-proposal-vote-delay-timespan",
 				Usage:     "Check whether the node can propose the proposal.vote.delay.time setting",
-				UsageText: "rocketpool api odao can-propose-proposal-vote-delay-timespan value",
+				UsageText: "poolsea api odao can-propose-proposal-vote-delay-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -709,7 +709,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-proposal-vote-delay-timespan",
 				Usage:     "Propose updating the proposal.vote.delay.time setting",
-				UsageText: "rocketpool api odao propose-proposal-vote-delay-timespan value",
+				UsageText: "poolsea api odao propose-proposal-vote-delay-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -731,7 +731,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-proposal-execute-timespan",
 				Usage:     "Check whether the node can propose the proposal.execute.time setting",
-				UsageText: "rocketpool api odao can-propose-proposal-execute-timespan value",
+				UsageText: "poolsea api odao can-propose-proposal-execute-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -752,7 +752,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-proposal-execute-timespan",
 				Usage:     "Propose updating the proposal.execute.time setting",
-				UsageText: "rocketpool api odao propose-proposal-execute-timespan value",
+				UsageText: "poolsea api odao propose-proposal-execute-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -774,7 +774,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-proposal-action-timespan",
 				Usage:     "Check whether the node can propose the proposal.action.time setting",
-				UsageText: "rocketpool api odao can-propose-proposal-action-timespan value",
+				UsageText: "poolsea api odao can-propose-proposal-action-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -795,7 +795,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-proposal-action-timespan",
 				Usage:     "Propose updating the proposal.action.time setting",
-				UsageText: "rocketpool api odao propose-proposal-action-timespan value",
+				UsageText: "poolsea api odao propose-proposal-action-timespan value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -817,7 +817,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-scrub-period",
 				Usage:     "Check whether the node can propose the minipool.scrub.period setting",
-				UsageText: "rocketpool api odao can-propose-scrub-period value",
+				UsageText: "poolsea api odao can-propose-scrub-period value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -838,7 +838,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-scrub-period",
 				Usage:     "Propose updating the minipool.scrub.period setting",
-				UsageText: "rocketpool api odao propose-scrub-period value",
+				UsageText: "poolsea api odao propose-scrub-period value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -860,7 +860,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-promotion-scrub-period",
 				Usage:     "Check whether the node can propose the minipool.promotion.scrub.period setting",
-				UsageText: "rocketpool api odao can-propose-promotion-scrub-period value",
+				UsageText: "poolsea api odao can-propose-promotion-scrub-period value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -881,7 +881,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-promotion-scrub-period",
 				Usage:     "Propose updating the minipool.promotion.scrub.period setting",
-				UsageText: "rocketpool api odao propose-promotion-scrub-period value",
+				UsageText: "poolsea api odao propose-promotion-scrub-period value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -903,7 +903,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-scrub-penalty-enabled",
 				Usage:     "Check whether the node can propose the minipool.scrub.penalty.enabled setting",
-				UsageText: "rocketpool api odao can-propose-scrub-penalty-enabled value",
+				UsageText: "poolsea api odao can-propose-scrub-penalty-enabled value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -924,7 +924,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-scrub-penalty-enabled",
 				Usage:     "Propose updating the minipool.scrub.penalty.enabled setting",
-				UsageText: "rocketpool api odao propose-scrub-penalty-enabled value",
+				UsageText: "poolsea api odao propose-scrub-penalty-enabled value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -946,7 +946,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-bond-reduction-window-start",
 				Usage:     "Check whether the node can propose the minipool.bond.reduction.window.start setting",
-				UsageText: "rocketpool api odao can-propose-bond-reduction-window-start value",
+				UsageText: "poolsea api odao can-propose-bond-reduction-window-start value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -967,7 +967,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-bond-reduction-window-start",
 				Usage:     "Propose updating the minipool.bond.reduction.window.start setting",
-				UsageText: "rocketpool api odao propose-bond-reduction-window-start value",
+				UsageText: "poolsea api odao propose-bond-reduction-window-start value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -989,7 +989,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "can-propose-bond-reduction-window-length",
 				Usage:     "Check whether the node can propose the minipool.bond.reduction.window.length setting",
-				UsageText: "rocketpool api odao can-propose-bond-reduction-window-length value",
+				UsageText: "poolsea api odao can-propose-bond-reduction-window-length value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -1010,7 +1010,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "propose-bond-reduction-window-length",
 				Usage:     "Propose updating the minipool.bond.reduction.window.length setting",
-				UsageText: "rocketpool api odao propose-bond-reduction-window-length value",
+				UsageText: "poolsea api odao propose-bond-reduction-window-length value",
 				Action: func(c *cli.Context) error {
 
 					// Validate args
@@ -1032,7 +1032,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-member-settings",
 				Usage:     "Get the ODAO settings related to ODAO members",
-				UsageText: "rocketpool api odao get-member-settings",
+				UsageText: "poolsea api odao get-member-settings",
 				Action: func(c *cli.Context) error {
 
 					// Run
@@ -1044,7 +1044,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-proposal-settings",
 				Usage:     "Get the ODAO settings related to ODAO proposals",
-				UsageText: "rocketpool api odao get-proposal-settings",
+				UsageText: "poolsea api odao get-proposal-settings",
 				Action: func(c *cli.Context) error {
 
 					// Run
@@ -1056,7 +1056,7 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 			{
 				Name:      "get-minipool-settings",
 				Usage:     "Get the ODAO settings related to minipools",
-				UsageText: "rocketpool api odao get-minipool-settings",
+				UsageText: "poolsea api odao get-minipool-settings",
 				Action: func(c *cli.Context) error {
 
 					// Run

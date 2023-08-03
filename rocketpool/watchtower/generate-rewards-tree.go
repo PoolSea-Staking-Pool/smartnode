@@ -162,7 +162,7 @@ func (t *generateRewardsTree) generateRewardsTree(index uint64) {
 	opts := &bind.CallOpts{
 		BlockNumber: elBlockHeader.Number,
 	}
-	address, err := client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addressrocketTokenRETH")))
+	address, err := client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addresspoolseaTokenRETH")))
 	if err != nil {
 		errMessage := err.Error()
 		t.log.Printlnf("%s Error getting state for block %d: %s", generationPrefix, elBlockHeader.Number.Uint64(), errMessage)
@@ -181,12 +181,12 @@ func (t *generateRewardsTree) generateRewardsTree(index uint64) {
 				}
 				client, err = rocketpool.NewRocketPool(ec, common.HexToAddress(t.cfg.Smartnode.GetStorageAddress()))
 				if err != nil {
-					t.handleError(fmt.Errorf("%s Error creating Rocket Pool client connected to archive EC: %w", err))
+					t.handleError(fmt.Errorf("%s Error creating Poolsea client connected to archive EC: %w", err))
 					return
 				}
 
 				// Get the rETH address from the archive EC
-				address, err = client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addressrocketTokenRETH")))
+				address, err = client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addresspoolseaTokenRETH")))
 				if err != nil {
 					t.handleError(fmt.Errorf("%s Error verifying rETH address with Archive EC: %w", err))
 					return
