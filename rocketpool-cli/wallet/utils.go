@@ -151,7 +151,7 @@ func promptForCustomKeyPasswords(rp *rocketpool.Client, cfg *config.RocketPoolCo
 	}
 
 	// Notify the user
-	fmt.Println("It looks like you have some custom keystores for your minipool's validators.\nYou will be prompted for the passwords each one was encrypted with, so they can be loaded into the Validator Client that Rocket Pool manages for you.\n")
+	fmt.Println("It looks like you have some custom keystores for your minipool's validators.\nYou will be prompted for the passwords each one was encrypted with, so they can be loaded into the Validator Client that poolsea Pool manages for you.\n")
 
 	// Get the passwords for each one
 	pubkeyPasswords := map[string]string{}
