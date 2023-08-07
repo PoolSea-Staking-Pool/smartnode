@@ -10,7 +10,7 @@ import (
 
 // Constants
 const (
-	smartnodeTag                       string = "poolseatest/smartnode:" + shared.RocketPoolVersion
+	smartnodeTag                       string = "vunderwaffle/smartnode:" + shared.RocketPoolVersion
 	pruneProvisionerTag                string = "rocketpool/eth1-prune-provision:v0.0.1"
 	ecMigratorTag                      string = "rocketpool/ec-migrator:v1.0.0"
 	NetworkID                          string = "network"
@@ -455,7 +455,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
 			config.Network_Prater:  "0x5e932688e81a182e3de211db6544f98b8e4f89c7",
 			config.Network_Devnet:  "0x09b6aEF57B580f5CB46746BA59ed312Ba80E8Ad4",
-			config.Network_PulseV4: "0xF4378cbDbeDAFc9E50b4bb2f385A51724c9021F3",
+			config.Network_PulseV4: "0x1fa161829483531913Ef0DC386BF4cbBb6381E0a",
 		},
 
 		rplFaucetAddress: map[config.Network]string{
@@ -469,14 +469,14 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0xae78736Cd615f374D3085123A210448E74Fc6393",
 			config.Network_Prater:  "0x178E141a0E3b34152f73Ff610437A7bf9B83267A",
 			config.Network_Devnet:  "0x2DF914425da6d0067EF1775AfDBDd7B24fc8100E",
-			config.Network_PulseV4: "0xD8bd8aB8380df2F2CAbe18847506abCfa2c7D33e",
+			config.Network_PulseV4: "0x265345C4F2cFba31940D1972396e513A027D54aF",
 		},
 
 		v1_0_0_RewardsPoolAddress: map[config.Network]string{
 			config.Network_Mainnet: "0xA3a18348e6E2d3897B6f2671bb8c120e36554802",
 			config.Network_Prater:  "0xf9aE18eB0CE4930Bc3d7d1A5E33e4286d4FB0f8B",
 			config.Network_Devnet:  "0x4A1b5Ab9F6C36E7168dE5F994172028Ca8554e02",
-			config.Network_PulseV4: "0x354f3d2b2Ce1e6F3C254FC09d8232B10318aDEC2",
+			config.Network_PulseV4: "0x192C7997425DE3F63B3fA56f8e972778e896B6a3",
 		},
 
 		v1_0_0_ClaimNodeAddress: map[config.Network]string{
