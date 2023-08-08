@@ -441,7 +441,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
 			config.Network_Prater:  "0xd8Cd47263414aFEca62d6e2a3917d6600abDceB3",
 			config.Network_Devnet:  "0x6A18E47f8CcB453Dd0894AC003f74BEE7e47A368",
-			config.Network_PulseV4: "0x206dc3773E2b2E1576Da61C64c0640bB4D7679A0",
+			config.Network_PulseV4: "0xa39c7c87d5F1f306b978B52E393288fBf451B503",
 		},
 
 		oneInchOracleAddress: map[config.Network]string{
