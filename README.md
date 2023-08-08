@@ -51,7 +51,7 @@ The following commands are available via the Smartnode client:
   - `poolsea network stats, s` - Get stats about the Poolsea network and its tokens
   - `poolsea network timezone-map, t` - Shows a table of the timezones that node operators belong to
   - `poolsea network node-fee, f` - Get the current network node commission rate
-  - `poolsea network POOL-price, p` - Get the current network POOL price in PLS
+  - `poolsea network rpl-price, p` - Get the current network POOL price in PLS
   - `poolsea network generate-rewards-tree, g` - Generate and save the rewards tree file for the provided interval.
   Note that this is an asynchronous process, so it will return before the file is generated.
   You will need to use `rocketpool service logs api` to follow its progress.
@@ -64,10 +64,10 @@ The following commands are available via the Smartnode client:
   - `poolsea node set-withdrawal-address, w` - Set the node's withdrawal address
   - `poolsea node confirm-withdrawal-address, f` - Confirm the node's pending withdrawal address if it has been set back to the node's address itself
   - `poolsea node set-timezone, t` - Set the node's timezone location
-  - `poolsea node swap-POOL, p` - Swap old POOL for new POOL
-  - `poolsea node stake-POOL, k` - Stake POOL against the node
+  - `poolsea node swap-rpl, p` - Swap old POOL for new POOL
+  - `poolsea node stake-rpl, k` - Stake POOL against the node
   - `poolsea node claim-rewards, c` - Claim available POOL and PLS rewards for any checkpoint you haven't claimed yet
-  - `poolsea node withdraw-POOL, i` - Withdraw POOL staked against the node
+  - `poolsea node withdraw-rpl, i` - Withdraw POOL staked against the node
   - `poolsea node deposit, d` - Make a deposit and create a minipool
   - `poolsea node send, n` - Send PLS or tokens from the node account to an address
   - `poolsea node set-voting-delegate, sv` - Set the address you want to use when voting on Poolsea governance proposals, or the address you want to delegate your voting power to.
