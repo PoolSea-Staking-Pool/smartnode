@@ -3,7 +3,7 @@ package api
 import (
 	"math/big"
 
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/common"
 )
 

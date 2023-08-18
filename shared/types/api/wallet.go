@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
-	"github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/google/uuid"
 )

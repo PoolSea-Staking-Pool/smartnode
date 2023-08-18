@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/RedDuck-Software/poolsea-go/deposit"
-	v110_minipool "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0/minipool"
-	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
+	"github.com/Seb369888/poolsea-go/deposit"
+	v110_minipool "github.com/Seb369888/poolsea-go/legacy/v1.1.0/minipool"
+	"github.com/Seb369888/poolsea-go/settings/protocol"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

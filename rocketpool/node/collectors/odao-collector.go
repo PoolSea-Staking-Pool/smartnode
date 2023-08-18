@@ -3,7 +3,7 @@ package collectors
 import (
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

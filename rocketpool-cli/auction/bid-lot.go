@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/RedDuck-Software/poolsea-go/utils/eth"
+	"github.com/Seb369888/poolsea-go/utils/eth"
 	"github.com/urfave/cli"
 
 	"github.com/rocket-pool/smartnode/shared/services/gas"

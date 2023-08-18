@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/RedDuck-Software/poolsea-go/tokens"
-	"github.com/RedDuck-Software/poolsea-go/utils/eth"
+	"github.com/Seb369888/poolsea-go/tokens"
+	"github.com/Seb369888/poolsea-go/utils/eth"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

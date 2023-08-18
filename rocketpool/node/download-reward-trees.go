@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/RedDuck-Software/poolsea-go/rewards"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/rewards"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/docker/docker/client"
 	"github.com/urfave/cli"
 

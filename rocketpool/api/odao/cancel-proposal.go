@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/dao"
-	"github.com/RedDuck-Software/poolsea-go/dao/trustednode"
-	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/dao"
+	"github.com/Seb369888/poolsea-go/dao/trustednode"
+	rptypes "github.com/Seb369888/poolsea-go/types"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

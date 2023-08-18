@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 )
 
 func GetEthClientLatestBlockTimestamp(ec rocketpool.ExecutionClient) (uint64, error) {

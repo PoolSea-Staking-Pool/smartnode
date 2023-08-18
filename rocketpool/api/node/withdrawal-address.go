@@ -3,7 +3,7 @@ package node
 import (
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/storage"
+	"github.com/Seb369888/poolsea-go/storage"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

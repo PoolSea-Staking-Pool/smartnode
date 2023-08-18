@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/RedDuck-Software/poolsea-go/tokens"
+	"github.com/Seb369888/poolsea-go/tokens"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

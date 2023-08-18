@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	rewards_v110rc1 "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0-rc1/rewards"
-	"github.com/RedDuck-Software/poolsea-go/rewards"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	rewards_v110rc1 "github.com/Seb369888/poolsea-go/legacy/v1.1.0-rc1/rewards"
+	"github.com/Seb369888/poolsea-go/rewards"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services/config"
 )
 

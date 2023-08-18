@@ -3,9 +3,9 @@ package collectors
 import (
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/minipool"
-	"github.com/RedDuck-Software/poolsea-go/node"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/minipool"
+	"github.com/Seb369888/poolsea-go/node"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/sync/errgroup"
 )

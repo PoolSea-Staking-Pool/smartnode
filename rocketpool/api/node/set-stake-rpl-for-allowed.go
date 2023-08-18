@@ -2,7 +2,7 @@ package node
 
 import (
 	"fmt"
-	"github.com/RedDuck-Software/poolsea-go/node"
+	"github.com/Seb369888/poolsea-go/node"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

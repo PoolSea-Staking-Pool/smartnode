@@ -7,7 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 
-	rocketpoolapi "github.com/RedDuck-Software/poolsea-go/rocketpool"
+	rocketpoolapi "github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services/gas"
 	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/types/api"

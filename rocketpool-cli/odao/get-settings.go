@@ -6,7 +6,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/RedDuck-Software/poolsea-go/utils/eth"
+	"github.com/Seb369888/poolsea-go/utils/eth"
 	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
 	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
 )

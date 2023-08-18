@@ -3,7 +3,7 @@ package odao
 import (
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/dao/trustednode"
+	"github.com/Seb369888/poolsea-go/dao/trustednode"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"

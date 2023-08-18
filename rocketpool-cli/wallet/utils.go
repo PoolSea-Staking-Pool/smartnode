@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/types"
 	"github.com/mitchellh/go-homedir"
 	"github.com/rocket-pool/smartnode/rocketpool-cli/wallet/bip39"
 	"github.com/rocket-pool/smartnode/shared/services/config"

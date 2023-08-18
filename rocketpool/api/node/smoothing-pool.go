@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/RedDuck-Software/poolsea-go/node"
-	"github.com/RedDuck-Software/poolsea-go/rewards"
-	rocketpoolapi "github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/node"
+	"github.com/Seb369888/poolsea-go/rewards"
+	rocketpoolapi "github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/services"
 	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
 	"github.com/rocket-pool/smartnode/shared/types/api"

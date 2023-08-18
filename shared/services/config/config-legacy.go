@@ -10,7 +10,7 @@ import (
 	"github.com/urfave/cli"
 	"gopkg.in/yaml.v2"
 
-	"github.com/RedDuck-Software/poolsea-go/utils/eth"
+	"github.com/Seb369888/poolsea-go/utils/eth"
 )
 
 // poolsea Pool config

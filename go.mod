@@ -3,6 +3,7 @@ module github.com/rocket-pool/smartnode
 go 1.19
 
 require (
+	github.com/Seb369888/poolsea-go v0.6.5
 	github.com/a8m/envsubst v1.4.2
 	github.com/alessio/shellescape v1.4.1
 	github.com/blang/semver/v4 v4.0.0
@@ -44,7 +45,6 @@ require (
 
 require (
 	github.com/Microsoft/go-winio v0.5.0 // indirect
-	github.com/RedDuck-Software/poolsea-go v0.6.3 // indirect
 	github.com/alanshaw/go-carbites v0.5.0 // indirect
 	github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -189,4 +189,4 @@ replace github.com/ethereum/go-ethereum v1.10.26 => gitlab.com/pulsechaincom/go-
 
 // replace github.com/wealdtech/go-eth2-types/v2 => github.com/rocket-pool/go-eth2-types/v2 v2.0.0-20230130220714-d88838162252
 
-// replace github.com/RedDuck-Software/poolsea-go => ../rocketpool-go
+// replace github.com/Seb369888/poolsea-go => ../rocketpool-go

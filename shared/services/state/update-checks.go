@@ -1,8 +1,8 @@
 package state
 
 import (
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
-	"github.com/RedDuck-Software/poolsea-go/utils"
+	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/utils"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/hashicorp/go-version"
 )

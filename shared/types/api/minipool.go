@@ -6,10 +6,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/RedDuck-Software/poolsea-go/minipool"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
-	"github.com/RedDuck-Software/poolsea-go/tokens"
-	"github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/minipool"
+	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/tokens"
+	"github.com/Seb369888/poolsea-go/types"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
 )
 

@@ -1,8 +1,8 @@
 package network
 
 import (
-	"github.com/RedDuck-Software/poolsea-go/network"
-	"github.com/RedDuck-Software/poolsea-go/settings/protocol"
+	"github.com/Seb369888/poolsea-go/network"
+	"github.com/Seb369888/poolsea-go/settings/protocol"
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 

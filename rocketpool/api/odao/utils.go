@@ -3,11 +3,11 @@ package odao
 import (
 	"time"
 
-	"github.com/RedDuck-Software/poolsea-go/dao"
-	tndao "github.com/RedDuck-Software/poolsea-go/dao/trustednode"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
-	tnsettings "github.com/RedDuck-Software/poolsea-go/settings/trustednode"
-	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/dao"
+	tndao "github.com/Seb369888/poolsea-go/dao/trustednode"
+	"github.com/Seb369888/poolsea-go/rocketpool"
+	tnsettings "github.com/Seb369888/poolsea-go/settings/trustednode"
+	rptypes "github.com/Seb369888/poolsea-go/types"
 	"github.com/ethereum/go-ethereum/common"
 	"golang.org/x/sync/errgroup"
 )

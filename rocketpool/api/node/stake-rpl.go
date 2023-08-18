@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"math/big"
 
-	v110_network "github.com/RedDuck-Software/poolsea-go/legacy/v1.1.0/network"
-	"github.com/RedDuck-Software/poolsea-go/node"
-	"github.com/RedDuck-Software/poolsea-go/tokens"
-	"github.com/RedDuck-Software/poolsea-go/utils"
+	v110_network "github.com/Seb369888/poolsea-go/legacy/v1.1.0/network"
+	"github.com/Seb369888/poolsea-go/node"
+	"github.com/Seb369888/poolsea-go/tokens"
+	"github.com/Seb369888/poolsea-go/utils"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

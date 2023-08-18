@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/RedDuck-Software/poolsea-go/minipool"
+	"github.com/Seb369888/poolsea-go/minipool"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

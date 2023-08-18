@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/RedDuck-Software/poolsea-go/types"
-	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/types"
+	rptypes "github.com/Seb369888/poolsea-go/types"
 	"github.com/google/uuid"
 	eth2types "github.com/wealdtech/go-eth2-types/v2"
 	eth2ks "github.com/wealdtech/go-eth2-wallet-encryptor-keystorev4"

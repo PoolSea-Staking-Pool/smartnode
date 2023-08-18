@@ -9,7 +9,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/RedDuck-Software/poolsea-go/types"
+	"github.com/Seb369888/poolsea-go/types"
 	"github.com/rocket-pool/smartnode/shared/types/api"
 	utils "github.com/rocket-pool/smartnode/shared/utils/api"
 )

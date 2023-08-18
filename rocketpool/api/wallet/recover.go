@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 

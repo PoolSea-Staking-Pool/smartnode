@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/RedDuck-Software/poolsea-go/minipool"
-	"github.com/RedDuck-Software/poolsea-go/settings/trustednode"
+	"github.com/Seb369888/poolsea-go/minipool"
+	"github.com/Seb369888/poolsea-go/settings/trustednode"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 
-	rptypes "github.com/RedDuck-Software/poolsea-go/types"
+	rptypes "github.com/Seb369888/poolsea-go/types"
 	"github.com/rocket-pool/smartnode/shared/services"
 	"github.com/rocket-pool/smartnode/shared/services/state"
 	"github.com/rocket-pool/smartnode/shared/types/api"

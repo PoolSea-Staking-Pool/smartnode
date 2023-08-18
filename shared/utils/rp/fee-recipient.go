@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/RedDuck-Software/poolsea-go/node"
-	"github.com/RedDuck-Software/poolsea-go/rocketpool"
+	"github.com/Seb369888/poolsea-go/node"
+	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/rocket-pool/smartnode/shared/services/beacon"
