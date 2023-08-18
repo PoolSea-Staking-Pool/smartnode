@@ -3,8 +3,8 @@ package config
 import (
 	"strings"
 
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 )
 
 func createLocalMevStep(wiz *wizard, currentStep int, totalSteps int) *checkBoxWizardStep {

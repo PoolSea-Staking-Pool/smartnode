@@ -3,8 +3,8 @@ package cli
 import (
 	"fmt"
 
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 // Check the status of the Execution and Consensus client(s) and provision the API with them

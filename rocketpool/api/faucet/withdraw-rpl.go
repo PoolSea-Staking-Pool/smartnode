@@ -12,9 +12,9 @@ import (
 	"golang.org/x/sync/errgroup"
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/contracts"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/contracts"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 func canWithdrawRpl(c *cli.Context) (*api.CanFaucetWithdrawRplResponse, error) {

@@ -16,20 +16,20 @@ import (
 	"github.com/Seb369888/poolsea-go/node"
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/Seb369888/poolsea-go/utils/eth"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	rpgas "github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/state"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	rpgas "github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/state"
 	"github.com/urfave/cli"
 	"gopkg.in/yaml.v2"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/wallet"
-	"github.com/rocket-pool/smartnode/shared/utils/api"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/wallet"
+	"github.com/Seb369888/smartnode/shared/utils/api"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 )
 
 // Number of slots to go back in time and scan for penalties if state is empty (400k is approx. 8 weeks)

@@ -3,8 +3,8 @@ package collectors
 import (
 	"fmt"
 
+	"github.com/Seb369888/smartnode/shared/services/beacon"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/prometheus/client_golang/prometheus"

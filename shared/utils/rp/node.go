@@ -12,9 +12,9 @@ import (
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	tnsettings "github.com/Seb369888/poolsea-go/settings/trustednode"
 	"github.com/Seb369888/poolsea-go/types"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
 	"golang.org/x/sync/errgroup"
 )
 

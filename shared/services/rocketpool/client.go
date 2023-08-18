@@ -21,14 +21,14 @@ import (
 	"github.com/urfave/cli"
 	"golang.org/x/crypto/ssh"
 
+	"github.com/Seb369888/smartnode/addons/graffiti_wall_writer"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/utils/rp"
 	"github.com/alessio/shellescape"
 	"github.com/blang/semver/v4"
 	externalip "github.com/glendc/go-external-ip"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/smartnode/addons/graffiti_wall_writer"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
-	"github.com/rocket-pool/smartnode/shared/utils/rp"
 )
 
 // Config

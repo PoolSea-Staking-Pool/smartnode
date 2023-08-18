@@ -9,11 +9,11 @@ import (
 	"github.com/Seb369888/poolsea-go/types"
 	"github.com/Seb369888/poolsea-go/utils/eth"
 	rpstate "github.com/Seb369888/poolsea-go/utils/state"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
 	"golang.org/x/sync/errgroup"
 )
 

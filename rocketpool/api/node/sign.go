@@ -7,9 +7,9 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	hexutils "github.com/rocket-pool/smartnode/shared/utils/hex"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	hexutils "github.com/Seb369888/smartnode/shared/utils/hex"
 )
 
 func sign(c *cli.Context, serializedTx string) (*api.NodeSignResponse, error) {

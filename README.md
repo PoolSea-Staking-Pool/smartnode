@@ -22,7 +22,7 @@ See the [Poolsea dockerhub](https://hub.docker.com/u/rocketpool) page for a comp
 
 ## Installation
 
-See the [Smartnode Installer](https://github.com/rocket-pool/smartnode-install) repository for supported platforms and installation instructions.
+See the [Smartnode Installer](https://github.com/Seb369888/smartnode-install) repository for supported platforms and installation instructions.
 
 
 ## CLI Commands

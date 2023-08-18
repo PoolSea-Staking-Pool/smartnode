@@ -9,11 +9,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	"github.com/rocket-pool/smartnode/shared/utils/math"
+	"github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/math"
 )
 
 func refundMinipools(c *cli.Context) error {

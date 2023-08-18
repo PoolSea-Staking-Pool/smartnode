@@ -3,8 +3,8 @@ package node
 import (
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 func getSyncProgress(c *cli.Context) (*api.NodeSyncProgressResponse, error) {

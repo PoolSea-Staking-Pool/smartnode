@@ -1,7 +1,7 @@
 package config
 
 import (
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 )
 
 func createUseFallbackStep(wiz *wizard, currentStep int, totalSteps int) *choiceWizardStep {

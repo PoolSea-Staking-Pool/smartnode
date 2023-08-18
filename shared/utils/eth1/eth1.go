@@ -7,12 +7,12 @@ import (
 	"strings"
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 	"github.com/urfave/cli"
 )
 

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/rocket-pool/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/types/config"
 )
 
 // Configuration for fallback Lighthouse

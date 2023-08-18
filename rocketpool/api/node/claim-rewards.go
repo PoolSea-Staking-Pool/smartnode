@@ -16,13 +16,13 @@ import (
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/Seb369888/poolsea-go/settings/protocol"
 	"github.com/Seb369888/poolsea-go/utils/eth"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	rprewards "github.com/rocket-pool/smartnode/shared/services/rewards"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	"github.com/rocket-pool/smartnode/shared/utils/eth1"
-	rputils "github.com/rocket-pool/smartnode/shared/utils/rp"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	rprewards "github.com/Seb369888/smartnode/shared/services/rewards"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/utils/eth1"
+	rputils "github.com/Seb369888/smartnode/shared/utils/rp"
 )
 
 func getRewardsInfo(c *cli.Context) (*api.NodeGetRewardsInfoResponse, error) {

@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"strconv"
 
+	hexutil "github.com/Seb369888/smartnode/shared/utils/hex"
 	"github.com/ethereum/go-ethereum/common"
-	hexutil "github.com/rocket-pool/smartnode/shared/utils/hex"
 )
 
 // Request types

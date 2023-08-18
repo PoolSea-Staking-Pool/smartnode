@@ -5,8 +5,8 @@ import (
 	"io/fs"
 	"os"
 
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 )
 
 // Config

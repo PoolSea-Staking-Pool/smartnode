@@ -13,17 +13,17 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/contracts"
-	"github.com/rocket-pool/smartnode/shared/services/passwords"
-	"github.com/rocket-pool/smartnode/shared/services/wallet"
-	lhkeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore/lighthouse"
-	lokeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore/lodestar"
-	nmkeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore/nimbus"
-	prkeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore/prysm"
-	tkkeystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore/teku"
-	"github.com/rocket-pool/smartnode/shared/utils/rp"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/contracts"
+	"github.com/Seb369888/smartnode/shared/services/passwords"
+	"github.com/Seb369888/smartnode/shared/services/wallet"
+	lhkeystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore/lighthouse"
+	lokeystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore/lodestar"
+	nmkeystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore/nimbus"
+	prkeystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore/prysm"
+	tkkeystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore/teku"
+	"github.com/Seb369888/smartnode/shared/utils/rp"
 )
 
 // Config

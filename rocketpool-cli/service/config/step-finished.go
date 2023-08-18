@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/rivo/tview"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 func createFinishedStep(wiz *wizard, currentStep int, totalSteps int) *choiceWizardStep {

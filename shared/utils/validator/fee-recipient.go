@@ -9,12 +9,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/client"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
 )
 
 // Settings

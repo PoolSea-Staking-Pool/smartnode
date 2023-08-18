@@ -6,12 +6,12 @@ import (
 	"time"
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
 )
 
 // Settings

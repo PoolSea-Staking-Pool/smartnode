@@ -3,8 +3,8 @@ package graffiti_wall_writer
 import (
 	"fmt"
 
-	"github.com/rocket-pool/smartnode/shared/types/addons"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/types/addons"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 )
 
 const (

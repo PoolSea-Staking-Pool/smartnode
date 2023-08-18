@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/alessio/shellescape"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 	"gopkg.in/yaml.v2"
 )
 

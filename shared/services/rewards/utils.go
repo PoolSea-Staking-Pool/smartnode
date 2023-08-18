@@ -7,7 +7,7 @@ import (
 	rewards_v110rc1 "github.com/Seb369888/poolsea-go/legacy/v1.1.0-rc1/rewards"
 	"github.com/Seb369888/poolsea-go/rewards"
 	"github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/config"
 )
 
 // This retrieves the rewards snapshot event from a set of contracts, upgrading it to the latest struct version

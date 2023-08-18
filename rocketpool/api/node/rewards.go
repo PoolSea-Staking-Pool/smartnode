@@ -18,12 +18,12 @@ import (
 	"github.com/urfave/cli"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	rprewards "github.com/rocket-pool/smartnode/shared/services/rewards"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	"github.com/rocket-pool/smartnode/shared/utils/eth2"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	rprewards "github.com/Seb369888/smartnode/shared/services/rewards"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/utils/eth2"
 )
 
 func getRewards(c *cli.Context) (*api.NodeRewardsResponse, error) {

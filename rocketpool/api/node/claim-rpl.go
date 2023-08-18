@@ -7,9 +7,9 @@ import (
 	"github.com/urfave/cli"
 
 	"github.com/Seb369888/poolsea-go/legacy/v1.0.0/rewards"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	"github.com/rocket-pool/smartnode/shared/utils/eth1"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/utils/eth1"
 )
 
 func canNodeClaimRpl(c *cli.Context) (*api.CanNodeClaimRplResponse, error) {

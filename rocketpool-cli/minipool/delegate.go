@@ -8,10 +8,10 @@ import (
 	"github.com/urfave/cli"
 
 	rocketpoolapi "github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 func delegateUpgradeMinipools(c *cli.Context) error {

@@ -8,12 +8,12 @@ import (
 
 	"github.com/Seb369888/poolsea-go/types"
 	"github.com/Seb369888/poolsea-go/utils/eth"
+	"github.com/Seb369888/smartnode/rocketpool-cli/wallet"
+	"github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/cli/migration"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/rocketpool-cli/wallet"
-	"github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	"github.com/rocket-pool/smartnode/shared/utils/cli/migration"
 	"github.com/urfave/cli"
 )
 

@@ -6,10 +6,10 @@ import (
 	"github.com/Seb369888/poolsea-go/utils/eth"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	"github.com/rocket-pool/smartnode/shared/utils/math"
+	"github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/math"
 )
 
 func nodeBurn(c *cli.Context, amount float64, token string) error {

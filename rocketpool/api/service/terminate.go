@@ -7,7 +7,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 const dataFolder string = "/.rocketpool/data"

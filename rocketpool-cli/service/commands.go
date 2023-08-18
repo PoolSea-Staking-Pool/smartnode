@@ -6,10 +6,10 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 // Creates CLI argument flags from the parameters of the configuration struct

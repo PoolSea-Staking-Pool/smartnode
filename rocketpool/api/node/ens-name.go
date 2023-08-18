@@ -3,9 +3,9 @@ package node
 import (
 	"fmt"
 
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
 	"github.com/urfave/cli"
 	ens "github.com/wealdtech/go-ens/v3"
 )

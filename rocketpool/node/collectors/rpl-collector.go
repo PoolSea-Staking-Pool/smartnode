@@ -5,8 +5,8 @@ import (
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/Seb369888/poolsea-go/utils/eth"
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 )
 
 // Represents the collector for the RPL metrics

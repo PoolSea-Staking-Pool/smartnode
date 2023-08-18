@@ -15,14 +15,14 @@ import (
 	"github.com/urfave/cli"
 	"gopkg.in/yaml.v2"
 
+	cliconfig "github.com/Seb369888/smartnode/rocketpool-cli/service/config"
+	"github.com/Seb369888/smartnode/shared"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/sys"
 	"github.com/dustin/go-humanize"
-	cliconfig "github.com/rocket-pool/smartnode/rocketpool-cli/service/config"
-	"github.com/rocket-pool/smartnode/shared"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	"github.com/rocket-pool/smartnode/shared/utils/sys"
 	"github.com/shirou/gopsutil/v3/disk"
 )
 

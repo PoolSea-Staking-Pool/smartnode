@@ -5,9 +5,9 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/wallet"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/wallet"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 func initWallet(c *cli.Context) (*api.InitWalletResponse, error) {

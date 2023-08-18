@@ -8,15 +8,15 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/fatih/color"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
 )
 
 // This is a proxy for multiple ETH clients, providing natural fallback support if one of them fails.

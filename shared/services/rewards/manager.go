@@ -16,13 +16,13 @@ import (
 
 	"github.com/Seb369888/poolsea-go/rewards"
 	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/klauspost/compress/zstd"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 const (

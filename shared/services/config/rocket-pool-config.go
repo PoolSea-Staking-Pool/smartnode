@@ -9,13 +9,13 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Seb369888/smartnode/addons"
+	"github.com/Seb369888/smartnode/shared"
+	"github.com/Seb369888/smartnode/shared/services/config/migration"
+	addontypes "github.com/Seb369888/smartnode/shared/types/addons"
+	"github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/alessio/shellescape"
 	"github.com/pbnjay/memory"
-	"github.com/rocket-pool/smartnode/addons"
-	"github.com/rocket-pool/smartnode/shared"
-	"github.com/rocket-pool/smartnode/shared/services/config/migration"
-	addontypes "github.com/rocket-pool/smartnode/shared/types/addons"
-	"github.com/rocket-pool/smartnode/shared/types/config"
 	"gopkg.in/yaml.v2"
 )
 

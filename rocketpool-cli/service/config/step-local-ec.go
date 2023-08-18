@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 )
 
 func createLocalEcStep(wiz *wizard, currentStep int, totalSteps int) *choiceWizardStep {

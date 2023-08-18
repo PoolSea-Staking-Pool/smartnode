@@ -7,9 +7,9 @@ import (
 	v110rc1_rewards "github.com/Seb369888/poolsea-go/legacy/v1.1.0-rc1/rewards"
 	"github.com/Seb369888/poolsea-go/rewards"
 	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 func GetClaimIntervalTime(cfg *config.RocketPoolConfig, index uint64, rp *rocketpool.RocketPool, opts *bind.CallOpts) (time.Duration, error) {

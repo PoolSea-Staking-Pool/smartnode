@@ -3,9 +3,9 @@ package wallet
 import (
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	walletutils "github.com/rocket-pool/smartnode/shared/utils/wallet"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	walletutils "github.com/Seb369888/smartnode/shared/utils/wallet"
 )
 
 func rebuildWallet(c *cli.Context) (*api.RebuildWalletResponse, error) {

@@ -1,8 +1,8 @@
 package config
 
 import (
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/gdamore/tcell/v2"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 )
 
 // The page wrapper for the native config

@@ -6,11 +6,11 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Seb369888/smartnode/rocketpool/watchtower/collectors"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/rocket-pool/smartnode/rocketpool/watchtower/collectors"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
 	"github.com/urfave/cli"
 )
 

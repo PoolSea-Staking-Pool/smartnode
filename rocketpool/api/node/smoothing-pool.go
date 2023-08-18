@@ -8,11 +8,11 @@ import (
 	"github.com/Seb369888/poolsea-go/node"
 	"github.com/Seb369888/poolsea-go/rewards"
 	rocketpoolapi "github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	"github.com/rocket-pool/smartnode/shared/utils/eth1"
-	"github.com/rocket-pool/smartnode/shared/utils/validator"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/utils/eth1"
+	"github.com/Seb369888/smartnode/shared/utils/validator"
 	"github.com/urfave/cli"
 )
 

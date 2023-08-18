@@ -3,9 +3,9 @@ package node
 import (
 	"math/big"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	rputils "github.com/rocket-pool/smartnode/shared/utils/rp"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	rputils "github.com/Seb369888/smartnode/shared/utils/rp"
 	"github.com/urfave/cli"
 )
 

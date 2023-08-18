@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 func ZeroIfNil(in **big.Int) {

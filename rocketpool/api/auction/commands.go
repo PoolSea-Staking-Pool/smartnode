@@ -3,8 +3,8 @@ package auction
 import (
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/utils/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 // Register subcommands

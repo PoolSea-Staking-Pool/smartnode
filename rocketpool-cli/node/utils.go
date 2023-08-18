@@ -14,12 +14,12 @@ import (
 	"unicode"
 
 	"github.com/Seb369888/poolsea-go/types"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	hexutils "github.com/Seb369888/smartnode/shared/utils/hex"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	hexutils "github.com/rocket-pool/smartnode/shared/utils/hex"
 	"gopkg.in/yaml.v2"
 )
 

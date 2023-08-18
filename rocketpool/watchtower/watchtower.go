@@ -15,11 +15,11 @@ import (
 
 	"github.com/Seb369888/poolsea-go/dao/trustednode"
 	"github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/rocketpool/watchtower/collectors"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
+	"github.com/Seb369888/smartnode/rocketpool/watchtower/collectors"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 )
 
 // Config

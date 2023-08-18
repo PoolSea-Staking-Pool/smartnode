@@ -13,15 +13,15 @@ import (
 	"github.com/fatih/color"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/rocketpool/node/collectors"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	"github.com/rocket-pool/smartnode/shared/services/wallet/keystore/lighthouse"
-	"github.com/rocket-pool/smartnode/shared/services/wallet/keystore/nimbus"
-	"github.com/rocket-pool/smartnode/shared/services/wallet/keystore/prysm"
-	"github.com/rocket-pool/smartnode/shared/services/wallet/keystore/teku"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
+	"github.com/Seb369888/smartnode/rocketpool/node/collectors"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	"github.com/Seb369888/smartnode/shared/services/wallet/keystore/lighthouse"
+	"github.com/Seb369888/smartnode/shared/services/wallet/keystore/nimbus"
+	"github.com/Seb369888/smartnode/shared/services/wallet/keystore/prysm"
+	"github.com/Seb369888/smartnode/shared/services/wallet/keystore/teku"
+	"github.com/Seb369888/smartnode/shared/utils/log"
 )
 
 // Config

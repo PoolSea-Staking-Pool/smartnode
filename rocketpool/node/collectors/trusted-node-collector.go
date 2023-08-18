@@ -15,10 +15,10 @@ import (
 	"github.com/Seb369888/poolsea-go/tokens"
 	"github.com/Seb369888/poolsea-go/types"
 	"github.com/Seb369888/poolsea-go/utils/eth"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 	"golang.org/x/sync/errgroup"
 )
 

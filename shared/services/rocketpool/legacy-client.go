@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/alessio/shellescape"
 	"github.com/mitchellh/go-homedir"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 )
 
 // Config

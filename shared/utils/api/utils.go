@@ -9,10 +9,10 @@ import (
 	"github.com/Seb369888/poolsea-go/settings/protocol"
 	"github.com/Seb369888/poolsea-go/utils"
 	"github.com/Seb369888/poolsea-go/utils/eth"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/utils/log"
+	"github.com/Seb369888/smartnode/shared/utils/math"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
-	"github.com/rocket-pool/smartnode/shared/utils/math"
 )
 
 // The fraction of the timeout period to trigger overdue transactions

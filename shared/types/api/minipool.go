@@ -10,7 +10,7 @@ import (
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/Seb369888/poolsea-go/tokens"
 	"github.com/Seb369888/poolsea-go/types"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
 )
 
 type MinipoolStatusResponse struct {

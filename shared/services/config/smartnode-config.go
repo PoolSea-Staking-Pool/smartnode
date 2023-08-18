@@ -2,9 +2,9 @@ package config
 
 import (
 	"fmt"
+	"github.com/Seb369888/smartnode/shared"
+	"github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared"
-	"github.com/rocket-pool/smartnode/shared/types/config"
 	"path/filepath"
 )
 

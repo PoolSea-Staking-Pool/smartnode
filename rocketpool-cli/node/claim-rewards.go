@@ -10,11 +10,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services/gas"
-	rprewards "github.com/rocket-pool/smartnode/shared/services/rewards"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/services/gas"
+	rprewards "github.com/Seb369888/smartnode/shared/services/rewards"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 const (

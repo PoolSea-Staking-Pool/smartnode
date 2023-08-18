@@ -5,9 +5,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 const colorReset string = "\033[0m"

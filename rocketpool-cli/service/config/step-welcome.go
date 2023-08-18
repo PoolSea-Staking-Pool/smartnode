@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/rocket-pool/smartnode/shared"
+	"github.com/Seb369888/smartnode/shared"
 )
 
 func createWelcomeStep(wiz *wizard, currentStep int, totalSteps int) *choiceWizardStep {

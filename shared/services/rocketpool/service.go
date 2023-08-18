@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 // Deletes the data folder including the wallet file, password file, and all validator keys.

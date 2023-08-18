@@ -13,9 +13,9 @@ import (
 	eth2types "github.com/wealdtech/go-eth2-types/v2"
 	eth2ks "github.com/wealdtech/go-eth2-wallet-encryptor-keystorev4"
 
-	"github.com/rocket-pool/smartnode/shared/services/passwords"
-	keystore "github.com/rocket-pool/smartnode/shared/services/wallet/keystore"
-	hexutil "github.com/rocket-pool/smartnode/shared/utils/hex"
+	"github.com/Seb369888/smartnode/shared/services/passwords"
+	keystore "github.com/Seb369888/smartnode/shared/services/wallet/keystore"
+	hexutil "github.com/Seb369888/smartnode/shared/utils/hex"
 )
 
 // Config

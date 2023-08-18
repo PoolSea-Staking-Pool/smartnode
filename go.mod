@@ -1,4 +1,4 @@
-module github.com/rocket-pool/smartnode
+module github.com/Seb369888/smartnode
 
 go 1.19
 

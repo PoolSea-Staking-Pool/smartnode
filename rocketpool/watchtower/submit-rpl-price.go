@@ -23,17 +23,17 @@ import (
 	"github.com/urfave/cli"
 
 	v110_network "github.com/Seb369888/poolsea-go/legacy/v1.1.0/network"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/services/contracts"
-	rpgas "github.com/rocket-pool/smartnode/shared/services/gas"
-	"github.com/rocket-pool/smartnode/shared/services/state"
-	"github.com/rocket-pool/smartnode/shared/services/wallet"
-	"github.com/rocket-pool/smartnode/shared/utils/api"
-	"github.com/rocket-pool/smartnode/shared/utils/eth1"
-	"github.com/rocket-pool/smartnode/shared/utils/log"
-	mathutils "github.com/rocket-pool/smartnode/shared/utils/math"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/services/contracts"
+	rpgas "github.com/Seb369888/smartnode/shared/services/gas"
+	"github.com/Seb369888/smartnode/shared/services/state"
+	"github.com/Seb369888/smartnode/shared/services/wallet"
+	"github.com/Seb369888/smartnode/shared/utils/api"
+	"github.com/Seb369888/smartnode/shared/utils/eth1"
+	"github.com/Seb369888/smartnode/shared/utils/log"
+	mathutils "github.com/Seb369888/smartnode/shared/utils/math"
 )
 
 const (

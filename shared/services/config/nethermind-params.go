@@ -3,8 +3,8 @@ package config
 import (
 	"runtime"
 
+	"github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/pbnjay/memory"
-	"github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 // Constants

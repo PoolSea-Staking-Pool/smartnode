@@ -3,11 +3,11 @@ package config
 import (
 	"fmt"
 
+	"github.com/Seb369888/smartnode/shared/services/config"
+	"github.com/Seb369888/smartnode/shared/types/addons"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
-	"github.com/rocket-pool/smartnode/shared/services/config"
-	"github.com/rocket-pool/smartnode/shared/types/addons"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 // The page wrapper for the Graffiti Wall Writer addon config

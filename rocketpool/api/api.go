@@ -1,24 +1,24 @@
 package api
 
 import (
+	"github.com/Seb369888/smartnode/rocketpool/api/debug"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/rocketpool/api/debug"
 	"github.com/urfave/cli"
 
 	"github.com/Seb369888/poolsea-go/utils"
-	"github.com/rocket-pool/smartnode/rocketpool/api/auction"
-	"github.com/rocket-pool/smartnode/rocketpool/api/faucet"
-	"github.com/rocket-pool/smartnode/rocketpool/api/minipool"
-	"github.com/rocket-pool/smartnode/rocketpool/api/network"
-	"github.com/rocket-pool/smartnode/rocketpool/api/node"
-	"github.com/rocket-pool/smartnode/rocketpool/api/odao"
-	"github.com/rocket-pool/smartnode/rocketpool/api/queue"
-	apiservice "github.com/rocket-pool/smartnode/rocketpool/api/service"
-	"github.com/rocket-pool/smartnode/rocketpool/api/wallet"
-	"github.com/rocket-pool/smartnode/shared/services"
-	apitypes "github.com/rocket-pool/smartnode/shared/types/api"
-	"github.com/rocket-pool/smartnode/shared/utils/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/rocketpool/api/auction"
+	"github.com/Seb369888/smartnode/rocketpool/api/faucet"
+	"github.com/Seb369888/smartnode/rocketpool/api/minipool"
+	"github.com/Seb369888/smartnode/rocketpool/api/network"
+	"github.com/Seb369888/smartnode/rocketpool/api/node"
+	"github.com/Seb369888/smartnode/rocketpool/api/odao"
+	"github.com/Seb369888/smartnode/rocketpool/api/queue"
+	apiservice "github.com/Seb369888/smartnode/rocketpool/api/service"
+	"github.com/Seb369888/smartnode/rocketpool/api/wallet"
+	"github.com/Seb369888/smartnode/shared/services"
+	apitypes "github.com/Seb369888/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/utils/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 // Waits for an auction transaction

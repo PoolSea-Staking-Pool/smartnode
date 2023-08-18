@@ -17,9 +17,9 @@ import (
 	eth2types "github.com/wealdtech/go-eth2-types/v2"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/rocket-pool/smartnode/shared/services/beacon"
-	"github.com/rocket-pool/smartnode/shared/utils/eth2"
-	hexutil "github.com/rocket-pool/smartnode/shared/utils/hex"
+	"github.com/Seb369888/smartnode/shared/services/beacon"
+	"github.com/Seb369888/smartnode/shared/utils/eth2"
+	hexutil "github.com/Seb369888/smartnode/shared/utils/hex"
 )
 
 // Config

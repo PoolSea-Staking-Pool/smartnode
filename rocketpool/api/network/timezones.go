@@ -7,8 +7,8 @@ import (
 	"github.com/Seb369888/poolsea-go/node"
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
 )
 
 func getTimezones(c *cli.Context) (*api.NetworkTimezonesResponse, error) {

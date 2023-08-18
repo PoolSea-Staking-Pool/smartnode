@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
-	"github.com/rocket-pool/smartnode/shared/services"
-	"github.com/rocket-pool/smartnode/shared/types/api"
+	"github.com/Seb369888/smartnode/shared/services"
+	"github.com/Seb369888/smartnode/shared/types/api"
 	"github.com/urfave/cli"
 	ens "github.com/wealdtech/go-ens/v3"
 )

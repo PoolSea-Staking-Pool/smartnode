@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
 )
 
 // A form item linked to a Parameter

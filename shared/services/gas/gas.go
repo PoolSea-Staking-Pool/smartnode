@@ -7,11 +7,11 @@ import (
 
 	"github.com/Seb369888/poolsea-go/rocketpool"
 	"github.com/Seb369888/poolsea-go/utils/eth"
-	"github.com/rocket-pool/smartnode/shared/services/gas/etherchain"
-	"github.com/rocket-pool/smartnode/shared/services/gas/etherscan"
-	rpsvc "github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
-	"github.com/rocket-pool/smartnode/shared/utils/math"
+	"github.com/Seb369888/smartnode/shared/services/gas/etherchain"
+	"github.com/Seb369888/smartnode/shared/services/gas/etherscan"
+	rpsvc "github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/math"
 )
 
 const colorReset string = "\033[0m"

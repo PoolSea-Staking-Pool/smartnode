@@ -3,8 +3,8 @@ package node
 import (
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/shared/utils/api"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	"github.com/Seb369888/smartnode/shared/utils/api"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 // Register subcommands
@@ -512,7 +512,6 @@ func RegisterSubcommands(command *cli.Command, name string, aliases []string) {
 					if err != nil {
 						return err
 					}
-
 
 					// Run
 					api.PrintResponse(canSetStakeRplForAllowed(c, callerAddress, allowed))

@@ -5,7 +5,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 // Register commands

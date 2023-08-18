@@ -6,11 +6,11 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/rocket-pool/smartnode/rocketpool/api"
-	"github.com/rocket-pool/smartnode/rocketpool/node"
-	"github.com/rocket-pool/smartnode/rocketpool/watchtower"
-	"github.com/rocket-pool/smartnode/shared"
-	apiutils "github.com/rocket-pool/smartnode/shared/utils/api"
+	"github.com/Seb369888/smartnode/rocketpool/api"
+	"github.com/Seb369888/smartnode/rocketpool/node"
+	"github.com/Seb369888/smartnode/rocketpool/watchtower"
+	"github.com/Seb369888/smartnode/shared"
+	apiutils "github.com/Seb369888/smartnode/shared/utils/api"
 )
 
 // Run

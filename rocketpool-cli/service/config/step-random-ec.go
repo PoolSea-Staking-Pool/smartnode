@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	cfgtypes "github.com/rocket-pool/smartnode/shared/types/config"
+	cfgtypes "github.com/Seb369888/smartnode/shared/types/config"
 )
 
 const randomEcID string = "step-random-ec"

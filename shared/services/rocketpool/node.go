@@ -10,8 +10,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/Seb369888/poolsea-go/types"
-	"github.com/rocket-pool/smartnode/shared/types/api"
-	utils "github.com/rocket-pool/smartnode/shared/utils/api"
+	"github.com/Seb369888/smartnode/shared/types/api"
+	utils "github.com/Seb369888/smartnode/shared/utils/api"
 )
 
 // Get node status

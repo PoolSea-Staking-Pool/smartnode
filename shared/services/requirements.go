@@ -11,8 +11,8 @@ import (
 	"github.com/Seb369888/poolsea-go/dao/trustednode"
 	"github.com/Seb369888/poolsea-go/node"
 	"github.com/Seb369888/poolsea-go/rocketpool"
+	"github.com/Seb369888/smartnode/shared/services/config"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rocket-pool/smartnode/shared/services/config"
 	"github.com/urfave/cli"
 )
 

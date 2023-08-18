@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/rocket-pool/smartnode/shared/types/config"
-	"github.com/rocket-pool/smartnode/shared/utils/sys"
+	"github.com/Seb369888/smartnode/shared/types/config"
+	"github.com/Seb369888/smartnode/shared/utils/sys"
 )
 
 const (

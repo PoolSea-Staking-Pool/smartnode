@@ -1,6 +1,6 @@
 package watchtower
 
-import "github.com/rocket-pool/smartnode/shared/services/config"
+import "github.com/Seb369888/smartnode/shared/services/config"
 
 const (
 	minWatchtowerMaxFee      float64 = 200

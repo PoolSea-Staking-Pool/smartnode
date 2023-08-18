@@ -6,9 +6,9 @@ import (
 
 	"github.com/urfave/cli"
 
-	rprewards "github.com/rocket-pool/smartnode/shared/services/rewards"
-	"github.com/rocket-pool/smartnode/shared/services/rocketpool"
-	cliutils "github.com/rocket-pool/smartnode/shared/utils/cli"
+	rprewards "github.com/Seb369888/smartnode/shared/services/rewards"
+	"github.com/Seb369888/smartnode/shared/services/rocketpool"
+	cliutils "github.com/Seb369888/smartnode/shared/utils/cli"
 )
 
 func getRewards(c *cli.Context) error {
