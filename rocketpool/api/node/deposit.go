@@ -595,7 +595,7 @@ func nodeDeposit(c *cli.Context, amountWei *big.Int, minNodeFee float64, salt *b
 	}
 
 	// Get validator deposit data and associated parameters
-	depositAmount := uint64(1_000_000e9) // 1 ETH in gwei
+	depositAmount := uint64(1e9) // 1 ETH in gwei
 	depositData, depositDataRoot, err := validator.GetDepositData(validatorKey, withdrawalCredentials, eth2Config, depositAmount)
 	if err != nil {
 		return nil, err
