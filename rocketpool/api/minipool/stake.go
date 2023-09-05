@@ -129,7 +129,7 @@ func canStakeMinipool(c *cli.Context, minipoolAddress common.Address) (*api.CanS
 		case rptypes.Full, rptypes.Half, rptypes.Empty:
 			depositAmount = uint64(16_000_000e9) // 16 000 000 ETH in gwei
 		case rptypes.Variable:
-			depositAmount = uint64(31_000_000e9) // 31 000 000 ETH in gwei
+			depositAmount = uint64(31_999_999e9) // 31 999 999 ETH in gwei
 		default:
 			return nil, fmt.Errorf("error staking minipool %s: unknown deposit type %d", mp.GetAddress().Hex(), depositType)
 		}
@@ -239,9 +239,9 @@ func stakeMinipool(c *cli.Context, minipoolAddress common.Address) (*api.StakeMi
 	var depositAmount uint64
 	switch depositType {
 	case rptypes.Full, rptypes.Half, rptypes.Empty:
-		depositAmount = uint64(16_000_000e9) // 16_000_000 ETH in gwei
+		depositAmount = uint64(16_000_000e9) // 16 000 000 ETH in gwei
 	case rptypes.Variable:
-		depositAmount = uint64(31_000_000e9) // 31_000_000 ETH in gwei
+		depositAmount = uint64(31_999_999e9) // 31 999 999 ETH in gwei
 	default:
 		return nil, fmt.Errorf("error staking minipool %s: unknown deposit type %d", mp.GetAddress().Hex(), depositType)
 	}
