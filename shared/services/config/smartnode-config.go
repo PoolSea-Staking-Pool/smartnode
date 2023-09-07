@@ -441,7 +441,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
 			config.Network_Prater:  "0xd8Cd47263414aFEca62d6e2a3917d6600abDceB3",
 			config.Network_Devnet:  "0x6A18E47f8CcB453Dd0894AC003f74BEE7e47A368",
-			config.Network_PulseV4: "0xa39c7c87d5F1f306b978B52E393288fBf451B503",
+			config.Network_PulseV4: "0x49F30583D50bE3C82b40c46E2b413e67Df1BcABd",
 		},
 
 		oneInchOracleAddress: map[config.Network]string{
@@ -455,7 +455,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
 			config.Network_Prater:  "0x5e932688e81a182e3de211db6544f98b8e4f89c7",
 			config.Network_Devnet:  "0x09b6aEF57B580f5CB46746BA59ed312Ba80E8Ad4",
-			config.Network_PulseV4: "0x1fa161829483531913Ef0DC386BF4cbBb6381E0a",
+			config.Network_PulseV4: "0xe53851D6963949113D8a290C6DDd4917a10F05Ef",
 		},
 
 		rplFaucetAddress: map[config.Network]string{
@@ -469,14 +469,14 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet: "0xae78736Cd615f374D3085123A210448E74Fc6393",
 			config.Network_Prater:  "0x178E141a0E3b34152f73Ff610437A7bf9B83267A",
 			config.Network_Devnet:  "0x2DF914425da6d0067EF1775AfDBDd7B24fc8100E",
-			config.Network_PulseV4: "0x265345C4F2cFba31940D1972396e513A027D54aF",
+			config.Network_PulseV4: "0x874499c8CeC4D539f921918A16A71C857871778A",
 		},
 
 		v1_0_0_RewardsPoolAddress: map[config.Network]string{
 			config.Network_Mainnet: "0xA3a18348e6E2d3897B6f2671bb8c120e36554802",
 			config.Network_Prater:  "0xf9aE18eB0CE4930Bc3d7d1A5E33e4286d4FB0f8B",
 			config.Network_Devnet:  "0x4A1b5Ab9F6C36E7168dE5F994172028Ca8554e02",
-			config.Network_PulseV4: "0x192C7997425DE3F63B3fA56f8e972778e896B6a3",
+			config.Network_PulseV4: "0xCFD04E2A831E4c14B5A71dA44f8d2796682c77D7",
 		},
 
 		v1_0_0_ClaimNodeAddress: map[config.Network]string{
