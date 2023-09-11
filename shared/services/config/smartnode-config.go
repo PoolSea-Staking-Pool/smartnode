@@ -2,10 +2,11 @@ package config
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/Seb369888/smartnode/shared"
 	"github.com/Seb369888/smartnode/shared/types/config"
 	"github.com/ethereum/go-ethereum/common"
-	"path/filepath"
 )
 
 // Constants
@@ -27,7 +28,7 @@ const (
 	RegenerateRewardsTreeRequestFormat string = "%d" + RegenerateRewardsTreeRequestSuffix
 	PrimaryRewardsFileUrl              string = "https://%s.ipfs.dweb.link/%s"
 	SecondaryRewardsFileUrl            string = "https://ipfs.io/ipfs/%s/%s"
-	GithubRewardsFileUrl               string = "https://github.com/rocket-pool/rewards-trees/raw/main/%s/%s"
+	GithubRewardsFileUrl               string = "https://github.com/PoolSea-Staking-Pool/rewards-trees/raw/main/%s/%s"
 	FeeRecipientFilename               string = "rp-fee-recipient.txt"
 	NativeFeeRecipientFilename         string = "rp-fee-recipient-env.txt"
 )
