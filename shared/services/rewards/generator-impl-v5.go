@@ -726,7 +726,7 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
 
 				// Fee to specified address
-				r.rewardsFile.AmountToFeeAddress.Add(r.rewardsFile.AmountToFeeAddress, feeToAddress)
+				r.rewardsFile.AmountToFeeAddress.Add(&r.rewardsFile.AmountToFeeAddress, feeToAddress)
 			}
 		}
 		totalEthForMinipools.Add(totalEthForMinipools, nodeInfo.SmoothingPoolEth)
