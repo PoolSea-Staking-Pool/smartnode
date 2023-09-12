@@ -717,7 +717,11 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				minipool.MinipoolShare = minipoolEth
 				nodeInfo.SmoothingPoolEth.Add(nodeInfo.SmoothingPoolEth, minipoolEth)
 
-				feeToAddress := big.NewInt(0).Set(minipool.MinipoolAddressFee)
+				feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
+				if err != nil {
+					return nil, nil, err
+				}
+				feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
 				feeToAddress.Mul(feeToAddress, totalNodeOpShare)
 				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
 

@@ -448,7 +448,7 @@ func (t *submitRewardsTree) submitRewardsSnapshot(index *big.Int, consensusBlock
 		TrustedNodeRPL:  oDaoRplRewards,
 		NodeETH:         smoothingPoolEthRewards, // TODO: nodes rewards
 		UserETH:         &rewardsFile.TotalRewards.PoolStakerSmoothingPoolEth.Int,
-		FeeToAddress:    rewardsFile.AmountToFeeAddress,
+		FeeToAddress:    &rewardsFile.AmountToFeeAddress,
 	}
 
 	// Get the gas limit
