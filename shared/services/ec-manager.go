@@ -382,6 +382,8 @@ func getNetworkNameFromId(networkId uint) string {
 		return "Goerli Testnet"
 	case 943:
 		return "Pulsechain V4 Testnet"
+	case 369:
+		return "Pulsechain Mainnet"
 	default:
 		return "Unknown Network"
 	}
