@@ -23,6 +23,8 @@ func (r *rewardsIntervalInfo) GetStartInterval(network cfgtypes.Network) (uint64
 		return 0, nil
 	case cfgtypes.Network_PulseV4:
 		return 0, nil
+	case cfgtypes.Network_Pulsechain:
+		return 0, nil
 	default:
 		return 0, fmt.Errorf("unknown network: %s", string(network))
 	}
