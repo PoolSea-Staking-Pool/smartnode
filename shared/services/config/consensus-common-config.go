@@ -16,6 +16,7 @@ const DoppelgangerDetectionID string = "doppelgangerDetection"
 const defaultGraffiti string = ""
 const defaultCheckpointSyncProvider string = ""
 const defaultCheckpointSyncPulseV4Provider string = "https://checkpoint.v4.testnet.pulsechain.com"
+const defaultCheckpointSyncPulsechainProvider string = "https://checkpoint.pulsechain.com"
 const defaultP2pPort uint16 = 9001
 const defaultBnApiPort uint16 = 5052
 const defaultOpenBnApiPort bool = false
@@ -73,8 +74,9 @@ func NewConsensusCommonConfig(cfg *RocketPoolConfig) *ConsensusCommonConfig {
 				"Leave this blank if you want to sync normally from the start of the chain.",
 			Type: config.ParameterType_String,
 			Default: map[config.Network]interface{}{
-				config.Network_All:     defaultCheckpointSyncProvider,
-				config.Network_PulseV4: defaultCheckpointSyncPulseV4Provider,
+				config.Network_All:        defaultCheckpointSyncProvider,
+				config.Network_PulseV4:    defaultCheckpointSyncPulseV4Provider,
+				config.Network_Pulsechain: defaultCheckpointSyncPulsechainProvider,
 			},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Eth2},
 			EnvironmentVariables: []string{"CHECKPOINT_SYNC_URL"},

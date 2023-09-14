@@ -11,7 +11,7 @@ import (
 const (
 	gethTagProd          string = "ethereum/client-go:v1.12.0"
 	gethTagTest          string = "ethereum/client-go:v1.12.0"
-	gethTagPulseTest     string = "registry.gitlab.com/pulsechaincom/go-pulse:v2.2.0"
+	gethTagPulsechain    string = "registry.gitlab.com/pulsechaincom/go-pulse:v2.2.0"
 	gethEventLogInterval int    = 1000
 	gethStopSignal       string = "SIGTERM"
 )
@@ -89,10 +89,11 @@ func NewGethConfig(cfg *RocketPoolConfig) *GethConfig {
 			Description: "The tag name of the Geth container you want to use on Docker Hub.",
 			Type:        config.ParameterType_String,
 			Default: map[config.Network]interface{}{
-				config.Network_Mainnet: gethTagProd,
-				config.Network_Prater:  gethTagTest,
-				config.Network_Devnet:  gethTagTest,
-				config.Network_PulseV4: gethTagPulseTest,
+				config.Network_Mainnet:    gethTagProd,
+				config.Network_Prater:     gethTagTest,
+				config.Network_Devnet:     gethTagTest,
+				config.Network_PulseV4:    gethTagPulsechain,
+				config.Network_Pulsechain: gethTagPulsechain,
 			},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Eth1},
 			EnvironmentVariables: []string{"EC_CONTAINER_TAG"},
