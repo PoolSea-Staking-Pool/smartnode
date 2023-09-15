@@ -35,7 +35,7 @@ const (
 	Network_Prater     Network = "prater"
 	Network_Devnet     Network = "devnet"
 	Network_PulseV4    Network = "pulsechain-testnet-v4"
-	Network_Pulsechain Network = "pulsechain-mainnet"
+	Network_Pulsechain Network = "pulsechain"
 )
 
 // Enum to describe the mode for a client - local (Docker Mode) or external (Hybrid Mode)

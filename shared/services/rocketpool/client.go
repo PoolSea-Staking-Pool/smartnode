@@ -33,8 +33,8 @@ import (
 
 // Config
 const (
-	InstallerURL     string = "https://github.com/RedDuck-Software/smartnode-install/releases/download/%s/install.sh"
-	UpdateTrackerURL string = "https://github.com/RedDuck-Software/smartnode-install/releases/download/%s/install-update-tracker.sh"
+	InstallerURL     string = "https://github.com/PoolSea-Staking-Pool/smartnode-install/releases/download/%s/install.sh"
+	UpdateTrackerURL string = "https://github.com/PoolSea-Staking-Pool/smartnode-install/releases/download/%s/install-update-tracker.sh"
 
 	LegacyBackupFolder       string = "old_config_backup"
 	SettingsFile             string = "user-settings.yml"
