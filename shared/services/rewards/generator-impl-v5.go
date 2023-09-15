@@ -693,6 +693,10 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 		r.log.Printlnf("WARNING: Total attestation score = %s, successful attestations = %d... sending the whole smoothing pool balance to the pool stakers.", r.totalAttestationScore.String(), r.successfulAttestations)
 		return r.smoothingPoolBalance, big.NewInt(0), nil
 	}
+	feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
+	if err != nil {
+		return nil, nil, err
+	}
 
 	totalEthForMinipools := big.NewInt(0)
 	totalNodeOpShare := big.NewInt(0)
@@ -717,10 +721,6 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				minipool.MinipoolShare = minipoolEth
 				nodeInfo.SmoothingPoolEth.Add(nodeInfo.SmoothingPoolEth, minipoolEth)
 
-				feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
-				if err != nil {
-					return nil, nil, err
-				}
 				feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
 				feeToAddress.Mul(feeToAddress, totalNodeOpShare)
 				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
@@ -745,10 +745,16 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 	// Calculate the staking pool share and the node op share
 	poolStakerShare := big.NewInt(0).Sub(r.smoothingPoolBalance, totalNodeOpShare)
 
+	feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
+	feeToAddress.Mul(feeToAddress, poolStakerShare)
+	feeToAddress.Div(feeToAddress, eth.EthToWei(1))
+	r.rewardsFile.AmountToFeeAddress.Add(&r.rewardsFile.AmountToFeeAddress, feeToAddress)
+
 	r.log.Printlnf("%s Pool staker ETH:    %s (%.3f)", r.logPrefix, poolStakerShare.String(), eth.WeiToEth(poolStakerShare))
 	r.log.Printlnf("%s Node Op ETH:        %s (%.3f)", r.logPrefix, totalNodeOpShare.String(), eth.WeiToEth(totalNodeOpShare))
 	r.log.Printlnf("%s Calculated NO ETH:  %s (error = %s wei)", r.logPrefix, totalEthForMinipools.String(), delta.String())
 	r.log.Printlnf("%s Adjusting pool staker ETH to %s to account for truncation", r.logPrefix, truePoolStakerAmount.String())
+	r.log.Printlnf("%s ETH to address", r.logPrefix, r.rewardsFile.AmountToFeeAddress.String())
 
 	return truePoolStakerAmount, totalEthForMinipools, nil
 
