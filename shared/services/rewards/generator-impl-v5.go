@@ -587,6 +587,8 @@ func (r *treeGeneratorImpl_v5) calculateEthRewards(checkBeaconPerformance bool) 
 					feeToAddress := new(big.Int).Mul(fee, feeToAddressPercentage)
 					feeToAddress.Div(feeToAddress, one)
 
+					minipool.MinipoolAddressFee.Set(feeToAddress)
+
 					finalFee := big.NewInt(0).Sub(fee, feeToAddress)
 
 					minipoolScore := big.NewInt(0).Sub(one, finalFee) // 1 - fee
@@ -691,23 +693,24 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 		r.log.Printlnf("WARNING: Total attestation score = %s, successful attestations = %d... sending the whole smoothing pool balance to the pool stakers.", r.totalAttestationScore.String(), r.successfulAttestations)
 		return r.smoothingPoolBalance, big.NewInt(0), nil
 	}
-
 	feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
 	if err != nil {
 		return nil, nil, err
 	}
+	feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
+	feeToAddress.Mul(feeToAddress, r.smoothingPoolBalance)
+	feeToAddress.Div(feeToAddress, eth.EthToWei(1))
+
+	// Fee to specified address
+	r.rewardsFile.AmountToFeeAddress.Set(feeToAddress)
+
+	smoothingPoolBalanceWithoutAddressFee := big.NewInt(0).Sub(r.smoothingPoolBalance, feeToAddress)
 
 	totalEthForMinipools := big.NewInt(0)
 	totalNodeOpShare := big.NewInt(0)
-	totalNodeOpShare.Mul(r.smoothingPoolBalance, r.totalAttestationScore)
+	totalNodeOpShare.Mul(smoothingPoolBalanceWithoutAddressFee, r.totalAttestationScore)
 	totalNodeOpShare.Div(totalNodeOpShare, big.NewInt(int64(r.successfulAttestations)))
 	totalNodeOpShare.Div(totalNodeOpShare, eth.EthToWei(1))
-
-	feeToAddressNode := big.NewInt(0).Set(feeToAddressPercentage)
-	feeToAddressNode.Mul(feeToAddressNode, totalNodeOpShare)
-	feeToAddressNode.Div(feeToAddressNode, eth.EthToWei(1))
-
-	totalNodeOpShareWithouthAddressFee := big.NewInt(0).Sub(totalNodeOpShare, feeToAddressNode)
 
 	for _, nodeInfo := range r.nodeDetails {
 		nodeInfo.SmoothingPoolEth = big.NewInt(0)
@@ -723,50 +726,31 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				minipoolEth := big.NewInt(0).Set(totalNodeOpShare)
 				minipoolEth.Mul(minipoolEth, minipool.AttestationScore)
 				minipoolEth.Div(minipoolEth, r.totalAttestationScore)
-
-				feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
-				feeToAddress.Mul(feeToAddress, minipoolEth)
-				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
-
-				minipoolEthWithoutAddressFee := big.NewInt(0).Sub(minipoolEth, feeToAddress)
-
-				minipool.MinipoolShare = minipoolEthWithoutAddressFee
-				nodeInfo.SmoothingPoolEth.Add(nodeInfo.SmoothingPoolEth, minipoolEthWithoutAddressFee)
-				// Fee to specified address
-				r.rewardsFile.AmountToFeeAddress.Add(&r.rewardsFile.AmountToFeeAddress, feeToAddress)
+				minipool.MinipoolShare = minipoolEth
+				nodeInfo.SmoothingPoolEth.Add(nodeInfo.SmoothingPoolEth, minipoolEth)
 			}
 		}
 		totalEthForMinipools.Add(totalEthForMinipools, nodeInfo.SmoothingPoolEth)
 	}
 
 	// This is how much actually goes to the pool stakers - it should ideally be equal to poolStakerShare but this accounts for any cumulative floating point errors
-	truePoolStakerAmount := big.NewInt(0).Sub(r.smoothingPoolBalance, totalEthForMinipools)
-	feeToAddressStakerTrue := big.NewInt(0).Set(feeToAddressPercentage)
-	feeToAddressStakerTrue.Mul(feeToAddressStakerTrue, truePoolStakerAmount)
-	feeToAddressStakerTrue.Div(feeToAddressStakerTrue, eth.EthToWei(1))
-
-	truePoolStakerAmountWithoutAddressFee := big.NewInt(0).Sub(truePoolStakerAmount, feeToAddressStakerTrue)
-	r.rewardsFile.AmountToFeeAddress.Add(&r.rewardsFile.AmountToFeeAddress, feeToAddressStakerTrue)
+	truePoolStakerAmount := big.NewInt(0).Sub(smoothingPoolBalanceWithoutAddressFee, totalEthForMinipools)
 
 	// Sanity check to make sure we arrived at the correct total
-	delta := big.NewInt(0).Sub(totalEthForMinipools, totalNodeOpShareWithouthAddressFee)
+	delta := big.NewInt(0).Sub(totalEthForMinipools, totalNodeOpShare)
 	delta.Abs(delta)
 	if delta.Cmp(r.epsilon) == 1 {
 		return nil, nil, fmt.Errorf("error calculating smoothing pool ETH: total was %s, but expected %s; error was too large (%s wei)", totalEthForMinipools.String(), totalNodeOpShare.String(), delta.String())
 	}
 
 	// Calculate the staking pool share and the node op share
-	poolStakerShare := big.NewInt(0).Sub(r.smoothingPoolBalance, totalNodeOpShare)
-	feeToAddressStaker := big.NewInt(0).Set(feeToAddressPercentage)
-	feeToAddressStaker.Mul(feeToAddressStaker, truePoolStakerAmount)
-	feeToAddressStaker.Div(feeToAddressStaker, eth.EthToWei(1))
+	poolStakerShare := big.NewInt(0).Sub(smoothingPoolBalanceWithoutAddressFee, totalNodeOpShare)
 
-	poolStakerAmountWithoutAddressFee := big.NewInt(0).Sub(poolStakerShare, feeToAddressStaker)
-
-	r.log.Printlnf("%s Pool staker ETH:    %s (%.3f)", r.logPrefix, poolStakerAmountWithoutAddressFee.String(), eth.WeiToEth(poolStakerAmountWithoutAddressFee))
-	r.log.Printlnf("%s Node Op ETH:        %s (%.3f)", r.logPrefix, totalNodeOpShareWithouthAddressFee.String(), eth.WeiToEth(totalNodeOpShareWithouthAddressFee))
+	r.log.Printlnf("%s Pool staker ETH:    %s (%.3f)", r.logPrefix, poolStakerShare.String(), eth.WeiToEth(poolStakerShare))
+	r.log.Printlnf("%s Node Op ETH:        %s (%.3f)", r.logPrefix, totalNodeOpShare.String(), eth.WeiToEth(totalNodeOpShare))
 	r.log.Printlnf("%s Calculated NO ETH:  %s (error = %s wei)", r.logPrefix, totalEthForMinipools.String(), delta.String())
-	r.log.Printlnf("%s Adjusting pool staker ETH to %s to account for truncation", r.logPrefix, truePoolStakerAmountWithoutAddressFee.String())
+	r.log.Printlnf("%s Adjusting pool staker ETH to %s to account for truncation", r.logPrefix, truePoolStakerAmount.String())
+	r.log.Printlnf("%s Fee to address ", r.logPrefix, r.rewardsFile.AmountToFeeAddress)
 
 	return truePoolStakerAmount, totalEthForMinipools, nil
 
