@@ -74,9 +74,9 @@ func NewConsensusCommonConfig(cfg *RocketPoolConfig) *ConsensusCommonConfig {
 				"Leave this blank if you want to sync normally from the start of the chain.",
 			Type: config.ParameterType_String,
 			Default: map[config.Network]interface{}{
-				config.Network_All:        defaultCheckpointSyncProvider,
-				config.Network_PulseV4:    defaultCheckpointSyncPulseV4Provider,
 				config.Network_Pulsechain: defaultCheckpointSyncPulsechainProvider,
+				config.Network_PulseV4:    defaultCheckpointSyncPulseV4Provider,
+				config.Network_All:        defaultCheckpointSyncProvider,
 			},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Eth2},
 			EnvironmentVariables: []string{"CHECKPOINT_SYNC_URL"},
