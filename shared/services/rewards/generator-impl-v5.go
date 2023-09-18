@@ -693,7 +693,7 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 	totalNodeOpShare.Div(totalNodeOpShare, eth.EthToWei(1))
 
 	feeToAddressOpShare := big.NewInt(0).Mul(feeToAddressPercentage, totalNodeOpShare)
-	feeToAddressPercentage.Div(feeToAddressOpShare, eth.EthToWei(1))
+	feeToAddressOpShare.Div(feeToAddressOpShare, eth.EthToWei(1))
 
 	totalNodeOpShareWithoutAddressFee := big.NewInt(0).Sub(totalNodeOpShare, feeToAddressOpShare)
 
