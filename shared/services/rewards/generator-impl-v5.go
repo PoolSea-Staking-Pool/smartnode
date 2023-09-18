@@ -681,11 +681,21 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 		return r.smoothingPoolBalance, big.NewInt(0), nil
 	}
 
+	feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
+	if err != nil {
+		return nil, nil, err
+	}
+
 	totalEthForMinipools := big.NewInt(0)
 	totalNodeOpShare := big.NewInt(0)
 	totalNodeOpShare.Mul(r.smoothingPoolBalance, r.totalAttestationScore)
 	totalNodeOpShare.Div(totalNodeOpShare, big.NewInt(int64(r.successfulAttestations)))
 	totalNodeOpShare.Div(totalNodeOpShare, eth.EthToWei(1))
+
+	feeToAddressOpShare := big.NewInt(0).Mul(feeToAddressPercentage, totalNodeOpShare)
+	feeToAddressPercentage.Div(feeToAddressOpShare, eth.EthToWei(1))
+
+	totalNodeOpShareWithoutAddressFee := big.NewInt(0).Sub(totalNodeOpShare, feeToAddressOpShare)
 
 	for _, nodeInfo := range r.nodeDetails {
 		nodeInfo.SmoothingPoolEth = big.NewInt(0)
@@ -702,10 +712,6 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 				minipoolEth.Mul(minipoolEth, minipool.AttestationScore)
 				minipoolEth.Div(minipoolEth, r.totalAttestationScore)
 
-				feeToAddressPercentage, err := rewards.GetFeeToAddress(r.rp, r.opts)
-				if err != nil {
-					return nil, nil, err
-				}
 				feeToAddress := big.NewInt(0).Set(feeToAddressPercentage)
 				feeToAddress.Mul(feeToAddress, minipoolEth)
 				feeToAddress.Div(feeToAddress, eth.EthToWei(1))
@@ -725,7 +731,7 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 	truePoolStakerAmount := big.NewInt(0).Sub(r.smoothingPoolBalance, totalEthForMinipools)
 
 	// Sanity check to make sure we arrived at the correct total
-	delta := big.NewInt(0).Sub(totalEthForMinipools, totalNodeOpShare)
+	delta := big.NewInt(0).Sub(totalEthForMinipools, totalNodeOpShareWithoutAddressFee)
 	delta.Abs(delta)
 	if delta.Cmp(r.epsilon) == 1 {
 		return nil, nil, fmt.Errorf("error calculating smoothing pool ETH: total was %s, but expected %s; error was too large (%s wei)", totalEthForMinipools.String(), totalNodeOpShare.String(), delta.String())
@@ -735,10 +741,10 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 	poolStakerShare := big.NewInt(0).Sub(r.smoothingPoolBalance, totalNodeOpShare)
 
 	r.log.Printlnf("%s Pool staker ETH:    %s (%.3f)", r.logPrefix, poolStakerShare.String(), eth.WeiToEth(poolStakerShare))
-	r.log.Printlnf("%s Node Op ETH:        %s (%.3f)", r.logPrefix, totalNodeOpShare.String(), eth.WeiToEth(totalNodeOpShare))
+	r.log.Printlnf("%s Node Op ETH:        %s (%.3f)", r.logPrefix, totalNodeOpShareWithoutAddressFee.String(), eth.WeiToEth(totalNodeOpShareWithoutAddressFee))
 	r.log.Printlnf("%s Calculated NO ETH:  %s (error = %s wei)", r.logPrefix, totalEthForMinipools.String(), delta.String())
 	r.log.Printlnf("%s Adjusting pool staker ETH to %s to account for truncation", r.logPrefix, truePoolStakerAmount.String())
-	r.log.Printlnf("%s ETH to specify address %v (%.3f)", r.logPrefix, &r.rewardsFile.AmountToFeeAddress, eth.WeiToEth(&r.rewardsFile.AmountToFeeAddress))
+	r.log.Printlnf("%s ETH to specify address %s (%.3f)", r.logPrefix, r.rewardsFile.AmountToFeeAddress.String(), eth.WeiToEth(&r.rewardsFile.AmountToFeeAddress))
 
 	return truePoolStakerAmount, totalEthForMinipools, nil
 
