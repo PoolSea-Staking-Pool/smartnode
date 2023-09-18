@@ -729,6 +729,7 @@ func (r *treeGeneratorImpl_v5) calculateNodeRewards() (*big.Int, *big.Int, error
 
 	// This is how much actually goes to the pool stakers - it should ideally be equal to poolStakerShare but this accounts for any cumulative floating point errors
 	truePoolStakerAmount := big.NewInt(0).Sub(r.smoothingPoolBalance, totalEthForMinipools)
+	truePoolStakerAmount.Sub(truePoolStakerAmount, &r.rewardsFile.AmountToFeeAddress)
 
 	// Sanity check to make sure we arrived at the correct total
 	delta := big.NewInt(0).Sub(totalEthForMinipools, totalNodeOpShareWithoutAddressFee)
