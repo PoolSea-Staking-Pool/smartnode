@@ -452,6 +452,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		oneInchOracleAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x07D91f5fb9Bf7798734C3f606dB065549F6893bb",
 			config.Network_Prater:     "0x4eDC966Df24264C9C817295a0753804EcC46Dd22",
@@ -512,7 +513,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x6293B8abC1F36aFB22406Be5f96D893072A8cF3a",
 			config.Network_Prater:     "0xB815a94430f08dD2ab61143cE1D5739Ac81D3C6d",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x664E823E2FC52d9EE1401FbD3B9eEa75F9f49dA1",
 			config.Network_Pulsechain: "",
 		},
 
@@ -520,7 +521,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xd3f500F550F46e504A4D2153127B47e007e11166",
 			config.Network_Prater:     "0x12f96dC173a806D18d71fAFe3C1BA2149c3E3Dc6",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x13E17E1AD7C65bE10C4827cCb0f4E9fACF57F677",
 			config.Network_Pulsechain: "",
 		},
 
@@ -528,7 +529,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xA73ec45Fe405B5BFCdC0bF4cbc9014Bb32a01cd2",
 			config.Network_Prater:     "0xA73ec45Fe405B5BFCdC0bF4cbc9014Bb32a01cd2",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x9B2af1B95D6De7068e779001DB651Fbe39dB2f41",
 			config.Network_Pulsechain: "",
 		},
 
@@ -536,7 +537,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x1Cc9cF5586522c6F483E84A19c3C2B0B6d027bF0",
 			config.Network_Prater:     "0x1Cc9cF5586522c6F483E84A19c3C2B0B6d027bF0",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x16DC4E792f03D17B16E73f358A0FaFBf0C28828e",
 			config.Network_Pulsechain: "",
 		},
 
@@ -544,7 +545,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x5870dA524635D1310Dc0e6F256Ce331012C9C19E",
 			config.Network_Prater:     "0xEF5EF45bf1CC08D5694f87F8c4023f00CCCB7237",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0xA201C919Cc882F7A0193A018B0f4b7b40d45D222",
 			config.Network_Pulsechain: "",
 		},
 
@@ -552,7 +553,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x54705f80D7C51Fcffd9C659ce3f3C9a7dCCf5788",
 			config.Network_Prater:     "0x54705f80D7C51Fcffd9C659ce3f3C9a7dCCf5788",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x0B3ac54eF66282F1Ee9C09DEe2b0f1bAD8e2A15B",
 			config.Network_Pulsechain: "",
 		},
 
@@ -591,6 +592,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: {},
 		},
 
+		// Deprecated
 		optimismPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0xdddcf2c25d50ec22e67218e873d46938650d03a7",
 			config.Network_Prater:     "0x87E2deCE7d0A080D579f63cbcD7e1629BEcd7E7d",
@@ -599,6 +601,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		polygonPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0xb1029Ac2Be4e08516697093e2AFeC435057f3511",
 			config.Network_Prater:     "0x6D736da1dC2562DBeA9998385A0A27d8c2B2793e",
@@ -607,6 +610,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		arbitrumPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x05330300f829AD3fC8f33838BC88CFC4093baD53",
 			config.Network_Prater:     "0x2b52479F6ea009907e46fc43e91064D1b92Fdc86",
@@ -615,6 +619,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		zkSyncEraPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x6cf6CB29754aEBf88AF12089224429bD68b0b8c8",
 			config.Network_Prater:     "0x3Fd49431bD05875AeD449Bc8C07352942A7fBA75",
