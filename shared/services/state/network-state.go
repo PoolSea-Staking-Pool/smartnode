@@ -188,7 +188,7 @@ func CreateNetworkState(cfg *config.RocketPoolConfig, rp *rocketpool.RocketPool,
 }
 
 // Creates a snapshot of the poolsea Pool network, but only for a single node
-// Also gets the total effective RPL stake of the network for convenience since this is required by several node routines
+// Also gets the total effective POOL stake of the network for convenience since this is required by several node routines
 func CreateNetworkStateForNode(cfg *config.RocketPoolConfig, rp *rocketpool.RocketPool, ec rocketpool.ExecutionClient, bc beacon.Client, log *log.ColorLogger, slotNumber uint64, beaconConfig beacon.Eth2Config, nodeAddress common.Address, calculateTotalEffectiveStake bool) (*NetworkState, *big.Int, error) {
 	steps := 5
 	if calculateTotalEffectiveStake {
@@ -300,7 +300,7 @@ func CreateNetworkStateForNode(cfg *config.RocketPoolConfig, rp *rocketpool.Rock
 		}
 	}
 
-	// Get the total network effective RPL stake
+	// Get the total network effective POOL stake
 	currentStep := 4
 	var totalEffectiveStake *big.Int
 	if calculateTotalEffectiveStake {

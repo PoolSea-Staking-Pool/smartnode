@@ -90,7 +90,7 @@ type SmartnodeConfig struct {
 	// Manual override for the watchtower's priority fee
 	WatchtowerPrioFeeOverride config.Parameter `yaml:"watchtowerPrioFeeOverride,omitempty"`
 
-	// The epoch to switch over to TWAP for RPL price reporting
+	// The epoch to switch over to TWAP for POOL price reporting
 	RplTwapEpoch config.Parameter `yaml:"rplTwapEpoch,omitempty"`
 
 	// The epoch to start using the new network balance calculation implementation
@@ -632,7 +632,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xe42318ea3b998e8355a3da364eb9d48ec725eb45",
 			config.Network_Prater:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
 			config.Network_Devnet:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0xa4C6e3Bd1382c09B3695D75F0E6Dc8a30c9dc8ad",
 			config.Network_Pulsechain: "",
 		},
 

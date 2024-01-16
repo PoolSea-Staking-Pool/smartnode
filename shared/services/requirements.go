@@ -116,7 +116,7 @@ func RequireRplFaucet(c *cli.Context) error {
 		return err
 	}
 	if !rplFaucetLoaded {
-		return errors.New("The RPL faucet contract was not found; the configured address may be incorrect, or the Eth 1.0 node may not be synced. Please try again later.")
+		return errors.New("The POOL faucet contract was not found; the configured address may be incorrect, or the Eth 1.0 node may not be synced. Please try again later.")
 	}
 	return nil
 }
@@ -301,7 +301,7 @@ func getOneInchOracleLoaded(c *cli.Context) (bool, error) {
 	return (len(code) > 0), nil
 }
 
-// Check if the RPL faucet contract is loaded
+// Check if the POOL faucet contract is loaded
 func getRplFaucetLoaded(c *cli.Context) (bool, error) {
 	cfg, err := GetConfig(c)
 	if err != nil {
