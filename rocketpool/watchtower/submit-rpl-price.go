@@ -141,7 +141,7 @@ func (t *submitRplPrice) run(state *state.NetworkState) error {
 	}
 
 	// Log
-	t.log.Println("Checking for RPL price checkpoint...")
+	t.log.Println("Checking for POOL price checkpoint...")
 
 	// Get block to submit price for
 	blockNumber := state.NetworkDetails.LatestReportablePricesBlock
@@ -194,7 +194,7 @@ func (t *submitRplPrice) run(state *state.NetworkState) error {
 		t.log.Printlnf("%s Starting price report in a separate thread.", logPrefix)
 
 		// Log
-		t.log.Printlnf("Getting RPL price for block %d...", blockNumber)
+		t.log.Printlnf("Getting POOL price for block %d...", blockNumber)
 
 		// Get RPL price at block
 		rplPrice, err := t.getRplTwap(blockNumber)
@@ -204,7 +204,7 @@ func (t *submitRplPrice) run(state *state.NetworkState) error {
 		}
 
 		// Log
-		t.log.Printlnf("RPL price: %.6f ETH", mathutils.RoundDown(eth.WeiToEth(rplPrice), 6))
+		t.log.Printlnf("POOL price: %.6f PLS", mathutils.RoundDown(eth.WeiToEth(rplPrice), 6))
 
 		// Check if we have reported these specific values before
 		hasSubmittedSpecific, err := t.hasSubmittedSpecificBlockPrices(nodeAccount.Address, blockNumber, rplPrice)
@@ -230,11 +230,11 @@ func (t *submitRplPrice) run(state *state.NetworkState) error {
 		}
 
 		// Log
-		t.log.Println("Submitting RPL price...")
+		t.log.Println("Submitting POOL price...")
 
 		// Submit RPL price
 		if err := t.submitRplPrice(blockNumber, rplPrice); err != nil {
-			t.handleError(fmt.Errorf("%s could not submit RPL price: %w", logPrefix, err))
+			t.handleError(fmt.Errorf("%s could not submit POOL price: %w", logPrefix, err))
 			return
 		}
 
@@ -288,7 +288,7 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 
 	poolAddress := t.cfg.Smartnode.GetRplTwapPoolAddress()
 	if poolAddress == "" {
-		return nil, fmt.Errorf("RPL TWAP pool contract not deployed on this network")
+		return nil, fmt.Errorf("POOL TWAP pool contract not deployed on this network")
 	}
 
 	// Get a client with the block number available
@@ -300,7 +300,7 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 	// Construct the pool contract instance
 	parsed, err := abi.JSON(strings.NewReader(RplTwapPoolAbi))
 	if err != nil {
-		return nil, fmt.Errorf("error decoding RPL TWAP pool ABI: %w", err)
+		return nil, fmt.Errorf("error decoding POOL TWAP pool ABI: %w", err)
 	}
 	addr := common.HexToAddress(poolAddress)
 	poolContract := bind.NewBoundContract(addr, parsed, client.Client, client.Client, client.Client)
@@ -318,7 +318,7 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 
 	err = pool.Call(opts, &response, "observe", args)
 	if err != nil {
-		return nil, fmt.Errorf("could not get RPL price at block %d: %w", blockNumber, err)
+		return nil, fmt.Errorf("could not get POOL price at block %d: %w", blockNumber, err)
 	}
 	if len(response.TickCumulatives) < 2 {
 		return nil, fmt.Errorf("TWAP contract didn't have enough tick cumulatives for block %d (raw: %v)", blockNumber, response.TickCumulatives)
@@ -352,7 +352,7 @@ func (t *submitRplPrice) printMessage(message string) {
 func (t *submitRplPrice) submitRplPrice(blockNumber uint64, rplPrice *big.Int) error {
 
 	// Log
-	t.log.Printlnf("Submitting RPL price for block %d...", blockNumber)
+	t.log.Printlnf("Submitting POOL price for block %d...", blockNumber)
 
 	// Get transactor
 	opts, err := t.w.GetNodeAccountTransactor()
@@ -363,7 +363,7 @@ func (t *submitRplPrice) submitRplPrice(blockNumber uint64, rplPrice *big.Int) e
 	// Get the gas limit
 	gasInfo, err := network.EstimateSubmitPricesGas(t.rp, blockNumber, rplPrice, opts)
 	if err != nil {
-		return fmt.Errorf("Could not estimate the gas required to submit RPL price: %w", err)
+		return fmt.Errorf("Could not estimate the gas required to submit POOL price: %w", err)
 	}
 
 	// Print the gas info
@@ -390,7 +390,7 @@ func (t *submitRplPrice) submitRplPrice(blockNumber uint64, rplPrice *big.Int) e
 	}
 
 	// Log
-	t.log.Printlnf("Successfully submitted RPL price for block %d.", blockNumber)
+	t.log.Printlnf("Successfully submitted POOL price for block %d.", blockNumber)
 
 	// Return
 	return nil
