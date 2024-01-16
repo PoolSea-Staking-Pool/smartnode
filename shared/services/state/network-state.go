@@ -306,7 +306,7 @@ func CreateNetworkStateForNode(cfg *config.RocketPoolConfig, rp *rocketpool.Rock
 	if calculateTotalEffectiveStake {
 		totalEffectiveStake, err = rpstate.GetTotalEffectiveRplStake(rp, contracts)
 		if err != nil {
-			return nil, nil, fmt.Errorf("error calculating total effective RPL stake for the network: %w", err)
+			return nil, nil, fmt.Errorf("error calculating total effective POOL stake for the network: %w", err)
 		}
 		state.logLine("%d/%d - Calculated total effective stake (total time: %s)", currentStep, steps, time.Since(start))
 		currentStep++
@@ -373,7 +373,7 @@ func (s *NetworkState) CalculateTrueEffectiveStakes(scaleByParticipation bool) (
 					// Doesn't exist on Beacon yet
 					validatorStatus, exists := s.ValidatorDetails[mpd.Pubkey]
 					if !exists {
-						s.logLine("NOTE: minipool %s (pubkey %s) didn't exist, ignoring it in effective RPL calculation", mpd.MinipoolAddress.Hex(), mpd.Pubkey.Hex())
+						s.logLine("NOTE: minipool %s (pubkey %s) didn't exist, ignoring it in effective POOL calculation", mpd.MinipoolAddress.Hex(), mpd.Pubkey.Hex())
 						continue
 					}
 

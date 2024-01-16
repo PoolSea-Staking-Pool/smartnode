@@ -138,13 +138,13 @@ func (r *treeGeneratorImpl_v5) generateTree(rp *rocketpool.RocketPool, cfg *conf
 	// Calculate the RPL(pool) rewards
 	err := r.calculateRplRewards()
 	if err != nil {
-		return nil, fmt.Errorf("Error calculating RPL rewards: %w", err)
+		return nil, fmt.Errorf("Error calculating POOL rewards: %w", err)
 	}
 
 	// Calculate the ETH (pls) rewards
 	err = r.calculateEthRewards(true)
 	if err != nil {
-		return nil, fmt.Errorf("Error calculating ETH rewards: %w", err)
+		return nil, fmt.Errorf("Error calculating PLS rewards: %w", err)
 	}
 
 	// Calculate the network reward map and the totals

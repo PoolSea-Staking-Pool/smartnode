@@ -88,7 +88,7 @@ func GetPrettyAddress(address common.Address) string {
 
 // Temporary table for replacing revert messages with more useful versions until we can refactor
 var errorMap = map[string]string{
-	"Could not get can node deposit status: Minipool count after deposit exceeds limit based on node POOL stake": "Cannot create a new minipool: you do not have enough RPL staked to create another minipool.",
+	"Could not get can node deposit status: Minipool count after deposit exceeds limit based on node POOL stake": "Cannot create a new minipool: you do not have enough POOL staked to create another minipool.",
 }
 
 // Prints an error in a prettier format, removing the "stack trace" if it represents
@@ -116,7 +116,7 @@ func PrintDepositMismatchError(rpNetwork, beaconNetwork uint64, rpDepositAddress
 	fmt.Printf("%s***ALERT***\n", colorRed)
 	fmt.Println("YOUR ETH2 CLIENT IS NOT CONNECTED TO THE SAME NETWORK THAT POOLSEA POOL IS USING!")
 	fmt.Println("This is likely because your ETH2 client is using the wrong configuration.")
-	fmt.Println("For the safety of your funds, poolsea Pool will not let you deposit your ETH until this is resolved.")
+	fmt.Println("For the safety of your funds, poolsea Pool will not let you deposit your PLS until this is resolved.")
 	fmt.Println()
 	fmt.Println("To fix it if you are in Docker mode:")
 	fmt.Println("\t1. Run 'poolseapool service install -d' to get the latest configuration")
