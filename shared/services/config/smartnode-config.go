@@ -90,7 +90,7 @@ type SmartnodeConfig struct {
 	// Manual override for the watchtower's priority fee
 	WatchtowerPrioFeeOverride config.Parameter `yaml:"watchtowerPrioFeeOverride,omitempty"`
 
-	// The epoch to switch over to TWAP for RPL price reporting
+	// The epoch to switch over to TWAP for POOL price reporting
 	RplTwapEpoch config.Parameter `yaml:"rplTwapEpoch,omitempty"`
 
 	// The epoch to start using the new network balance calculation implementation
@@ -118,10 +118,10 @@ type SmartnodeConfig struct {
 	// The contract address of the 1inch oracle
 	oneInchOracleAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of the RPL token
+	// The contract address of the POOL token
 	rplTokenAddress map[config.Network]string `yaml:"-"`
 
-	// The contract address of the RPL faucet
+	// The contract address of the POOL faucet
 	rplFaucetAddress map[config.Network]string `yaml:"-"`
 
 	// The contract address for Snapshot delegation
@@ -178,7 +178,7 @@ type SmartnodeConfig struct {
 	// Rewards submission block maps
 	rewardsSubmissionBlockMaps map[config.Network][]uint64 `yaml:"-"`
 
-	// The UniswapV3 pool address for each network (used for RPL price TWAP info)
+	// The UniswapV3 pool address for each network (used for POOL price TWAP info)
 	rplTwapPoolAddress map[config.Network]string `yaml:"-"`
 
 	// The multicall contract address
@@ -250,7 +250,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 		ManualMaxFee: config.Parameter{
 			ID:                   "manualMaxFee",
 			Name:                 "Manual Max Fee",
-			Description:          "Set this if you want all of the Smartnode's transactions to use this specific max fee value (in gwei), which is the most you'd be willing to pay (*including the priority fee*).\n\nA value of 0 will show you the current suggested max fee based on the current network conditions and let you specify it each time you do a transaction.\n\nAny other value will ignore the recommended max fee and explicitly use this value instead.\n\nThis applies to automated transactions (such as claiming RPL and staking minipools) as well.",
+			Description:          "Set this if you want all of the Smartnode's transactions to use this specific max fee value (in gwei), which is the most you'd be willing to pay (*including the priority fee*).\n\nA value of 0 will show you the current suggested max fee based on the current network conditions and let you specify it each time you do a transaction.\n\nAny other value will ignore the recommended max fee and explicitly use this value instead.\n\nThis applies to automated transactions (such as claiming POOL and staking minipools) as well.",
 			Type:                 config.ParameterType_Float,
 			Default:              map[config.Network]interface{}{config.Network_All: float64(0)},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Node, config.ContainerID_Watchtower},
@@ -262,7 +262,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 		PriorityFee: config.Parameter{
 			ID:                   "priorityFee",
 			Name:                 "Priority Fee",
-			Description:          "The default value for the priority fee (in gwei) for all of your transactions. This describes how much you're willing to pay *above the network's current base fee* - the higher this is, the more ETH you give to the validators for including your transaction, which generally means it will be included in a block faster (as long as your max fee is sufficiently high to cover the current network conditions).\n\nMust be larger than 0.",
+			Description:          "The default value for the priority fee (in gwei) for all of your transactions. This describes how much you're willing to pay *above the network's current base fee* - the higher this is, the more PLS you give to the validators for including your transaction, which generally means it will be included in a block faster (as long as your max fee is sufficiently high to cover the current network conditions).\n\nMust be larger than 0.",
 			Type:                 config.ParameterType_Float,
 			Default:              map[config.Network]interface{}{config.Network_All: float64(2)},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Node, config.ContainerID_Watchtower},
@@ -274,7 +274,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 		AutoTxGasThreshold: config.Parameter{
 			ID:   "minipoolStakeGasThreshold",
 			Name: "Automatic TX Gas Threshold",
-			Description: "Occasionally, the Smartnode will attempt to perform some automatic transactions (such as the second `stake` transaction to finish launching a minipool or the `reduce bond` transaction to convert a 16-ETH minipool to an 8-ETH one). During these, your node will use the `Rapid` suggestion from the gas estimator as its max fee.\n\nThis threshold is a limit (in gwei) you can put on that suggestion; your node will not `stake` the new minipool until the suggestion is below this limit.\n\n" +
+			Description: "Occasionally, the Smartnode will attempt to perform some automatic transactions (such as the second `stake` transaction to finish launching a minipool or the `reduce bond` transaction to convert a 16-mln-PLS minipool to an 8-mln-PLS one). During these, your node will use the `Rapid` suggestion from the gas estimator as its max fee.\n\nThis threshold is a limit (in gwei) you can put on that suggestion; your node will not `stake` the new minipool until the suggestion is below this limit.\n\n" +
 				"A value of 0 will disable non-essential automatic transactions (such as minipool balance distribution and bond reduction), but essential transactions (such as minipool staking and solo migration promotion) will not be disabled.\n\n" +
 				"NOTE: the node will ignore this limit and automatically execute transactions at whatever the suggested fee happens to be once too much time has passed since those transactions were first eligible. You may end up paying more than you wanted to if you set this too low!",
 			Type:                 config.ParameterType_Float,
@@ -452,6 +452,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		oneInchOracleAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x07D91f5fb9Bf7798734C3f606dB065549F6893bb",
 			config.Network_Prater:     "0x4eDC966Df24264C9C817295a0753804EcC46Dd22",
@@ -512,7 +513,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x6293B8abC1F36aFB22406Be5f96D893072A8cF3a",
 			config.Network_Prater:     "0xB815a94430f08dD2ab61143cE1D5739Ac81D3C6d",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x664E823E2FC52d9EE1401FbD3B9eEa75F9f49dA1",
 			config.Network_Pulsechain: "",
 		},
 
@@ -520,7 +521,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xd3f500F550F46e504A4D2153127B47e007e11166",
 			config.Network_Prater:     "0x12f96dC173a806D18d71fAFe3C1BA2149c3E3Dc6",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x13E17E1AD7C65bE10C4827cCb0f4E9fACF57F677",
 			config.Network_Pulsechain: "",
 		},
 
@@ -528,7 +529,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xA73ec45Fe405B5BFCdC0bF4cbc9014Bb32a01cd2",
 			config.Network_Prater:     "0xA73ec45Fe405B5BFCdC0bF4cbc9014Bb32a01cd2",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x9B2af1B95D6De7068e779001DB651Fbe39dB2f41",
 			config.Network_Pulsechain: "",
 		},
 
@@ -536,7 +537,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x1Cc9cF5586522c6F483E84A19c3C2B0B6d027bF0",
 			config.Network_Prater:     "0x1Cc9cF5586522c6F483E84A19c3C2B0B6d027bF0",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x16DC4E792f03D17B16E73f358A0FaFBf0C28828e",
 			config.Network_Pulsechain: "",
 		},
 
@@ -544,7 +545,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x5870dA524635D1310Dc0e6F256Ce331012C9C19E",
 			config.Network_Prater:     "0xEF5EF45bf1CC08D5694f87F8c4023f00CCCB7237",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0xA201C919Cc882F7A0193A018B0f4b7b40d45D222",
 			config.Network_Pulsechain: "",
 		},
 
@@ -552,7 +553,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0x54705f80D7C51Fcffd9C659ce3f3C9a7dCCf5788",
 			config.Network_Prater:     "0x54705f80D7C51Fcffd9C659ce3f3C9a7dCCf5788",
 			config.Network_Devnet:     "",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0x0B3ac54eF66282F1Ee9C09DEe2b0f1bAD8e2A15B",
 			config.Network_Pulsechain: "",
 		},
 
@@ -591,6 +592,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: {},
 		},
 
+		// Deprecated
 		optimismPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0xdddcf2c25d50ec22e67218e873d46938650d03a7",
 			config.Network_Prater:     "0x87E2deCE7d0A080D579f63cbcD7e1629BEcd7E7d",
@@ -599,6 +601,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		polygonPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0xb1029Ac2Be4e08516697093e2AFeC435057f3511",
 			config.Network_Prater:     "0x6D736da1dC2562DBeA9998385A0A27d8c2B2793e",
@@ -607,6 +610,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		arbitrumPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x05330300f829AD3fC8f33838BC88CFC4093baD53",
 			config.Network_Prater:     "0x2b52479F6ea009907e46fc43e91064D1b92Fdc86",
@@ -615,6 +619,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Pulsechain: "",
 		},
 
+		// Deprecated
 		zkSyncEraPriceMessengerAddress: map[config.Network]string{
 			config.Network_Mainnet:    "0x6cf6CB29754aEBf88AF12089224429bD68b0b8c8",
 			config.Network_Prater:     "0x3Fd49431bD05875AeD449Bc8C07352942A7fBA75",
@@ -627,7 +632,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xe42318ea3b998e8355a3da364eb9d48ec725eb45",
 			config.Network_Prater:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
 			config.Network_Devnet:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
-			config.Network_PulseV4:    "",
+			config.Network_PulseV4:    "0xa4C6e3Bd1382c09B3695D75F0E6Dc8a30c9dc8ad",
 			config.Network_Pulsechain: "",
 		},
 
