@@ -63,7 +63,7 @@ func AssignMaxFeeAndLimit(gasInfo rocketpool.GasInfo, rp *rpsvc.Client, headless
 			lowLimit = maxFeeGwei / eth.WeiPerGwei * float64(gasLimit)
 			highLimit = lowLimit
 		}
-		fmt.Printf("Total cost: %.4f to %.4f ETH%s\n", lowLimit, highLimit, colorReset)
+		fmt.Printf("Total cost: %.4f to %.4f PLS%s\n", lowLimit, highLimit, colorReset)
 
 	} else {
 		if headless {
@@ -113,9 +113,9 @@ func AssignMaxFeeAndLimit(gasInfo rocketpool.GasInfo, rp *rpsvc.Client, headless
 	}
 	response, err := rp.GetEthBalance()
 	if err != nil {
-		fmt.Printf("%sWARNING: couldn't check the ETH balance of the node (%s)\nPlease ensure your node wallet has enough ETH to pay for this transaction.%s\n\n", colorYellow, err.Error(), colorReset)
+		fmt.Printf("%sWARNING: couldn't check the PLS balance of the node (%s)\nPlease ensure your node wallet has enough ETH to pay for this transaction.%s\n\n", colorYellow, err.Error(), colorReset)
 	} else if response.Balance.Cmp(ethRequired) < 0 {
-		return fmt.Errorf("Your node has %.6f ETH in its wallet, which is not enough to pay for this transaction with a max fee of %.4f gwei; you require at least %.6f more ETH.", eth.WeiToEth(response.Balance), maxFeeGwei, eth.WeiToEth(big.NewInt(0).Sub(ethRequired, response.Balance)))
+		return fmt.Errorf("Your node has %.6f PLS in its wallet, which is not enough to pay for this transaction with a max fee of %.4f gwei; you require at least %.6f more ETH.", eth.WeiToEth(response.Balance), maxFeeGwei, eth.WeiToEth(big.NewInt(0).Sub(ethRequired, response.Balance)))
 	}
 
 	rp.AssignGasSettings(maxFeeGwei, maxPriorityFeeGwei, gasLimit)
@@ -195,13 +195,13 @@ func handleEtherchainGasPrices(gasSuggestion etherchain.GasFeeSuggestion, gasInf
 
 	fmt.Printf("%s+============== Suggested Gas Prices ==============+\n", colorBlue)
 	fmt.Println("| Avg Wait Time |  Max Fee  |    Total Gas Cost    |")
-	fmt.Printf("| %-13s | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| %-13s | %-9s | %.4f to %.4f PLS |\n",
 		gasSuggestion.RapidTime, fmt.Sprintf("%d gwei", int(rapidGwei)), rapidLowLimit, rapidHighLimit)
-	fmt.Printf("| %-13s | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| %-13s | %-9s | %.4f to %.4f PLS |\n",
 		gasSuggestion.FastTime, fmt.Sprintf("%d gwei", int(fastGwei)), fastLowLimit, fastHighLimit)
-	fmt.Printf("| %-13s | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| %-13s | %-9s | %.4f to %.4f PLS |\n",
 		gasSuggestion.StandardTime, fmt.Sprintf("%d gwei", int(standardGwei)), standardLowLimit, standardHighLimit)
-	fmt.Printf("| %-13s | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| %-13s | %-9s | %.4f to %.4f PLS |\n",
 		gasSuggestion.SlowTime, fmt.Sprintf("%d gwei", int(slowGwei)), slowLowLimit, slowHighLimit)
 	fmt.Printf("+==================================================+\n\n%s", colorReset)
 
@@ -275,11 +275,11 @@ func handleEtherscanGasPrices(gasSuggestion etherscan.GasFeeSuggestion, gasInfo 
 
 	fmt.Printf("%s+============ Suggested Gas Prices ============+\n", colorBlue)
 	fmt.Println("|   Speed   |  Max Fee  |    Total Gas Cost    |")
-	fmt.Printf("| Fast      | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| Fast      | %-9s | %.4f to %.4f PLS |\n",
 		fmt.Sprintf("%d gwei", int(fastGwei)), fastLowLimit, fastHighLimit)
-	fmt.Printf("| Standard  | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| Standard  | %-9s | %.4f to %.4f PLS |\n",
 		fmt.Sprintf("%d gwei", int(standardGwei)), standardLowLimit, standardHighLimit)
-	fmt.Printf("| Slow      | %-9s | %.4f to %.4f ETH |\n",
+	fmt.Printf("| Slow      | %-9s | %.4f to %.4f PLS |\n",
 		fmt.Sprintf("%d gwei", int(slowGwei)), slowLowLimit, slowHighLimit)
 	fmt.Printf("+==============================================+\n\n%s", colorReset)
 

@@ -95,7 +95,7 @@ func GetBestApiClient(primary *rocketpool.RocketPool, cfg *config.RocketPoolConf
 				// Get the rETH address from the archive EC
 				address, err = client.RocketStorage.GetAddress(opts, crypto.Keccak256Hash([]byte("contract.addresspoolseaTokenRETH")))
 				if err != nil {
-					return nil, fmt.Errorf("%s Error verifying rETH address with Archive EC: %w", err)
+					return nil, fmt.Errorf("%s Error verifying rPLS address with Archive EC: %w", err)
 				}
 			} else {
 				// No archive node specified
@@ -107,7 +107,7 @@ func GetBestApiClient(primary *rocketpool.RocketPool, cfg *config.RocketPoolConf
 
 	// Sanity check the rETH address to make sure the client is working right
 	if address != cfg.Smartnode.GetRethAddress() {
-		return nil, fmt.Errorf("***ERROR*** Your Primary EC provided %s as the rETH address, but it should have been %s!", address.Hex(), cfg.Smartnode.GetRethAddress().Hex())
+		return nil, fmt.Errorf("***ERROR*** Your Primary EC provided %s as the rPLS address, but it should have been %s!", address.Hex(), cfg.Smartnode.GetRethAddress().Hex())
 	}
 
 	return client, nil

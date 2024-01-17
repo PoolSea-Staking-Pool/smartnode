@@ -188,7 +188,7 @@ func CreateNetworkState(cfg *config.RocketPoolConfig, rp *rocketpool.RocketPool,
 }
 
 // Creates a snapshot of the poolsea Pool network, but only for a single node
-// Also gets the total effective RPL stake of the network for convenience since this is required by several node routines
+// Also gets the total effective POOL stake of the network for convenience since this is required by several node routines
 func CreateNetworkStateForNode(cfg *config.RocketPoolConfig, rp *rocketpool.RocketPool, ec rocketpool.ExecutionClient, bc beacon.Client, log *log.ColorLogger, slotNumber uint64, beaconConfig beacon.Eth2Config, nodeAddress common.Address, calculateTotalEffectiveStake bool) (*NetworkState, *big.Int, error) {
 	steps := 5
 	if calculateTotalEffectiveStake {
@@ -300,13 +300,13 @@ func CreateNetworkStateForNode(cfg *config.RocketPoolConfig, rp *rocketpool.Rock
 		}
 	}
 
-	// Get the total network effective RPL stake
+	// Get the total network effective POOL stake
 	currentStep := 4
 	var totalEffectiveStake *big.Int
 	if calculateTotalEffectiveStake {
 		totalEffectiveStake, err = rpstate.GetTotalEffectiveRplStake(rp, contracts)
 		if err != nil {
-			return nil, nil, fmt.Errorf("error calculating total effective RPL stake for the network: %w", err)
+			return nil, nil, fmt.Errorf("error calculating total effective POOL stake for the network: %w", err)
 		}
 		state.logLine("%d/%d - Calculated total effective stake (total time: %s)", currentStep, steps, time.Since(start))
 		currentStep++
@@ -373,7 +373,7 @@ func (s *NetworkState) CalculateTrueEffectiveStakes(scaleByParticipation bool) (
 					// Doesn't exist on Beacon yet
 					validatorStatus, exists := s.ValidatorDetails[mpd.Pubkey]
 					if !exists {
-						s.logLine("NOTE: minipool %s (pubkey %s) didn't exist, ignoring it in effective RPL calculation", mpd.MinipoolAddress.Hex(), mpd.Pubkey.Hex())
+						s.logLine("NOTE: minipool %s (pubkey %s) didn't exist, ignoring it in effective POOL calculation", mpd.MinipoolAddress.Hex(), mpd.Pubkey.Hex())
 						continue
 					}
 

@@ -63,7 +63,7 @@ func GetNodeValidatorIndices(rp *rocketpool.RocketPool, ec rocketpool.ExecutionC
 	return validatorIndices, nil
 }
 
-// Checks the given node's current matched ETH, its limit on matched ETH, and how much ETH is preparing to be matched by pending bond reductions
+// Checks the given node's current matched PLS, its limit on matched PLS, and how much ETH is preparing to be matched by pending bond reductions
 func CheckCollateral(rp *rocketpool.RocketPool, nodeAddress common.Address, opts *bind.CallOpts) (ethMatched *big.Int, ethMatchedLimit *big.Int, pendingMatchAmount *big.Int, err error) {
 	// Get the node's minipool addresses
 	addresses, err := minipool.GetNodeMinipoolAddresses(rp, nodeAddress, opts)
@@ -110,7 +110,7 @@ func CheckCollateral(rp *rocketpool.RocketPool, nodeAddress common.Address, opts
 		var err error
 		ethMatched, err = node.GetNodeEthMatched(rp, nodeAddress, opts)
 		if err != nil {
-			return fmt.Errorf("error getting node's matched ETH amount: %w", err)
+			return fmt.Errorf("error getting node's matched PLS amount: %w", err)
 		}
 		return nil
 	})
@@ -118,7 +118,7 @@ func CheckCollateral(rp *rocketpool.RocketPool, nodeAddress common.Address, opts
 		var err error
 		ethMatchedLimit, err = node.GetNodeEthMatchedLimit(rp, nodeAddress, opts)
 		if err != nil {
-			return fmt.Errorf("error getting how much ETH the node is able to borrow: %w", err)
+			return fmt.Errorf("error getting how much PLS the node is able to borrow: %w", err)
 		}
 		return nil
 	})
