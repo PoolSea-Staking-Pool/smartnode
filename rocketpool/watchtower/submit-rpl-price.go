@@ -31,39 +31,58 @@ import (
 
 const (
 	RplTwapPoolAbi string = `[
-		{
-		"inputs": [{
-			"internalType": "uint32[]",
-			"name": "secondsAgos",
-			"type": "uint32[]"
-		}],
-		"name": "observe",
-		"outputs": [{
-			"internalType": "int56[]",
-			"name": "tickCumulatives",
-			"type": "int56[]"
-		}, {
-			"internalType": "uint160[]",
-			"name": "secondsPerLiquidityCumulativeX128s",
-			"type": "uint160[]"
-		}],
-		"stateMutability": "view",
-		"type": "function"
-		}
-	]`
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      {
+        "internalType": "uint112",
+        "name": "_reserve0",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint112",
+        "name": "_reserve1",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_blockTimestampLast",
+        "type": "uint32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "price0CumulativeLast",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]`
 )
 
 // Settings
 const (
 	SubmissionKey string = "network.prices.submitted.node.key"
-	BlocksPerTurn uint64 = 75 // Approx. 15 minutes
-
-	twapNumberOfSeconds uint32 = 60 * 60 * 12 // 12 hours
 )
 
-type poolObserveResponse struct {
-	TickCumulatives                    []*big.Int `abi:"tickCumulatives"`
-	SecondsPerLiquidityCumulativeX128s []*big.Int `abi:"secondsPerLiquidityCumulativeX128s"`
+type poolReservesResponse struct {
+	Reserve0           *big.Int `abi:"_reserve0"`
+	Reserve1           *big.Int `abi:"_reserve1"`
+	BlockTimestampLast *big.Int `abi:"_blockTimestampLast"`
 }
 
 // Submit RPL price task
@@ -78,6 +97,25 @@ type submitRplPrice struct {
 	bc        beacon.Client
 	lock      *sync.Mutex
 	isRunning bool
+}
+
+// UQ112x112 represents a fixed-point number with a resolution of 1 / 2^112
+type UQ112x112 struct {
+	value *big.Int
+}
+
+// NewUQ112x112 creates a new UQ112x112 instance from a big.Int value
+func NewUQ112x112(y *big.Int) *UQ112x112 {
+	value := new(big.Int).Set(y)
+	value = value.Lsh(value, 112) // y * 2^112
+	return &UQ112x112{value}
+}
+
+// UQdiv divides a UQ112x112 by a uint64, returning a new UQ112x112
+func (uq *UQ112x112) UQdiv(y *big.Int) *UQ112x112 {
+	result := new(big.Int).Set(uq.value)
+	result = result.Div(result, y)
+	return &UQ112x112{result}
 }
 
 // Create submit RPL price task
@@ -291,6 +329,8 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 		return nil, fmt.Errorf("POOL TWAP pool contract not deployed on this network")
 	}
 
+	//---------- LAST BLOCK DATA CALCULATION ---------
+
 	// Get a client with the block number available
 	client, err := eth1.GetBestApiClient(t.rp, t.cfg, t.printMessage, opts.BlockNumber)
 	if err != nil {
@@ -311,36 +351,66 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 		Client:   client.Client,
 	}
 
-	// Get RPL price
-	response := poolObserveResponse{}
-	interval := twapNumberOfSeconds
-	args := []uint32{interval, 0}
-
-	err = pool.Call(opts, &response, "observe", args)
+	// Getting pool reserves and last update timestamp
+	reservesResponse := poolReservesResponse{}
+	err = pool.Call(opts, &reservesResponse, "getReserves")
 	if err != nil {
-		return nil, fmt.Errorf("could not get POOL price at block %d: %w", blockNumber, err)
-	}
-	if len(response.TickCumulatives) < 2 {
-		return nil, fmt.Errorf("TWAP contract didn't have enough tick cumulatives for block %d (raw: %v)", blockNumber, response.TickCumulatives)
+		return nil, fmt.Errorf("could not get pool reserves at block %d: %w", blockNumber, err)
 	}
 
-	tick := big.NewInt(0).Sub(response.TickCumulatives[1], response.TickCumulatives[0])
-	tick.Div(tick, big.NewInt(int64(interval))) // tick = (cumulative[1] - cumulative[0]) / interval
+	// Getting last cumulative POOL price in WPLS
+	priceCumulativeLast := big.NewInt(0)
+	err = pool.Call(opts, &priceCumulativeLast, "price0CumulativeLast")
+	if err != nil {
+		return nil, fmt.Errorf("could not get last cumulative POOL price at block %d: %w", blockNumber, err)
+	}
 
-	base := eth.EthToWei(1.0001) // 1.0001e18
-	one := eth.EthToWei(1)       // 1e18
+	header, err := client.Client.HeaderByNumber(context.Background(), opts.BlockNumber)
+	if err != nil {
+		return nil, fmt.Errorf("could not get header for block %d: %w", blockNumber, err)
+	}
 
-	numerator := big.NewInt(0).Exp(base, tick, nil) // 1.0001e18 ^ tick
-	numerator.Mul(numerator, one)
+	// calculating latest cumulative price if it needs
+	blockTimestamp := big.NewInt(int64(header.Time))
+	timeElapsed := big.NewInt(0).Sub(blockTimestamp, reservesResponse.BlockTimestampLast)
+	if timeElapsed.Cmp(big.NewInt(0)) == 1 {
+		uqReserve1 := NewUQ112x112(reservesResponse.Reserve1)
+		uqDivResult := uqReserve1.UQdiv(reservesResponse.Reserve0)
+		multipliedResult := new(big.Int).Mul(uqDivResult.value, timeElapsed)
 
-	denominator := big.NewInt(0).Exp(one, tick, nil) // 1e18 ^ tick
-	denominator.Div(numerator, denominator)          // denominator = (1.0001e18^tick / 1e18^tick)
+		priceCumulativeLast = new(big.Int).Add(multipliedResult, priceCumulativeLast)
+	}
 
-	numerator.Mul(one, one)                               // 1e18 ^ 2
-	rplPrice := big.NewInt(0).Div(numerator, denominator) // 1e18 ^ 2 / (1.0001e18^tick * 1e18 / 1e18^tick)
+	//---------- GETTING CUMULATIVE PRICE AND TS ON LAST SUBMISSION BLOCK ---------
 
-	// Return
-	return rplPrice, nil
+	lastSubmissionBlock, err := network.GetPricesBlock(t.rp, opts)
+	if err != nil {
+		return nil, err
+	}
+	optsHistorical := &bind.CallOpts{
+		BlockNumber: big.NewInt(int64(lastSubmissionBlock)),
+	}
+
+	reservesHistoricalResponse := poolReservesResponse{}
+	err = pool.Call(optsHistorical, &reservesHistoricalResponse, "getReserves")
+	if err != nil {
+		return nil, fmt.Errorf("could not get historical pool reserves at block %d: %w", blockNumber, err)
+	}
+
+	priceCumulativeLastHistorical := big.NewInt(0)
+	err = pool.Call(optsHistorical, &priceCumulativeLastHistorical, "price0CumulativeLast")
+	if err != nil {
+		return nil, fmt.Errorf("could not get historical last cumulative POOL price at block %d: %w", blockNumber, err)
+	}
+
+	//----------- CALCULATING TWAP POOL PRICE ------------
+	// twap = (cum2 - cum1) / (time2 - time1)
+
+	cumulativePricesDif := new(big.Int).Sub(priceCumulativeLast, priceCumulativeLastHistorical)
+	timestampsDif := new(big.Int).Sub(blockTimestamp, reservesHistoricalResponse.BlockTimestampLast)
+	twapPrice := new(big.Int).Div(cumulativePricesDif, timestampsDif)
+
+	return twapPrice, nil
 
 }
 
