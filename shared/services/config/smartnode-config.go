@@ -632,7 +632,7 @@ func NewSmartnodeConfig(cfg *RocketPoolConfig) *SmartnodeConfig {
 			config.Network_Mainnet:    "0xe42318ea3b998e8355a3da364eb9d48ec725eb45",
 			config.Network_Prater:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
 			config.Network_Devnet:     "0x5cE71E603B138F7e65029Cc1918C0566ed0dBD4B",
-			config.Network_PulseV4:    "0xa4C6e3Bd1382c09B3695D75F0E6Dc8a30c9dc8ad",
+			config.Network_PulseV4:    "0x090a0F7E48e4A02F5B21A8b40EE254D108a47bbe",
 			config.Network_Pulsechain: "",
 		},
 
