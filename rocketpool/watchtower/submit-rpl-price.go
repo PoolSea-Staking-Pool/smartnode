@@ -351,6 +351,18 @@ func (t *submitRplPrice) getRplTwap(blockNumber uint64) (*big.Int, error) {
 		Client:   client.Client,
 	}
 
+	bytes, err := client.Client.CodeAt(context.Background(), addr, opts.BlockNumber)
+	if err != nil {
+		return nil, err
+	}
+	if len(bytes) == 0 {
+		price, err := network.GetRPLPrice(t.rp, opts)
+		if err != nil {
+			return nil, err
+		}
+		return price, nil
+	}
+
 	// Getting pool reserves and last update timestamp
 	reservesResponse := poolReservesResponse{}
 	err = pool.Call(opts, &reservesResponse, "getReserves")
