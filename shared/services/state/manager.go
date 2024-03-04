@@ -61,7 +61,7 @@ func (m *NetworkStateManager) GetHeadState() (*NetworkState, error) {
 	return m.getState(targetSlot)
 }
 
-// Get the state of the network for a single node using the latest Execution layer block, along with the total effective RPL stake for the network
+// Get the state of the network for a single node using the latest Execution layer block, along with the total effective POOL stake for the network
 func (m *NetworkStateManager) GetHeadStateForNode(nodeAddress common.Address, calculateTotalEffectiveStake bool) (*NetworkState, *big.Int, error) {
 	targetSlot, err := m.GetHeadSlot()
 	if err != nil {

@@ -121,7 +121,7 @@ func NewNethermindConfig(cfg *RocketPoolConfig) *NethermindConfig {
 		AdditionalModules: config.Parameter{
 			ID:                   "additionalModules",
 			Name:                 "Additional Modules",
-			Description:          "Additional modules you want to add to the primary JSON-RPC route. The defaults are Eth,Net,Personal,Web3. You can add any additional ones you need here; separate multiple modules with commas, and do not use spaces.",
+			Description:          "Additional modules you want to add to the primary JSON-RPC route. The defaults are PLS,Net,Personal,Web3. You can add any additional ones you need here; separate multiple modules with commas, and do not use spaces.",
 			Type:                 config.ParameterType_String,
 			Default:              map[config.Network]interface{}{config.Network_All: ""},
 			AffectsContainers:    []config.ContainerID{config.ContainerID_Eth1},

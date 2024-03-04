@@ -232,7 +232,7 @@ func run(c *cli.Context) error {
 				time.Sleep(taskCooldown)
 
 				// Run the price submission check
-				if err := submitRplPrice.run(state, isAtlasDeployedMasterFlag); err != nil {
+				if err := submitRplPrice.run(state); err != nil {
 					errorLog.Println(err)
 				}
 				time.Sleep(taskCooldown)
